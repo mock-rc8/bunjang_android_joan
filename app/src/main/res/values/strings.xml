@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Bunjang</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="main_bottom_nav_home_title">홈</string>
+    <string name="main_bottom_nav_search_title">검색</string>
+    <string name="main_bottom_nav_register_title">등록</string>
+    <string name="main_bottom_nav_lightning_talk_title">번개톡</string>
+    <string name="main_bottom_nav_my_title">MY</string>
+
 </resources>

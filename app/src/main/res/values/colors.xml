@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- default -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,4 +8,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- template -->
+    <color name="colorPrimary">#fcfcfc</color>
+    <color name="colorPrimaryDark">#889dfe</color>
+    <color name="colorAccent">#889dfe</color>
+    <color name="whiteForBackground">#FFFFFF</color>
+    <color name="blackForText">#4a4a4a</color>
+    <color name="redForText">#d9534f</color>
+
+    <!-- Main -->
+    <color name="gray_bottom_nav_select">#b2b2b2</color>
+
 </resources>

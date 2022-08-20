@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_main_btm_nav_home"
+        android:icon="@drawable/icon_home"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:checkable="true"
+        android:title="@string/main_bottom_nav_home_title" />
+
+    <item
+        android:id="@+id/menu_main_btm_nav_search"
+        android:icon="@drawable/icon_search"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:checkable="true"
+        android:title="@string/main_bottom_nav_search_title" />
+
+    <item
+        android:id="@+id/menu_main_btm_nav_register"
+        android:icon="@drawable/icon_register"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:checkable="true"
+        android:title="@string/main_bottom_nav_register_title" />
+
+    <item
+        android:id="@+id/menu_main_btm_nav_lightning_talk"
+        android:icon="@drawable/icon_lightning_talk"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:checkable="true"
+        android:title="@string/main_bottom_nav_lightning_talk_title" />
+
+    <item
+        android:id="@+id/menu_main_btm_nav_my"
+        android:icon="@drawable/icon_my"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:checkable="true"
+        android:title="@string/main_bottom_nav_my_title" />
+
+</menu>
