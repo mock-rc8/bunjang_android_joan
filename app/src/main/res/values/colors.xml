@@ -20,4 +20,9 @@
     <!-- Main -->
     <color name="gray_bottom_nav_select">#b2b2b2</color>
 
+    <!-- Login -->
+    <color name="circle_select">#FF000000</color>
+    <color name="circle">#D4D2DE</color>
+    <color name="login_kakao_background">#F7E600</color>
+    <color name="login_other_text">#7C7A85</color>
 </resources>

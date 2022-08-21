@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/background_btn_login_kakao.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/bottom_nav_selector_color.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/drawable-v24/shape_viewpager_black.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/shape_viewpager_gray.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/shape_viewpager_indicator.xml" value="0.162" />
+        <entry key="app/src/main/res/drawable-v24/shape_viewpager_indicator_select.xml" value="0.24" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.165" />
         <entry key="app/src/main/res/layout/dialog_loading.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/item_view_pager_login.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_main_bottom_nav.xml" value="0.1" />
       </map>
     </option>
