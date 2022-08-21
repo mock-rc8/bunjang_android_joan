@@ -2,7 +2,9 @@
     <string name="app_name">Bunjang</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ImageMissing">이미지가 열리지 않습니다.</string>
 
+    <!-- bottom_nav -->
     <string name="main_bottom_nav_home_title">홈</string>
     <string name="main_bottom_nav_search_title">검색</string>
     <string name="main_bottom_nav_register_title">등록</string>

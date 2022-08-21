@@ -10,6 +10,7 @@
         android:id="@+id/splash_image"
         android:layout_width="wrap_content"
         android:layout_height="170dp"
+        android:contentDescription="@string/ImageMissing"
         android:scaleType="fitXY"
         android:src="@drawable/icon_splash"
         app:layout_constraintBottom_toBottomOf="parent"

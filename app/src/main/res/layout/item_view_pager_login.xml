@@ -5,8 +5,9 @@
 
     <ImageView
         android:id="@+id/item_view_pager_image"
-        android:scaleType="fitXY"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:contentDescription="@string/ImageMissing"
+        android:scaleType="fitXY" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

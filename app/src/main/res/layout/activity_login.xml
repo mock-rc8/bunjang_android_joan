@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.login.LoginActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".src.login.LoginActivity">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/login_viewpager"
@@ -26,50 +26,54 @@
 
         <ImageView
             android:id="@+id/indicator_1"
-            android:layout_width="8dp"
-            android:layout_height="8dp"
+            android:layout_width="@dimen/indicator_imageview_size"
+            android:layout_height="@dimen/indicator_imageview_size"
+            android:contentDescription="@string/ImageMissing"
             android:src="@drawable/shape_viewpager_indicator_select"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/indicator_2"
-            app:layout_constraintHorizontal_chainStyle="packed"/>
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/indicator_2"
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="@dimen/indicator_imageview_size"
+            android:layout_height="@dimen/indicator_imageview_size"
+            android:layout_marginStart="@dimen/indicator_imageview_margin"
+            android:contentDescription="@string/ImageMissing"
             android:src="@drawable/shape_viewpager_indicator"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/indicator_1"
             app:layout_constraintEnd_toStartOf="@+id/indicator_3"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed" />
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/indicator_1"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/indicator_3"
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="@dimen/indicator_imageview_size"
+            android:layout_height="@dimen/indicator_imageview_size"
+            android:layout_marginStart="@dimen/indicator_imageview_margin"
+            android:contentDescription="@string/ImageMissing"
             android:src="@drawable/shape_viewpager_indicator"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/indicator_2"
             app:layout_constraintEnd_toStartOf="@+id/indicator_4"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed"/>
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/indicator_2"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/indicator_4"
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="@dimen/indicator_imageview_size"
+            android:layout_height="@dimen/indicator_imageview_size"
+            android:layout_marginStart="@dimen/indicator_imageview_margin"
+            android:contentDescription="@string/ImageMissing"
             android:src="@drawable/shape_viewpager_indicator"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/indicator_3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed"/>
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/indicator_3"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -78,21 +82,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/background_btn_login_kakao"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/indicator_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" >
+        app:layout_constraintTop_toBottomOf="@id/indicator_layout">
 
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/icon_login_kakao"
             android:layout_margin="15dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/ImageMissing"
+            android:src="@drawable/icon_login_kakao"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,10 +106,10 @@
             android:textColor="@color/black"
             android:textSize="17sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -112,12 +117,12 @@
         android:id="@+id/login_start_btn_other"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:text="@string/login_other_text"
         android:textColor="@color/login_other_text"
         android:textSize="14sp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintTop_toBottomOf="@id/login_btn_kakao"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_btn_kakao" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
