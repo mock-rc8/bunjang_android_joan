@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--acitivity_login -->
     <dimen name="indicator_imageview_size">8dp</dimen>
     <dimen name="indicator_imageview_margin">8dp</dimen>
+
+    <!-- dialog_login_other -->
+    <dimen name="login_other_imageview_size">44dp</dimen>
+    <dimen name="login_other_textview_margin_start">10dp</dimen>
+    <dimen name="login_other_textview_size">17sp</dimen>
+    <dimen name="login_other_layout_margin_top">20dp</dimen>
+
+    <!-- login_phone -->
+    <dimen name="login_phone_layout_margin_top">20dp</dimen>
+    <dimen name="login_phone_title_size">28sp</dimen>
+    <dimen name="login_phone_textview_size">14sp</dimen>
+    <dimen name="login_phone_textview_margin_bottom">5dp</dimen>
+    <dimen name="login_phone_edittext_size">20sp</dimen>
+    <dimen name="login_phone_edittext_margin_bottom">8dp</dimen>
+    <dimen name="login_phone_edittext_padding_bottom">14dp</dimen>
 </resources>

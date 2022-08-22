@@ -1,10 +1,13 @@
 package com.okre.bunjang.src.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.widget.LinearLayout
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.okre.bunjang.R
 import com.okre.bunjang.config.BaseActivity
 import com.okre.bunjang.databinding.ActivityLoginBinding
@@ -18,6 +21,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // 뷰페이저
         setViewPager()
 
         handler = Handler(Looper.getMainLooper()) {
@@ -28,6 +32,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         val thread = Thread(PagerRunnable())
         thread.start()
 
+        // 다른 방법 로그인
+        clickLoginOther()
     }
 
     fun setViewPager() {
@@ -75,6 +81,23 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                     Log.d("error", e.message.toString())
                 }
             }
+        }
+    }
+
+    fun clickLoginOther() {
+        val bottomSheetView = layoutInflater.inflate(R.layout.dialog_login_other, null)
+        val bottomSheetDialog = BottomSheetDialog(this)
+        bottomSheetDialog.setContentView(bottomSheetView)
+
+        binding.loginBtnOther.setOnClickListener {
+            bottomSheetDialog.show()
+        }
+
+        val loginBtnPhone = bottomSheetView.findViewById<LinearLayout>(R.id.login_phone)
+        loginBtnPhone.setOnClickListener {
+            bottomSheetDialog.dismiss()
+            val intent = Intent(this, LoginPhoneActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/login_phone_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/icon_back"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/login_phone_title_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/login_phone_title_first_top"
+        android:textColor="@color/black"
+        android:textSize="@dimen/login_phone_title_size"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_phone_back" />
+
+    <TextView
+        android:id="@+id/login_phone_title_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_phone_title_first_bottom"
+        android:textColor="@color/black"
+        android:textSize="@dimen/login_phone_title_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/login_phone_title_top"
+        app:layout_constraintTop_toBottomOf="@id/login_phone_title_top" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_phone_title_bottom">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/login_phone_layout_shop_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_phone_layout_margin_top"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/login_phone_textview_shop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/login_phone_textview_margin_bottom"
+                android:text="@string/login_phone_textview_shop_name"
+                android:textColor="@color/login_phone_textview_gray"
+                android:textSize="@dimen/login_phone_textview_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/login_phone_edittext_shop_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/login_phone_edittext_shop_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/login_phone_edittext_margin_bottom"
+                android:background="@drawable/background_edittext_bottom_line_selector"
+                android:maxLength="10"
+                android:paddingBottom="@dimen/login_phone_edittext_padding_bottom"
+                android:textCursorDrawable="@drawable/shape_login_phone_cursor"
+                android:textSize="@dimen/login_phone_edittext_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/login_phone_explain_shop_name"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_shop_name"
+                app:layout_constraintWidth_percent="1">
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/login_phone_explain_shop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/login_phone_explain_shop_name_top"
+                android:textColor="@color/login_phone_textview_gray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login_phone_edittext_shop_name" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_phone_explain_shop_name_bottom"
+                android:textColor="@color/login_phone_textview_gray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login_phone_explain_shop_name" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/login_phone_layout_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_phone_layout_margin_top"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/login_phone_textview_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/login_phone_textview_margin_bottom"
+                android:text="@string/login_phone_textview_password"
+                android:textColor="@color/login_phone_textview_gray"
+                android:textSize="@dimen/login_phone_textview_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/login_phone_edittext_password"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/login_phone_edittext_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/login_phone_edittext_margin_bottom"
+                android:background="@drawable/background_edittext_bottom_line_selector"
+                android:inputType="textPassword"
+                android:paddingBottom="@dimen/login_phone_edittext_padding_bottom"
+                android:textCursorDrawable="@drawable/shape_login_phone_cursor"
+                android:textSize="@dimen/login_phone_edittext_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_password">
+
+                <requestFocus />
+            </EditText>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/login_phone_layout_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_phone_layout_margin_top"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/login_phone_textview_phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/login_phone_textview_margin_bottom"
+                android:text="@string/login_phone_textview_phone_number"
+                android:textColor="@color/login_phone_textview_gray"
+                android:textSize="@dimen/login_phone_textview_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/login_phone_edittext_phone_number"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/login_phone_edittext_phone_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/login_phone_edittext_margin_bottom"
+                android:background="@drawable/background_edittext_bottom_line_selector"
+                android:inputType="number"
+                android:maxLength="11"
+                android:paddingBottom="@dimen/login_phone_edittext_padding_bottom"
+                android:textCursorDrawable="@drawable/shape_login_phone_cursor"
+                android:textSize="@dimen/login_phone_edittext_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="1">
+
+                <requestFocus />
+            </EditText>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/login_phone_layout_telecom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_phone_layout_margin_top"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/login_phone_textview_telecom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/login_phone_textview_margin_bottom"
+                android:text="@string/login_phone_textview_telecom"
+                android:textColor="@color/login_phone_textview_gray"
+                android:textSize="@dimen/login_phone_textview_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/login_phone_button_telecom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/login_phone_button_telecom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/login_phone_edittext_padding_bottom"
+                android:text="@string/login_phone_button_telecom"
+                android:textColor="@color/login_phone_textview_gray"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_telecom" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icon_login_telecom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login_phone_textview_telecom" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/background_edittext_bottom_line_selector"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/login_phone_layout_birth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_phone_layout_margin_top"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/login_phone_textview_birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/login_phone_textview_margin_bottom"
+                android:text="@string/login_phone_textview_birth"
+                android:textColor="@color/login_phone_textview_gray"
+                android:textSize="@dimen/login_phone_textview_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/login_phone_edittext_birth"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/login_phone_edittext_birth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/login_phone_edittext_margin_bottom"
+                android:background="@drawable/background_edittext_bottom_line_selector"
+                android:inputType="number"
+                android:maxLength="6"
+                android:paddingBottom="@dimen/login_phone_edittext_padding_bottom"
+                android:textCursorDrawable="@drawable/shape_login_phone_cursor"
+                android:textSize="@dimen/login_phone_edittext_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/login_phone_middle_line"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_birth"
+                app:layout_constraintWidth_percent="0.55">
+
+                <requestFocus />
+            </EditText>
+
+            <ImageView
+                android:id="@+id/login_phone_middle_line"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_login_phone_slash"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/login_phone_edittext_birth_gender"
+                app:layout_constraintStart_toEndOf="@+id/login_phone_edittext_birth"
+                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_birth"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <EditText
+                android:id="@+id/login_phone_edittext_birth_gender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_edittext_bottom_line_selector"
+                android:inputType="number"
+                android:maxLength="1"
+                android:paddingBottom="@dimen/login_phone_edittext_padding_bottom"
+                android:textCursorDrawable="@drawable/shape_login_phone_cursor"
+                android:textSize="@dimen/login_phone_edittext_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/login_phone_image_birth_secret"
+                app:layout_constraintStart_toEndOf="@+id/login_phone_middle_line"
+                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_birth"
+                app:layout_constraintWidth_percent="0.1">
+
+                <requestFocus />
+            </EditText>
+
+            <ImageView
+                android:id="@+id/login_phone_image_birth_secret"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:src="@drawable/icon_login_phone_birth_secret"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/login_phone_edittext_birth_gender"
+                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_birth" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/login_phone_layout_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_phone_layout_margin_top">
+
+            <TextView
+                android:id="@+id/login_phone_textview_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/login_phone_textview_margin_bottom"
+                android:text="@string/login_phone_textview_name"
+                android:textColor="@color/login_phone_textview_gray"
+                android:textSize="@dimen/login_phone_textview_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/login_phone_edittext_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/login_phone_edittext_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/login_phone_edittext_margin_bottom"
+                android:background="@drawable/background_edittext_bottom_line_selector"
+                android:inputType="text"
+                android:nextFocusDown="@id/login_phone_edittext_birth"
+                android:paddingBottom="@dimen/login_phone_edittext_padding_bottom"
+                android:textCursorDrawable="@drawable/shape_login_phone_cursor"
+                android:textSize="@dimen/login_phone_edittext_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <requestFocus />
+            </EditText>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login_phone_button_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/background_btn_login_phone_next"
+        android:enabled="false"
+        android:text="@string/login_phone_button_next"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

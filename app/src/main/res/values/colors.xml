@@ -12,7 +12,7 @@
     <!-- template -->
     <color name="colorPrimary">#fcfcfc</color>
     <color name="colorPrimaryDark">#889dfe</color>
-    <color name="colorAccent">#889dfe</color>
+    <color name="colorAccent">#a9a9a9</color>
     <color name="whiteForBackground">#FFFFFF</color>
     <color name="blackForText">#4a4a4a</color>
     <color name="redForText">#d9534f</color>
@@ -25,4 +25,12 @@
     <color name="circle">#D4D2DE</color>
     <color name="login_kakao_background">#F7E600</color>
     <color name="login_other_text">#7C7A85</color>
+
+    <!-- Login_phone -->
+    <color name="login_phone_edittext_handle">#008276</color>
+    <color name="login_phone_textview_gray">#b5b5b5</color>
+    <color name="login_phone_line">#E6E6E6</color>
+    <color name="login_phone_button_next_enabled_true">#D80000</color>
+    <color name="login_phone_button_next_enabled_false">#F8E1E2</color>
+
 </resources>
