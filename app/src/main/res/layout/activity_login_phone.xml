@@ -12,6 +12,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        android:contentDescription="@string/ImageMissing"
         android:src="@drawable/icon_back"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +28,7 @@
         android:textSize="@dimen/login_phone_title_size"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_phone_back" />
+        app:layout_constraintTop_toBottomOf="@+id/login_phone_back" />
 
     <TextView
         android:id="@+id/login_phone_title_bottom"
@@ -37,8 +38,8 @@
         android:textColor="@color/black"
         android:textSize="@dimen/login_phone_title_size"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/login_phone_title_top"
-        app:layout_constraintTop_toBottomOf="@id/login_phone_title_top" />
+        app:layout_constraintStart_toStartOf="@+id/login_phone_title_top"
+        app:layout_constraintTop_toBottomOf="@+id/login_phone_title_top" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -50,7 +51,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_phone_title_bottom">
+        app:layout_constraintTop_toBottomOf="@+id/login_phone_title_bottom">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/login_phone_layout_shop_name"
@@ -68,7 +69,7 @@
                 android:textColor="@color/login_phone_textview_gray"
                 android:textSize="@dimen/login_phone_textview_size"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/login_phone_edittext_shop_name"
+                app:layout_constraintBottom_toTopOf="@+id/login_phone_edittext_shop_name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,9 +84,9 @@
                 android:textCursorDrawable="@drawable/shape_login_phone_cursor"
                 android:textSize="@dimen/login_phone_edittext_size"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/login_phone_explain_shop_name"
+                app:layout_constraintBottom_toTopOf="@+id/login_phone_explain_shop_name"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_shop_name"
+                app:layout_constraintTop_toBottomOf="@+id/login_phone_textview_shop_name"
                 app:layout_constraintWidth_percent="1">
 
                 <requestFocus />
@@ -99,7 +100,7 @@
                 android:text="@string/login_phone_explain_shop_name_top"
                 android:textColor="@color/login_phone_textview_gray"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/login_phone_edittext_shop_name" />
+                app:layout_constraintTop_toBottomOf="@+id/login_phone_edittext_shop_name" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -107,7 +108,7 @@
                 android:text="@string/login_phone_explain_shop_name_bottom"
                 android:textColor="@color/login_phone_textview_gray"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/login_phone_explain_shop_name" />
+                app:layout_constraintTop_toBottomOf="@+id/login_phone_explain_shop_name" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -128,7 +129,7 @@
                 android:textColor="@color/login_phone_textview_gray"
                 android:textSize="@dimen/login_phone_textview_size"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/login_phone_edittext_password"
+                app:layout_constraintBottom_toTopOf="@+id/login_phone_edittext_password"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -145,7 +146,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_password">
+                app:layout_constraintTop_toBottomOf="@+id/login_phone_textview_password">
 
                 <requestFocus />
             </EditText>
@@ -168,7 +169,7 @@
                 android:textColor="@color/login_phone_textview_gray"
                 android:textSize="@dimen/login_phone_textview_size"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/login_phone_edittext_phone_number"
+                app:layout_constraintBottom_toTopOf="@+id/login_phone_edittext_phone_number"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -178,9 +179,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/login_phone_edittext_margin_bottom"
                 android:background="@drawable/background_edittext_bottom_line_selector"
+                android:hint="@string/login_phone_textview_phone_number_hint"
                 android:inputType="number"
                 android:maxLength="11"
-                android:hint="@string/login_phone_textview_phone_number_hint"
                 android:paddingBottom="@dimen/login_phone_edittext_padding_bottom"
                 android:textCursorDrawable="@drawable/shape_login_phone_cursor"
                 android:textSize="@dimen/login_phone_edittext_size"
@@ -210,7 +211,7 @@
                 android:textColor="@color/login_phone_textview_gray"
                 android:textSize="@dimen/login_phone_textview_size"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/login_phone_button_telecom"
+                app:layout_constraintBottom_toTopOf="@+id/login_phone_button_telecom"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -225,11 +226,12 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_telecom" />
+                app:layout_constraintTop_toBottomOf="@+id/login_phone_textview_telecom" />
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:contentDescription="@string/ImageMissing"
                 android:src="@drawable/icon_login_telecom"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -255,12 +257,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/login_phone_textview_margin_bottom"
-                android:text="@string/login_phone_textview_birth"
                 android:hint="@string/login_phone_textview_birth_hint"
+                android:text="@string/login_phone_textview_birth"
                 android:textColor="@color/login_phone_textview_gray"
                 android:textSize="@dimen/login_phone_textview_size"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/login_phone_edittext_birth"
+                app:layout_constraintBottom_toTopOf="@+id/login_phone_edittext_birth"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -279,7 +281,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/login_phone_middle_line"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_birth"
+                app:layout_constraintTop_toBottomOf="@+id/login_phone_textview_birth"
                 app:layout_constraintWidth_percent="0.55">
 
                 <requestFocus />
@@ -289,12 +291,13 @@
                 android:id="@+id/login_phone_middle_line"
                 android:layout_width="20dp"
                 android:layout_height="30dp"
+                android:contentDescription="@string/ImageMissing"
                 android:scaleType="fitXY"
                 android:src="@drawable/icon_login_phone_slash"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/login_phone_edittext_birth_gender"
                 app:layout_constraintStart_toEndOf="@+id/login_phone_edittext_birth"
-                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_birth"
+                app:layout_constraintTop_toBottomOf="@+id/login_phone_textview_birth"
                 app:layout_constraintVertical_chainStyle="packed" />
 
             <EditText
@@ -311,7 +314,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/login_phone_image_birth_secret"
                 app:layout_constraintStart_toEndOf="@+id/login_phone_middle_line"
-                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_birth"
+                app:layout_constraintTop_toBottomOf="@+id/login_phone_textview_birth"
                 app:layout_constraintWidth_percent="0.1">
 
                 <requestFocus />
@@ -321,11 +324,12 @@
                 android:id="@+id/login_phone_image_birth_secret"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
+                android:contentDescription="@string/ImageMissing"
                 android:src="@drawable/icon_login_phone_birth_secret"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toEndOf="@id/login_phone_edittext_birth_gender"
-                app:layout_constraintTop_toBottomOf="@id/login_phone_textview_birth" />
+                app:layout_constraintStart_toEndOf="@+id/login_phone_edittext_birth_gender"
+                app:layout_constraintTop_toBottomOf="@+id/login_phone_textview_birth" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -344,7 +348,7 @@
                 android:textColor="@color/login_phone_textview_gray"
                 android:textSize="@dimen/login_phone_textview_size"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/login_phone_edittext_name"
+                app:layout_constraintBottom_toTopOf="@+id/login_phone_edittext_name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -355,7 +359,7 @@
                 android:layout_marginBottom="@dimen/login_phone_edittext_margin_bottom"
                 android:background="@drawable/background_edittext_bottom_line_selector"
                 android:inputType="text"
-                android:nextFocusDown="@id/login_phone_edittext_birth"
+                android:nextFocusDown="@+id/login_phone_edittext_birth"
                 android:paddingBottom="@dimen/login_phone_edittext_padding_bottom"
                 android:textCursorDrawable="@drawable/shape_login_phone_cursor"
                 android:textSize="@dimen/login_phone_edittext_size"

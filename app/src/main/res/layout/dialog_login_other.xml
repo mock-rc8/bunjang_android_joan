@@ -75,9 +75,9 @@
             android:id="@+id/login_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_other_layout_margin_top"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/login_other_layout_margin_top">
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="@dimen/login_other_imageview_size"

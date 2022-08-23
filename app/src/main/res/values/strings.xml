@@ -48,4 +48,7 @@
     <string name="login_phone_button_next">다음</string>
     <string name="login_phone_button_next_check">확인</string>
 
+    <!-- dialog_login_phone_terms -->
+    <string name="login_terms_textview_title_accept">약관동의</string>
+    <string name="login_terms_textview_accept_all">전체 동의</string>
 </resources>
