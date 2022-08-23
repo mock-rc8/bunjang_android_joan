@@ -62,6 +62,9 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
         // 상점명
         shopNameEdittext()
 
+        // 약관 동의
+        termsSelect()
+
     }
 
     fun nameEdittext() {
@@ -176,7 +179,7 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                termsSelect()
+                loginPhoneButtonNextClick()
             }
 
         })
@@ -213,6 +216,7 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
                 termsAllAccept.setBackgroundResource(R.drawable.background_btn_terms_accept_all_checked)
                 termsAllAcceptImage.setImageResource(R.drawable.icon_terms_accept_all_checked)
                 termsButtonCheck.isEnabled = true
+                Log.d("ccc", rvadapterLoginPhoneTerms.itemCount.toString())
                 for (i in 0 until rvadapterLoginPhoneTerms.itemCount) {
                     rvadapterLoginPhoneTerms.itemList[i].termsCheckbox = true
                 }

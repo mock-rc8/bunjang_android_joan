@@ -311,10 +311,10 @@
                 android:textCursorDrawable="@drawable/shape_login_phone_cursor"
                 android:textSize="@dimen/login_phone_edittext_size"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/login_phone_edittext_birth"
                 app:layout_constraintEnd_toStartOf="@+id/login_phone_image_birth_secret"
                 app:layout_constraintStart_toEndOf="@+id/login_phone_middle_line"
-                app:layout_constraintTop_toBottomOf="@+id/login_phone_textview_birth"
+                app:layout_constraintTop_toTopOf="@+id/login_phone_edittext_birth"
                 app:layout_constraintWidth_percent="0.1">
 
                 <requestFocus />

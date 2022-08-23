@@ -33,4 +33,10 @@
     <color name="login_phone_button_next_enabled_true">#D80000</color>
     <color name="login_phone_button_next_enabled_false">#F8E1E2</color>
 
+    <!-- fragment_home -->
+    <color name="home_category_scrollbar">#E6E6E6</color>
+    <color name="home_category_scrollbar_in">#B3B3B3</color>
+    <color name="home_tab_color">#A1A1A1</color>
+    <color name="home_tab_ripple_color">#B5B5B5</color>
+
 </resources>

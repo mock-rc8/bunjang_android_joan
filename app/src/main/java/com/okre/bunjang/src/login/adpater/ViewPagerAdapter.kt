@@ -26,6 +26,4 @@ class ViewPagerAdapter(var list : MutableList<Int>) : RecyclerView.Adapter<ViewP
     override fun getItemCount(): Int {
         return list.size
     }
-
-
 }

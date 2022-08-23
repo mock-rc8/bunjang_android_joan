@@ -51,4 +51,9 @@
     <!-- dialog_login_phone_terms -->
     <string name="login_terms_textview_title_accept">약관동의</string>
     <string name="login_terms_textview_accept_all">전체 동의</string>
+
+    <!-- fragment_home -->
+    <string name="home_viewpager_count">%1$d/%2$d</string>
+    <string name="home_recommend_title">%1$s님을 위한\n추천 상품 보고 가세요👀👇</string>
+
 </resources>
