@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -137,15 +138,9 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
                 binding.loginPhoneLayoutPhoneNumber.visibility = View.VISIBLE
                 binding.loginPhoneTitleTop.setText(R.string.login_phone_title_number_top)
                 binding.loginPhoneTitleBottom.setText(R.string.login_phone_title_number_bottom)
-                showKeyboardPhoneNumber()
+                showKeyboard(binding.loginPhoneEdittextPhoneNumber)
             }
         }
-    }
-
-    fun  showKeyboardPhoneNumber() {
-        binding.loginPhoneEdittextPhoneNumber.requestFocus()
-        val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.showSoftInput(binding.loginPhoneEdittextPhoneNumber, InputMethodManager.SHOW_IMPLICIT)
     }
 
     fun phoneNumberEdittext() {
@@ -276,7 +271,7 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
             binding.loginPhoneTitleTop.setText(R.string.login_phone_title_shop_top)
             binding.loginPhoneTitleBottom.setText(R.string.login_phone_title_shop_bottom)
             binding.loginPhoneButtonNext.isEnabled = false
-            binding.loginPhoneEdittextShopName.requestFocus()
+            showKeyboard(binding.loginPhoneEdittextShopName)
         }
     }
 
@@ -293,6 +288,12 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
                 loginPhoneButtonNextClick()
             }
         })
+    }
+
+    fun showKeyboard(edittext: EditText) {
+        edittext.requestFocus()
+        val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.showSoftInput(edittext, 0)
     }
 
     fun loginPhoneButtonNextClick() {
