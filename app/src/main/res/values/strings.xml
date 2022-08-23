@@ -25,17 +25,25 @@
     <string name="login_phone_title_birth_bottom">입력해주세요</string>
     <string name="login_phone_title_telecom_top">통신사를</string>
     <string name="login_phone_title_telecom_bottom">선택해주세요</string>
-    <string name="login_phone_title_number_top">생년월일을</string>
+    <string name="login_phone_title_number_top">휴대폰번호를</string>
     <string name="login_phone_title_number_bottom">입력해주세요</string>
+    <string name="login_phone_title_password_top">비밀번호를</string>
+    <string name="login_phone_title_password_bottom">입력해주세요</string>
+    <string name="login_phone_title_check_top">입력한 정보를</string>
+    <string name="login_phone_title_check_bottom">확인해주세요</string>
+    <string name="login_phone_title_shop_top">마지막 단계입니다!</string>
+    <string name="login_phone_title_shop_bottom">상점명을 입력해주세요</string>
 
     <string name="login_phone_textview_shop_name">상점명</string>
     <string name="login_phone_explain_shop_name_top">한글, 영어, 숫자만 사용할 수 있어요. (최대 10자)</string>
     <string name="login_phone_explain_shop_name_bottom">상점명은 고객님의 닉네임으로 사용될 예정이에요.</string>
     <string name="login_phone_textview_phone_number">휴대폰번호</string>
+    <string name="login_phone_textview_phone_number_hint">01012345678</string>
     <string name="login_phone_textview_telecom">통신사</string>
     <string name="login_phone_button_telecom">통신사</string>
     <string name="login_phone_textview_password">비밀번호</string>
     <string name="login_phone_textview_birth">생년월일</string>
+    <string name="login_phone_textview_birth_hint">예시: 900101</string>
     <string name="login_phone_textview_name">이름</string>
     <string name="login_phone_button_next">다음</string>
     <string name="login_phone_button_next_check">확인</string>

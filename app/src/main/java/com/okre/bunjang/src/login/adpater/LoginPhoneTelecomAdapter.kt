@@ -1,10 +1,11 @@
-package com.okre.bunjang.src.login
+package com.okre.bunjang.src.login.adpater
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.okre.bunjang.databinding.ItemLoginPhoneTelecomBinding
+import com.okre.bunjang.src.login.item.LoginPhoneTelecomItem
 
 class LoginPhoneTelecomAdapter(val itemList : MutableList<LoginPhoneTelecomItem>) : RecyclerView.Adapter<LoginPhoneTelecomAdapter.ViewHolder>() {
 
@@ -13,14 +14,12 @@ class LoginPhoneTelecomAdapter(val itemList : MutableList<LoginPhoneTelecomItem>
     inner class ViewHolder(val binding: ItemLoginPhoneTelecomBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindList(item : LoginPhoneTelecomItem) {
             binding.itemLoginPhoneTelecomTextview.text = item.telecomName
+            binding.itemLoginPhoneTelecomCheckbox.isChecked = selectedPosition == adapterPosition
             binding.itemLoginPhoneTelecomLayout.setOnClickListener { v ->
                 itemClick?.onClick(v, adapterPosition, item.telecomName.toString())
-
-                //item.telecomCheckbox = true
+                selectedPosition = adapterPosition
                 notifyDataSetChanged()
             }
-
-            //binding.itemLoginPhoneTelecomCheckbox.isChecked = item.telecomCheckbox!!
         }
     }
 

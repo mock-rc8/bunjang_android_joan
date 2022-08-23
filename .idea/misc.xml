@@ -8,13 +8,18 @@
         <entry key="app/src/main/res/drawable-v24/background_btn_login_phone_next.xml" value="0.141" />
         <entry key="app/src/main/res/drawable-v24/background_btn_login_phone_next_enable_false.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/bottom_nav_selector_color.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/checkbox_drawable_terms.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/checkbox_drawable_terms_selected.xml" value="0.103" />
         <entry key="app/src/main/res/drawable-v24/checkbox_item_login_phone_telecom_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/checkbox_item_login_phone_terms_selector.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/shape_login_phone_cursor.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/shape_viewpager_black.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/shape_viewpager_gray.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/shape_viewpager_indicator.xml" value="0.162" />
         <entry key="app/src/main/res/drawable-v24/shape_viewpager_indicator_select.xml" value="0.24" />
         <entry key="app/src/main/res/drawable/background_btn_login_phone_next_enable_true.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_btn_terms_accept_all.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_btn_terms_accept_all_checked.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line.xml" value="0.1665" />
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line_focus.xml" value="0.163" />
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line_selector.xml" value="0.1" />
@@ -28,12 +33,14 @@
         <entry key="app/src/main/res/layout/dialog_loading.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/dialog_login_other.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_login_phone_telecom.xml" value="0.11153846153846154" />
+        <entry key="app/src/main/res/layout/dialog_login_phone_terms.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_lightning_talk.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_my.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/item_login_phone_telecom.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_login_phone_terms.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/item_view_pager_login.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_main_bottom_nav.xml" value="0.1" />
       </map>

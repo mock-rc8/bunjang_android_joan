@@ -11,6 +11,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.okre.bunjang.R
 import com.okre.bunjang.config.BaseActivity
 import com.okre.bunjang.databinding.ActivityLoginBinding
+import com.okre.bunjang.src.login.adpater.ViewPagerAdapter
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
 

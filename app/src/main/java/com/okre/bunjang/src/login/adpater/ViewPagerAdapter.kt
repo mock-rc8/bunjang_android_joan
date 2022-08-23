@@ -1,7 +1,6 @@
-package com.okre.bunjang.src.login
+package com.okre.bunjang.src.login.adpater
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.okre.bunjang.databinding.ItemViewPagerLoginBinding
