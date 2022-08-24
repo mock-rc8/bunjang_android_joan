@@ -48,7 +48,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 }
                 true
             }
-            selectedItemId = R.id.menu_main_btm_nav_home
+            // selectedItemId = R.id.menu_main_btm_nav_home
+            // 기존에 있던 homeFragment가 사라지고, onDestroyView가 호출되므로 사용하지 말 것!!
         }
     }
 }

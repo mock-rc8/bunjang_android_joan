@@ -71,24 +71,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         if (currentPosition == 7) {
             currentPosition = 0
         }
-        binding.homeAdViewpager.setCurrentItem(currentPosition, true)
+        binding.homeAdViewpager.setCurrentItem(currentPosition, false)
         currentPosition++
+
+        binding.homeAdViewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                binding.homeAdViewpagerCount.text = getString(R.string.home_viewpager_count, position + 1, homeAdViewPagerList.size)
+                currentPosition = position
+            }
+        })
     }
-
-
-//        binding.homeAdViewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-//            override fun onPageSelected(position: Int) {
-//                super.onPageSelected(position)
-//                binding.homeAdViewpagerCount.text = getString(R.string.home_viewpager_count, position + 1, homeAdViewPagerList.size)
-//            }
-//        })
-
 
     inner class PagerRunnable : Runnable{
         override fun run() {
             while(true){
                 try {
-                    Thread.sleep(2000)
+                    Thread.sleep(3000)
                     handler.sendEmptyMessage(0)
                 } catch (e : InterruptedException){
                     Log.d("error", e.message.toString())
@@ -123,6 +122,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         TabLayoutMediator(binding.homeTablayout, binding.homeViewpager) { tab, position ->
             tab.text = tabTitleArray[position]
         }.attach()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // 전체화면 취소
+        requireActivity().setStatusBarOrigin()
     }
 
 }

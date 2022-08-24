@@ -13,9 +13,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // 전체화면 취소
-        requireActivity().setStatusBarOrigin()
     }
 
 }
