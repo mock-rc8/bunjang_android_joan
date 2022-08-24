@@ -39,4 +39,7 @@
     <color name="home_tab_color">#A1A1A1</color>
     <color name="home_tab_ripple_color">#B5B5B5</color>
 
+    <!-- home_reccommend -->
+    <color name="home_recommend_item_gray">#B3B3B3</color>
+
 </resources>

@@ -107,10 +107,41 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/home_toolbar"
-                android:background="@color/black"
+                android:background="@android:color/transparent"
                 app:layout_collapseMode="pin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/main_home_btn_menu"
+                    android:layout_width="18dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/icon_home_toolbar_menu"
+                    android:clickable="true" />
+
+                <ImageView
+                    android:id="@+id/main_home_btn_alarm"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/icon_home_toolbar_alarm"
+                    android:clickable="true" />
+
+                <ImageView
+                    android:id="@+id/main_home_btn_search"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/icon_home_toolbar_search"
+                    android:clickable="true" />
 
             </androidx.appcompat.widget.Toolbar>
 

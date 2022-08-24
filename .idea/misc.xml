@@ -10,6 +10,8 @@
         <entry key="app/src/main/res/drawable-v24/bottom_nav_selector_color.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/checkbox_drawable_terms.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/checkbox_drawable_terms_selected.xml" value="0.103" />
+        <entry key="app/src/main/res/drawable-v24/checkbox_item_home_recommend_zzim_check.xml" value="0.1455" />
+        <entry key="app/src/main/res/drawable-v24/checkbox_item_home_recommend_zzim_selector.xml" value="0.1455" />
         <entry key="app/src/main/res/drawable-v24/checkbox_item_login_phone_telecom_selector.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/checkbox_item_login_phone_terms_selector.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/shape_login_phone_cursor.xml" value="0.1" />
@@ -26,7 +28,9 @@
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line_selector.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/checkbox_drawable_telecom.xml" value="0.132" />
         <entry key="app/src/main/res/drawable/checkbox_drawable_telecom_selected.xml" value="0.132" />
+        <entry key="app/src/main/res/drawable/checkbox_item_home_recommend_zzim_uncheck.xml" value="0.1455" />
         <entry key="app/src/main/res/drawable/inputbox_normal.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/item_home_recommend_heart_count_drawable.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category_in.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
@@ -46,6 +50,7 @@
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/item_home_category.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/item_home_recommend.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_login_phone_telecom.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_login_phone_terms.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/item_view_pager_login.xml" value="0.1" />

@@ -29,7 +29,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
             0,
             requireContext().statusBarHeight(),
             0,
-            requireContext().navigationHeight()
+            0
         )
 
         categoryRecyclerview()
