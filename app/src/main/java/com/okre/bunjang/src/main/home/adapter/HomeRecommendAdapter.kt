@@ -33,8 +33,17 @@ class HomeRecommendAdapter() : RecyclerView.Adapter<HomeRecommendAdapter.ViewHol
             } else {
                 binding.itemHomeRecommendHeart.visibility = View.VISIBLE
             }
+
+            binding.itemHomeRecommendLayout.setOnClickListener { v ->
+                itemClick?.onClick(v, adapterPosition)
+            }
         }
     }
+
+    interface ItemClick {
+        fun onClick(view : View, position: Int)
+    }
+    var itemClick : ItemClick? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = ItemHomeRecommendBinding.inflate(LayoutInflater.from(parent.context), parent, false)

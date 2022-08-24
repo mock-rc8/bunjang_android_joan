@@ -18,4 +18,13 @@
     <dimen name="login_phone_edittext_size">20sp</dimen>
     <dimen name="login_phone_edittext_margin_bottom">8dp</dimen>
     <dimen name="login_phone_edittext_padding_bottom">14dp</dimen>
+
+    <!-- product_detail-->
+    <dimen name="product_detail_layout_margin">10dp</dimen>
+    <dimen name="product_detail_textview_drawable_padding">3dp</dimen>
+    <dimen name="product_detail_textview_drawable_margin">5dp</dimen>
+    <dimen name="product_detail_textview_option_size">11sp</dimen>
+    <dimen name="product_detail_textview_option_padding">5dp</dimen>
+    <dimen name="product_detail_textview_option_margin_start">5dp</dimen>
+
 </resources>

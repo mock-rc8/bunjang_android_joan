@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.main.home.HomeRecommendProductDetailActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/product_detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/product_detail_btn_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/icon_back" />
+
+        <ImageView
+            android:id="@+id/product_detail_btn_share"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/icon_product_detail_share" />
+
+        <ImageView
+            android:id="@+id/product_detail_btn_search"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/icon_home_toolbar_search" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/product_detail_bottom"
+        app:layout_constraintTop_toBottomOf="@+id/product_detail_toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/product_detail_viewpager_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/product_detail_viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="290dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/home_ad_viewpager_count"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/background_btn_home_viewpager_text"
+                    android:gravity="center"
+                    android:text="@string/home_viewpager_count"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/product_detail_title_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/product_detail_layout_margin"
+                android:background="@drawable/line_bottom"
+                app:layout_constraintTop_toBottomOf="@+id/product_detail_viewpager_layout">
+
+                <TextView
+                    android:id="@+id/product_detail_textview_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="15,000원"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/product_detail_img_thunder_pay"
+                    android:layout_width="40dp"
+                    android:layout_height="17dp"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/icon_home_recommend_lightning_pay"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_textview_price"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_textview_price"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_textview_price" />
+
+                <TextView
+                    android:id="@+id/product_detail_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="제목"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_detail_textview_price" />
+
+                <TextView
+                    android:id="@+id/product_detail_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="지역정보 없음"
+                    android:textColor="@color/home_recommend_item_gray"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/product_detail_title"
+                    app:layout_constraintTop_toBottomOf="@+id/product_detail_title" />
+
+                <ImageView
+                    android:id="@+id/product_detail_divider"
+                    android:layout_width="3dp"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="5dp"
+                    android:src="@drawable/icon_home_recommend_divider"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_location"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_location"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_location" />
+
+                <TextView
+                    android:id="@+id/product_detail_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="10분 전"
+                    android:textColor="@color/home_recommend_item_gray"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_location"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_divider"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_location" />
+
+                <TextView
+                    android:id="@+id/product_detail_talk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_product_detail_talk_drawable"
+                    android:drawablePadding="@dimen/product_detail_textview_drawable_padding"
+                    android:text="0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_detail_title" />
+
+                <TextView
+                    android:id="@+id/product_detail_heart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/product_detail_textview_drawable_margin"
+                    android:drawableLeft="@drawable/icon_product_detail_heart_drawable"
+                    android:drawablePadding="@dimen/product_detail_textview_drawable_padding"
+                    android:text="0"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_talk"
+                    app:layout_constraintEnd_toStartOf="@+id/product_detail_talk"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_talk" />
+
+                <TextView
+                    android:id="@+id/product_detail_see"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/product_detail_textview_drawable_margin"
+                    android:drawableLeft="@drawable/icon_product_detail_see_drawable"
+                    android:drawablePadding="@dimen/product_detail_textview_drawable_padding"
+                    android:text="0"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_talk"
+                    app:layout_constraintEnd_toStartOf="@+id/product_detail_heart"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_talk" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_btn_product_detail_event"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_detail_location">
+
+                    <TextView
+                        android:id="@+id/product_detail_event_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="이벤트"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/product_detail_event_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="카드 최대 12개월 무이자 할부"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="@id/product_detail_event_title"
+                        app:layout_constraintStart_toEndOf="@id/product_detail_event_title"
+                        app:layout_constraintTop_toTopOf="@id/product_detail_event_title" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/icon_next"
+                        app:layout_constraintBottom_toBottomOf="@id/product_detail_event_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/product_detail_event_title"
+                        app:tint="@color/product_detail_gray" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/product_detail_content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/product_detail_layout_margin"
+                android:background="@drawable/line_bottom"
+                app:layout_constraintTop_toBottomOf="@+id/product_detail_title_layout">
+
+                <TextView
+                    android:id="@+id/product_detail_option_new_or_old"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_btn_product_detail_option"
+                    android:padding="@dimen/product_detail_textview_option_padding"
+                    android:text="중고상품"
+                    android:layout_marginTop="15dp"
+                    android:textSize="@dimen/product_detail_textview_option_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/product_detail_option_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
+                    android:background="@drawable/background_btn_product_detail_option"
+                    android:padding="@dimen/product_detail_textview_option_padding"
+                    android:text="총 1개"
+                    android:textSize="@dimen/product_detail_textview_option_size"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_option_new_or_old"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_option_new_or_old"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_option_new_or_old"/>
+
+                <TextView
+                    android:id="@+id/product_detail_option_ship"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_btn_product_detail_option"
+                    android:padding="@dimen/product_detail_textview_option_padding"
+                    android:text="배송비별도"
+                    android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
+                    android:textSize="@dimen/product_detail_textview_option_size"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_option_count"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_option_new_or_old"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_option_new_or_old"/>
+
+                <TextView
+                    android:id="@+id/product_detail_option_exchange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
+                    android:background="@drawable/background_btn_product_detail_option"
+                    android:padding="@dimen/product_detail_textview_option_padding"
+                    android:text="교환불가"
+                    android:textSize="@dimen/product_detail_textview_option_size"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_option_ship"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_option_new_or_old"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_option_new_or_old"/>
+
+                <TextView
+                    android:id="@+id/product_detail_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="내용"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/product_detail_option_new_or_old" />
+
+                <TextView
+                    android:id="@+id/product_detail_tag_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_btn_product_detail_tag"
+                    android:padding="@dimen/product_detail_textview_option_padding"
+                    android:text="tag"
+                    android:layout_marginTop="15dp"
+                    android:textSize="@dimen/product_detail_textview_option_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_detail_content" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/product_detail_notify_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:layout_constraintTop_toBottomOf="@+id/product_detail_content_layout"
+                android:layout_marginHorizontal="@dimen/product_detail_layout_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="신고하기"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_next"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/product_detail_gray" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/product_detail_caution_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toTopOf="@+id/product_detail_view_divider"
+                app:layout_constraintTop_toBottomOf="@+id/product_detail_notify_layout"
+                android:layout_marginHorizontal="@dimen/product_detail_layout_margin"
+                android:src="@drawable/image_caution"/>
+
+            <View
+                android:id="@+id/product_detail_view_divider"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="5dp"
+                android:background="@color/product_detail_gray"
+                app:layout_constraintTop_toBottomOf="@+id/product_detail_caution_imageview" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintTop_toBottomOf="@+id/product_detail_view_divider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="@dimen/product_detail_layout_margin">
+
+                <ImageView
+                    android:id="@+id/product_detail_shop_profile"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/icon_product_detail_shop_profile"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/product_detail_shop_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="상점명"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/product_detail_shop_profile"
+                    app:layout_constraintTop_toTopOf="@id/product_detail_shop_profile" />
+
+                <TextView
+                    android:id="@+id/product_detail_shop_certify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="본인인증"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="5dp"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/product_detail_shop_profile"
+                    app:layout_constraintTop_toBottomOf="@id/product_detail_shop_name" />
+
+                <ImageView
+                    android:id="@+id/product_detail_shop_rating_image"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_margin="3dp"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_shop_certify"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_shop_certify"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_shop_certify"
+                    android:src="@drawable/icon_product_detail_shop_rating"/>
+
+                <TextView
+                    android:id="@+id/product_detail_shop_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.0"
+                    android:textColor="@color/home_recommend_item_gray"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_shop_rating_image"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_shop_certify"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_shop_certify"/>
+
+                <ImageView
+                    android:id="@+id/product_detail_shop_divider"
+                    android:layout_width="3dp"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="3dp"
+                    android:src="@drawable/icon_home_recommend_divider"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_shop_certify"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_shop_rating"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_shop_certify" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="팔로워 0"
+                    android:textSize="11sp"
+                    android:layout_marginStart="3dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/home_recommend_item_gray"
+                    app:layout_constraintBottom_toBottomOf="@id/product_detail_shop_certify"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_shop_divider"
+                    app:layout_constraintTop_toTopOf="@id/product_detail_shop_certify" />
+
+                <Button
+                    android:outlineProvider="none"
+                    android:id="@+id/product_detail_shop_follow"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:textSize="10sp"
+                    android:background="@drawable/background_btn_product_detail_lightning_talk"
+                    android:text="팔로우"
+                    android:textStyle="bold"
+                    android:textColor="@color/product_detail_button_safe_pay"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/product_detail_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/line_top"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/product_detail_btn_zzim"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.15">
+
+            <CheckBox
+                android:id="@+id/product_detail_checkbox_zzim"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:button="@drawable/checkbox_product_detail_zzim_selector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:outlineProvider="none"
+            android:id="@+id/product_detail_btn_lightning_talk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_btn_product_detail_lightning_talk"
+            android:text="번개톡"
+            android:textColor="@color/product_detail_button_safe_pay"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/product_detail_btn_safe_pay"
+            app:layout_constraintStart_toEndOf="@+id/product_detail_btn_zzim"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:outlineProvider="none"
+            android:id="@+id/product_detail_btn_safe_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_btn_product_detail_safe_pay"
+            android:text="안전하게 결제하기"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/product_detail_btn_lightning_talk"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

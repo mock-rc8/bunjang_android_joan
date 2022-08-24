@@ -16,17 +16,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bunjang"
         tools:targetApi="31">
-        <activity android:name=".src.login.LoginPhoneActivity"
+        <activity
+            android:name=".src.main.home.HomeRecommendProductDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".src.login.LoginPhoneActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".src.login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".src.splash.SplashActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".src.main.MainActivity"
             android:exported="true">

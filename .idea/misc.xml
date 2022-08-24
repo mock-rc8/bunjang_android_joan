@@ -7,13 +7,27 @@
         <entry key="app/src/main/res/drawable-v24/background_btn_login_kakao.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/background_btn_login_phone_next.xml" value="0.141" />
         <entry key="app/src/main/res/drawable-v24/background_btn_login_phone_next_enable_false.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/background_btn_product_detail_event.xml" value="0.1335" />
+        <entry key="app/src/main/res/drawable-v24/background_btn_product_detail_lightning_talk.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable-v24/background_btn_product_detail_option.xml" value="0.1865" />
+        <entry key="app/src/main/res/drawable-v24/background_btn_product_detail_safe_pay.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable-v24/background_btn_product_detail_tag.xml" value="0.172" />
         <entry key="app/src/main/res/drawable-v24/bottom_nav_selector_color.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/checkbox_drawable_home_recommend_zzim_check.xml" value="0.102" />
+        <entry key="app/src/main/res/drawable-v24/checkbox_drawable_product_detail_zzim_uncheck.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/checkbox_drawable_terms.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/checkbox_drawable_terms_selected.xml" value="0.103" />
         <entry key="app/src/main/res/drawable-v24/checkbox_item_home_recommend_zzim_check.xml" value="0.1455" />
         <entry key="app/src/main/res/drawable-v24/checkbox_item_home_recommend_zzim_selector.xml" value="0.1455" />
         <entry key="app/src/main/res/drawable-v24/checkbox_item_login_phone_telecom_selector.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/checkbox_item_login_phone_terms_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/checkbox_product_detail_zzim_selector.xml" value="0.102" />
+        <entry key="app/src/main/res/drawable-v24/icon_product_detail_heart_drawable.xml" value="0.1435" />
+        <entry key="app/src/main/res/drawable-v24/icon_product_detail_see_drawable.xml" value="0.1435" />
+        <entry key="app/src/main/res/drawable-v24/icon_product_detail_talk_drawable.xml" value="0.1435" />
+        <entry key="app/src/main/res/drawable-v24/icon_product_detail_talk_see.xml" value="0.1435" />
+        <entry key="app/src/main/res/drawable-v24/line_bottom.xml" value="0.1485" />
+        <entry key="app/src/main/res/drawable-v24/line_top.xml" value="0.192" />
         <entry key="app/src/main/res/drawable-v24/shape_login_phone_cursor.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/shape_viewpager_black.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/shape_viewpager_gray.xml" value="0.1" />
@@ -26,14 +40,16 @@
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line.xml" value="0.1665" />
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line_focus.xml" value="0.163" />
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/checkbox_drawable_home_recommend_zzim_uncheck.xml" value="0.102" />
         <entry key="app/src/main/res/drawable/checkbox_drawable_telecom.xml" value="0.132" />
         <entry key="app/src/main/res/drawable/checkbox_drawable_telecom_selected.xml" value="0.132" />
         <entry key="app/src/main/res/drawable/checkbox_item_home_recommend_zzim_uncheck.xml" value="0.1455" />
+        <entry key="app/src/main/res/drawable/icon_home_recommend_heart_count_drawable.xml" value="0.1435" />
         <entry key="app/src/main/res/drawable/inputbox_normal.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/item_home_recommend_heart_count_drawable.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category_in.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_home_recommend_product_detail.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_home_recommend_product_detail.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login_phone.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
