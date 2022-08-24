@@ -67,6 +67,7 @@ abstract class BaseFragment<B : ViewBinding>(
         }
     }
 
+    // 상태창 높이 계산
     fun Context.statusBarHeight(): Int {
         val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
 

@@ -49,6 +49,7 @@
         <entry key="app/src/main/res/layout/fragment_recommend.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/item_home_ad_view_pager.xml" value="0.1171875" />
         <entry key="app/src/main/res/layout/item_home_category.xml" value="0.5" />
         <entry key="app/src/main/res/layout/item_home_recommend.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_login_phone_telecom.xml" value="0.335" />

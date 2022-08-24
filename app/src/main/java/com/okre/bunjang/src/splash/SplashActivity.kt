@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.animation.AnimationUtils
 import com.okre.bunjang.R
+import com.okre.bunjang.config.ApplicationClass
 import com.okre.bunjang.config.BaseActivity
 import com.okre.bunjang.databinding.ActivitySplashBinding
 import com.okre.bunjang.src.login.LoginActivity
@@ -15,15 +16,19 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val jwtToken: String? = ApplicationClass.loginSharedPreferences.getString(ApplicationClass.X_ACCESS_TOKEN, null)
+
         val animation = AnimationUtils.loadAnimation(this, R.anim.scale)
         binding.splashImage.startAnimation(animation)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            // 로그인 o
-            //startActivity(Intent(this, MainActivity::class.java))
-            // 로그인 x
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+            if (jwtToken != null) {// 로그인 o
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            } else {// 로그인 x
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
         }, 1500)
     }
 }
