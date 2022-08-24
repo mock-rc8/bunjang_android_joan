@@ -17,7 +17,8 @@
             android:id="@+id/product_detail_btn_back"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@drawable/icon_back" />
+            android:background="@drawable/icon_back"
+            android:contentDescription="@string/ImageMissing" />
 
         <ImageView
             android:id="@+id/product_detail_btn_share"
@@ -25,7 +26,8 @@
             android:layout_height="23dp"
             android:layout_gravity="end"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/icon_product_detail_share" />
+            android:background="@drawable/icon_product_detail_share"
+            android:contentDescription="@string/ImageMissing" />
 
         <ImageView
             android:id="@+id/product_detail_btn_search"
@@ -33,7 +35,8 @@
             android:layout_height="25dp"
             android:layout_gravity="end"
             android:layout_marginEnd="25dp"
-            android:background="@drawable/icon_home_toolbar_search" />
+            android:background="@drawable/icon_home_toolbar_search"
+            android:contentDescription="@string/ImageMissing" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -91,7 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="15,000원"
+                    android:text="@string/product_detail_price"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -103,6 +106,7 @@
                     android:layout_width="40dp"
                     android:layout_height="17dp"
                     android:layout_marginStart="5dp"
+                    android:contentDescription="@string/ImageMissing"
                     android:src="@drawable/icon_home_recommend_lightning_pay"
                     app:layout_constraintBottom_toBottomOf="@+id/product_detail_textview_price"
                     app:layout_constraintStart_toEndOf="@+id/product_detail_textview_price"
@@ -113,7 +117,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
-                    android:text="제목"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -125,7 +128,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
-                    android:text="지역정보 없음"
+                    android:text="@string/product_detail_location"
                     android:textColor="@color/home_recommend_item_gray"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -137,6 +140,7 @@
                     android:layout_width="3dp"
                     android:layout_height="3dp"
                     android:layout_marginStart="5dp"
+                    android:contentDescription="@string/ImageMissing"
                     android:src="@drawable/icon_home_recommend_divider"
                     app:layout_constraintBottom_toBottomOf="@+id/product_detail_location"
                     app:layout_constraintStart_toEndOf="@+id/product_detail_location"
@@ -147,7 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:text="10분 전"
+                    android:text="@string/product_detail_time"
                     android:textColor="@color/home_recommend_item_gray"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -159,9 +163,9 @@
                     android:id="@+id/product_detail_talk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/icon_product_detail_talk_drawable"
                     android:drawablePadding="@dimen/product_detail_textview_drawable_padding"
-                    android:text="0"
+                    android:text="@string/product_detail_default_number"
+                    app:drawableStartCompat="@drawable/icon_product_detail_talk_drawable"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/product_detail_title" />
 
@@ -170,9 +174,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/product_detail_textview_drawable_margin"
-                    android:drawableLeft="@drawable/icon_product_detail_heart_drawable"
                     android:drawablePadding="@dimen/product_detail_textview_drawable_padding"
-                    android:text="0"
+                    android:text="@string/product_detail_default_number"
+                    app:drawableStartCompat="@drawable/icon_product_detail_heart_drawable"
                     app:layout_constraintBottom_toBottomOf="@+id/product_detail_talk"
                     app:layout_constraintEnd_toStartOf="@+id/product_detail_talk"
                     app:layout_constraintTop_toTopOf="@+id/product_detail_talk" />
@@ -182,9 +186,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/product_detail_textview_drawable_margin"
-                    android:drawableLeft="@drawable/icon_product_detail_see_drawable"
                     android:drawablePadding="@dimen/product_detail_textview_drawable_padding"
-                    android:text="0"
+                    android:text="@string/product_detail_default_number"
+                    app:drawableStartCompat="@drawable/icon_product_detail_see_drawable"
                     app:layout_constraintBottom_toBottomOf="@+id/product_detail_talk"
                     app:layout_constraintEnd_toStartOf="@+id/product_detail_heart"
                     app:layout_constraintTop_toTopOf="@+id/product_detail_talk" />
@@ -204,7 +208,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:text="이벤트"
+                        android:text="@string/product_detail_event_title"
                         android:textColor="@color/black"
                         android:textSize="13sp"
                         android:textStyle="bold"
@@ -216,22 +220,23 @@
                         android:id="@+id/product_detail_event_content"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="카드 최대 12개월 무이자 할부"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/product_detail_event_content"
                         android:textColor="@color/black"
                         android:textSize="13sp"
-                        app:layout_constraintBottom_toBottomOf="@id/product_detail_event_title"
-                        app:layout_constraintStart_toEndOf="@id/product_detail_event_title"
-                        app:layout_constraintTop_toTopOf="@id/product_detail_event_title" />
+                        app:layout_constraintBottom_toBottomOf="@+id/product_detail_event_title"
+                        app:layout_constraintStart_toEndOf="@+id/product_detail_event_title"
+                        app:layout_constraintTop_toTopOf="@+id/product_detail_event_title" />
 
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/ImageMissing"
                         android:src="@drawable/icon_next"
-                        app:layout_constraintBottom_toBottomOf="@id/product_detail_event_title"
+                        app:layout_constraintBottom_toBottomOf="@+id/product_detail_event_title"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/product_detail_event_title"
+                        app:layout_constraintTop_toTopOf="@+id/product_detail_event_title"
                         app:tint="@color/product_detail_gray" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -250,10 +255,10 @@
                     android:id="@+id/product_detail_option_new_or_old"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/background_btn_product_detail_option"
                     android:padding="@dimen/product_detail_textview_option_padding"
-                    android:text="중고상품"
-                    android:layout_marginTop="15dp"
+                    android:text="@string/product_detail_option_old"
                     android:textSize="@dimen/product_detail_textview_option_size"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -265,24 +270,24 @@
                     android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
                     android:background="@drawable/background_btn_product_detail_option"
                     android:padding="@dimen/product_detail_textview_option_padding"
-                    android:text="총 1개"
+                    android:text="@string/product_detail_option_count"
                     android:textSize="@dimen/product_detail_textview_option_size"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_option_new_or_old"
                     app:layout_constraintStart_toEndOf="@+id/product_detail_option_new_or_old"
-                    app:layout_constraintTop_toTopOf="@+id/product_detail_option_new_or_old"
-                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_option_new_or_old"/>
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_option_new_or_old" />
 
                 <TextView
                     android:id="@+id/product_detail_option_ship"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
                     android:background="@drawable/background_btn_product_detail_option"
                     android:padding="@dimen/product_detail_textview_option_padding"
-                    android:text="배송비별도"
-                    android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
+                    android:text="@string/product_detail_option_ship"
                     android:textSize="@dimen/product_detail_textview_option_size"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_option_new_or_old"
                     app:layout_constraintStart_toEndOf="@+id/product_detail_option_count"
-                    app:layout_constraintTop_toTopOf="@+id/product_detail_option_new_or_old"
-                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_option_new_or_old"/>
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_option_new_or_old" />
 
                 <TextView
                     android:id="@+id/product_detail_option_exchange"
@@ -291,30 +296,29 @@
                     android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
                     android:background="@drawable/background_btn_product_detail_option"
                     android:padding="@dimen/product_detail_textview_option_padding"
-                    android:text="교환불가"
+                    android:text="@string/product_detail_option_exchange_impossible"
                     android:textSize="@dimen/product_detail_textview_option_size"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_option_new_or_old"
                     app:layout_constraintStart_toEndOf="@+id/product_detail_option_ship"
-                    app:layout_constraintTop_toTopOf="@+id/product_detail_option_new_or_old"
-                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_option_new_or_old"/>
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_option_new_or_old" />
 
                 <TextView
                     android:id="@+id/product_detail_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="내용"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginTop="15dp"
                     android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/product_detail_option_new_or_old" />
 
                 <TextView
                     android:id="@+id/product_detail_tag_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/background_btn_product_detail_tag"
                     android:padding="@dimen/product_detail_textview_option_padding"
                     android:text="tag"
-                    android:layout_marginTop="15dp"
                     android:textSize="@dimen/product_detail_textview_option_size"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/product_detail_content" />
@@ -325,8 +329,8 @@
                 android:id="@+id/product_detail_notify_layout"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:layout_constraintTop_toBottomOf="@+id/product_detail_content_layout"
-                android:layout_marginHorizontal="@dimen/product_detail_layout_margin">
+                android:layout_marginHorizontal="@dimen/product_detail_layout_margin"
+                app:layout_constraintTop_toBottomOf="@+id/product_detail_content_layout">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -334,13 +338,14 @@
                     android:text="신고하기"
                     android:textSize="13sp"
                     android:textStyle="bold"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:contentDescription="@string/ImageMissing"
                     android:src="@drawable/icon_next"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -353,31 +358,32 @@
                 android:id="@+id/product_detail_caution_imageview"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:scaleType="fitXY"
-                app:layout_constraintBottom_toTopOf="@+id/product_detail_view_divider"
-                app:layout_constraintTop_toBottomOf="@+id/product_detail_notify_layout"
                 android:layout_marginHorizontal="@dimen/product_detail_layout_margin"
-                android:src="@drawable/image_caution"/>
+                android:scaleType="fitXY"
+                android:src="@drawable/image_caution"
+                app:layout_constraintBottom_toTopOf="@+id/product_detail_view_divider"
+                app:layout_constraintTop_toBottomOf="@+id/product_detail_notify_layout" />
 
             <View
                 android:id="@+id/product_detail_view_divider"
                 android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
                 android:layout_height="5dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/product_detail_gray"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_caution_imageview" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                app:layout_constraintTop_toBottomOf="@+id/product_detail_view_divider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/product_detail_layout_margin"
                 android:layout_marginTop="20dp"
-                android:layout_marginHorizontal="@dimen/product_detail_layout_margin">
+                app:layout_constraintTop_toBottomOf="@+id/product_detail_view_divider">
 
                 <ImageView
                     android:id="@+id/product_detail_shop_profile"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:contentDescription="@string/ImageMissing"
                     android:src="@drawable/icon_product_detail_shop_profile"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -392,48 +398,50 @@
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@id/product_detail_shop_profile"
-                    app:layout_constraintTop_toTopOf="@id/product_detail_shop_profile" />
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_shop_profile"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_shop_profile" />
 
                 <TextView
                     android:id="@+id/product_detail_shop_certify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
                     android:text="본인인증"
                     android:textColor="@color/black"
-                    android:layout_marginStart="5dp"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@id/product_detail_shop_profile"
-                    app:layout_constraintTop_toBottomOf="@id/product_detail_shop_name" />
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_shop_profile"
+                    app:layout_constraintTop_toBottomOf="@+id/product_detail_shop_name" />
 
                 <ImageView
                     android:id="@+id/product_detail_shop_rating_image"
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_margin="3dp"
-                    app:layout_constraintStart_toEndOf="@+id/product_detail_shop_certify"
-                    app:layout_constraintTop_toTopOf="@+id/product_detail_shop_certify"
+                    android:contentDescription="@string/ImageMissing"
+                    android:src="@drawable/icon_product_detail_shop_rating"
                     app:layout_constraintBottom_toBottomOf="@+id/product_detail_shop_certify"
-                    android:src="@drawable/icon_product_detail_shop_rating"/>
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_shop_certify"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_shop_certify" />
 
                 <TextView
                     android:id="@+id/product_detail_shop_rating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0.0"
+                    android:text="@string/product_detail_shop_rating"
                     android:textColor="@color/home_recommend_item_gray"
                     android:textSize="12sp"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_shop_certify"
                     app:layout_constraintStart_toEndOf="@+id/product_detail_shop_rating_image"
-                    app:layout_constraintTop_toTopOf="@+id/product_detail_shop_certify"
-                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_shop_certify"/>
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_shop_certify" />
 
                 <ImageView
                     android:id="@+id/product_detail_shop_divider"
                     android:layout_width="3dp"
                     android:layout_height="3dp"
                     android:layout_marginStart="3dp"
+                    android:contentDescription="@string/ImageMissing"
                     android:src="@drawable/icon_home_recommend_divider"
                     app:layout_constraintBottom_toBottomOf="@+id/product_detail_shop_certify"
                     app:layout_constraintStart_toEndOf="@+id/product_detail_shop_rating"
@@ -442,25 +450,25 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="팔로워 0"
-                    android:textSize="11sp"
                     android:layout_marginStart="3dp"
-                    android:textStyle="bold"
+                    android:text="@string/product_detail_shop_follow_number"
                     android:textColor="@color/home_recommend_item_gray"
-                    app:layout_constraintBottom_toBottomOf="@id/product_detail_shop_certify"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_shop_certify"
                     app:layout_constraintStart_toEndOf="@+id/product_detail_shop_divider"
-                    app:layout_constraintTop_toTopOf="@id/product_detail_shop_certify" />
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_shop_certify" />
 
                 <Button
-                    android:outlineProvider="none"
                     android:id="@+id/product_detail_shop_follow"
                     android:layout_width="50dp"
                     android:layout_height="30dp"
-                    android:textSize="10sp"
                     android:background="@drawable/background_btn_product_detail_lightning_talk"
+                    android:outlineProvider="none"
                     android:text="팔로우"
-                    android:textStyle="bold"
                     android:textColor="@color/product_detail_button_safe_pay"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -499,11 +507,11 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
-            android:outlineProvider="none"
             android:id="@+id/product_detail_btn_lightning_talk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/background_btn_product_detail_lightning_talk"
+            android:outlineProvider="none"
             android:text="번개톡"
             android:textColor="@color/product_detail_button_safe_pay"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -512,11 +520,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:outlineProvider="none"
             android:id="@+id/product_detail_btn_safe_pay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/background_btn_product_detail_safe_pay"
+            android:outlineProvider="none"
             android:text="안전하게 결제하기"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

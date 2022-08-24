@@ -56,4 +56,20 @@
     <string name="home_viewpager_count">%1$d/%2$d</string>
     <string name="home_recommend_title">%1$s님을 위한\n추천 상품 보고 가세요👀👇</string>
 
+    <!-- product_detail -->
+    <string name="product_detail_price">%1$s원</string>
+    <string name="product_detail_location">지역정보 없음</string>
+    <string name="product_detail_time">%1$s 전</string>
+    <string name="product_detail_default_number">0</string>
+    <string name="product_detail_event_title">이벤트</string>
+    <string name="product_detail_event_content">카드 최대 12개월 무이자 할부</string>
+    <string name="product_detail_option_new">새상품</string>
+    <string name="product_detail_option_old">중고상품</string>
+    <string name="product_detail_option_count">총 %1$s개</string>
+    <string name="product_detail_option_ship_plus">배송비포함</string>
+    <string name="product_detail_option_exchange_possible">배송비별도</string>
+    <string name="product_detail_option_exchange_impossible">교환불가</string>
+    <string name="product_detail_option_ship">배송비별도</string>
+    <string name="product_detail_shop_rating">0.0</string>
+    <string name="product_detail_shop_follow_number">팔로워 0</string>
 </resources>
