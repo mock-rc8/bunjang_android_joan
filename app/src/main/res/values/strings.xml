@@ -72,4 +72,15 @@
     <string name="product_detail_option_ship">배송비별도</string>
     <string name="product_detail_shop_rating">0.0</string>
     <string name="product_detail_shop_follow_number">팔로워 0</string>
+
+    <!-- dialog_safe_pay -->
+    <string name="dialog_safe_pay_title_top">번개페이 안전결제로\n구매를 시작합니다</string>
+    <string name="dialog_safe_pay_title_bottom">거래방법을 선택해주세요</string>
+    <string name="dialog_safe_pay_ship_top">택배거래</string>
+    <string name="dialog_safe_pay_ship_bottom">상품을 받을 때까지 결제금액을 보관해요</string>
+    <string name="dialog_safe_pay_direct_top">직거래</string>
+    <string name="dialog_safe_pay_direct_bottom">현금없이 간편하게 결제할 수 있어요</string>
+    <string name="dialog_safe_pay_button_next">다음</string>
+    <string name="dialog_safe_pay_button_explain"><u>번개페이 안전결제란?</u></string>
+
 </resources>

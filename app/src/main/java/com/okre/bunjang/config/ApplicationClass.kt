@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 
 class ApplicationClass : Application() {
 
-    val API_URL = "http://prod.jmlee.shop/"
+    val API_URL = "https://prod.jmlee.shop/"
 
     // 코틀린의 전역변수 문법
     companion object {

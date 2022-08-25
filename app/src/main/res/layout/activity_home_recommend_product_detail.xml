@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".src.main.home.HomeRecommendProductDetailActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -35,6 +36,7 @@
             android:layout_height="25dp"
             android:layout_gravity="end"
             android:layout_marginEnd="25dp"
+            android:backgroundTint="@color/black"
             android:background="@drawable/icon_home_toolbar_search"
             android:contentDescription="@string/ImageMissing" />
 
@@ -65,6 +67,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/icon_product_detail_lightning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
                 <TextView
                     android:id="@+id/home_ad_viewpager_count"
                     android:layout_width="60dp"
@@ -102,7 +111,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/product_detail_img_thunder_pay"
+                    android:id="@+id/product_detail_img_lightning_pay"
                     android:layout_width="40dp"
                     android:layout_height="17dp"
                     android:layout_marginStart="5dp"
@@ -478,6 +487,69 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/product_detail_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_detail_toolbar">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/product_detail_top_cardview"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/product_detail_top_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/product_detail_top_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/product_detail_price"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginStart="@dimen/product_detail_top_margin_start"
+            app:layout_constraintStart_toEndOf="@+id/product_detail_top_cardview"
+            app:layout_constraintTop_toTopOf="@+id/product_detail_top_cardview"/>
+
+        <ImageView
+            android:id="@+id/product_detail_top_lightning_pay"
+            android:layout_width="40dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="5dp"
+            android:contentDescription="@string/ImageMissing"
+            android:src="@drawable/icon_home_recommend_lightning_pay"
+            app:layout_constraintStart_toEndOf="@+id/product_detail_top_price"
+            app:layout_constraintTop_toTopOf="@+id/product_detail_top_price"
+            app:layout_constraintBottom_toBottomOf="@+id/product_detail_top_price"/>
+
+        <TextView
+            android:id="@+id/product_detail_top_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="제목"
+            android:layout_marginStart="@dimen/product_detail_top_margin_start"
+            android:textSize="13sp"
+            android:textColor="@color/product_detail_gray"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/product_detail_top_cardview"
+            app:layout_constraintTop_toBottomOf="@+id/product_detail_top_price"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/product_detail_bottom"

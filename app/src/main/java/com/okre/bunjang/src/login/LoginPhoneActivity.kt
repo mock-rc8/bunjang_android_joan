@@ -23,9 +23,12 @@ import com.okre.bunjang.src.login.adpater.LoginPhoneTelecomAdapter
 import com.okre.bunjang.src.login.adpater.LoginPhoneTermsAdapter
 import com.okre.bunjang.src.login.item.LoginPhoneTelecomItem
 import com.okre.bunjang.src.login.item.LoginPhoneTermsItem
+import com.okre.bunjang.src.login.model.SignRequest
+import com.okre.bunjang.src.login.model.SignResponse
 import com.okre.bunjang.src.main.MainActivity
 
-class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLoginPhoneBinding::inflate) {
+class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLoginPhoneBinding::inflate),
+    LoginActivityInterface {
 
     var item : MutableList<LoginPhoneTelecomItem> = arrayListOf()
     private lateinit var telecomBottomSheetDialog : BottomSheetDialog
@@ -33,6 +36,14 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
     private lateinit var termsBottomSheetDialog : BottomSheetDialog
     private var firstClick = false
     private var lastClick = false
+
+    var carrier: String = ""
+    var name: String = ""
+    var password: String = ""
+    var phoneNum: String = ""
+    var residentNumFirst: String = ""
+    var residentNumLast: String = ""
+    var storeName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -136,6 +147,7 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
         rvadapterLoginPhoneTelecom.itemClick = object : LoginPhoneTelecomAdapter.ItemClick {
             override fun onClick(view: View, position: Int, text: String) {
                 binding.loginPhoneButtonTelecom.setText(text)
+                carrier = text
                 binding.loginPhoneButtonTelecom.setTextColor(ContextCompat.getColor(this@LoginPhoneActivity, R.color.black))
                 telecomBottomSheetDialog.dismiss()
                 binding.loginPhoneLayoutPhoneNumber.visibility = View.VISIBLE
@@ -313,15 +325,48 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
             }
         } else if (!firstClick && lastClick) {
             binding.loginPhoneButtonNext.setOnClickListener {
-                val intent = Intent(this, MainActivity::class.java)
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK) // loginactivity 종료
-                startActivity(intent)
+                signUp()
             }
         } else {
             binding.loginPhoneButtonNext.setOnClickListener {
+                login()
+                // 유효성 검사
+                // 유효성 검사 완료 & 로그인 성공  dialog 띄우기 -> 메인
+                // 유효성 검사 완료 & 로그인 실패(회원정보 없음) dialog 띄우기 -> 상점명 -> 회원가입
                 termsBottomSheetDialog.show()
             }
         }
+    }
+
+    // 로그인
+    fun login() {
+        name = binding.loginPhoneEdittextName.text.toString()
+        password = binding.loginPhoneEdittextPassword.text.toString()
+        phoneNum = binding.loginPhoneEdittextPhoneNumber.text.toString()
+        residentNumFirst = binding.loginPhoneEdittextBirth.text.toString()
+        residentNumLast = binding.loginPhoneEdittextBirthGender.text.toString()
+
+    }
+
+    // 회원가입
+    fun signUp() {
+        storeName = binding.loginPhoneEdittextShopName.text.toString()
+        val signPostRequest = SignRequest(carrier, name, password, phoneNum, residentNumFirst, residentNumLast, storeName)
+        showLoadingDialog(this)
+        LoginService(this).tryPostSignUp(signPostRequest)
+    }
+
+    // 회원가입 성공
+    override fun onPostSignUpSuccess(response: SignResponse) {
+        dismissLoadingDialog()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK) // loginactivity 종료
+        startActivity(intent)
+    }
+
+    // 회원가입 실패
+    override fun onPostSignUpFailure(message: String) {
+        showCustomToast("오류 : $message")
     }
 
 }

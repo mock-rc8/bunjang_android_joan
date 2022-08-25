@@ -26,5 +26,6 @@
     <dimen name="product_detail_textview_option_size">11sp</dimen>
     <dimen name="product_detail_textview_option_padding">5dp</dimen>
     <dimen name="product_detail_textview_option_margin_start">5dp</dimen>
+    <dimen name="product_detail_top_margin_start">5dp</dimen>
 
 </resources>

@@ -35,6 +35,7 @@
         <entry key="app/src/main/res/drawable-v24/shape_viewpager_indicator_select.xml" value="0.24" />
         <entry key="app/src/main/res/drawable/background_btn_home_viewpager_text.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/background_btn_login_phone_next_enable_true.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_btn_safe_pay_check.xml" value="0.1785" />
         <entry key="app/src/main/res/drawable/background_btn_terms_accept_all.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/background_btn_terms_accept_all_checked.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line.xml" value="0.1665" />
@@ -49,7 +50,7 @@
         <entry key="app/src/main/res/drawable/item_home_recommend_heart_count_drawable.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category_in.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_home_recommend_product_detail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_home_recommend_product_detail.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login_phone.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -58,6 +59,7 @@
         <entry key="app/src/main/res/layout/dialog_login_other.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_login_phone_telecom.xml" value="0.11153846153846154" />
         <entry key="app/src/main/res/layout/dialog_login_phone_terms.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dialog_product_detail_safe_pay.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home_brand.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home_recommend.xml" value="0.1" />
@@ -67,7 +69,7 @@
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/item_home_ad_view_pager.xml" value="0.1171875" />
-        <entry key="app/src/main/res/layout/item_home_category.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/item_home_category.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_home_recommend.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_login_phone_telecom.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_login_phone_terms.xml" value="0.28125" />
