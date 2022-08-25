@@ -1,5 +1,7 @@
 package com.okre.bunjang.src.login
 
+import com.okre.bunjang.src.login.model.LoginRequest
+import com.okre.bunjang.src.login.model.LoginResponse
 import com.okre.bunjang.src.login.model.SignRequest
 import com.okre.bunjang.src.login.model.SignResponse
 import retrofit2.Call
@@ -13,4 +15,10 @@ interface LoginRetrofitInterface {
         @Body
         params: SignRequest
     ): Call<SignResponse>
+
+    @POST("/bunjang/users/log-in")
+    fun postLogin(
+        @Body
+        params: LoginRequest
+    ): Call<LoginResponse>
 }

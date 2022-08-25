@@ -23,6 +23,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
     var homeAdViewPagerList = mutableListOf<Int>()
     private lateinit var handler : Handler
+    private lateinit var thread : Thread
     private var currentPosition = 0
     var categoryList = mutableListOf<HomeCategoryItem>()
     private val tabTitleArray = arrayOf("추천상품", "브랜드")
@@ -47,7 +48,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
             true
         }
 
-        val thread = Thread(PagerRunnable())
+        thread = Thread(PagerRunnable())
         thread.start()
 
         categoryRecyclerview()

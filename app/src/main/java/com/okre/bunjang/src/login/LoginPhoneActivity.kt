@@ -17,12 +17,16 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.okre.bunjang.R
+import com.okre.bunjang.config.ApplicationClass.Companion.X_ACCESS_TOKEN
+import com.okre.bunjang.config.ApplicationClass.Companion.loginSPEditor
 import com.okre.bunjang.config.BaseActivity
 import com.okre.bunjang.databinding.ActivityLoginPhoneBinding
 import com.okre.bunjang.src.login.adpater.LoginPhoneTelecomAdapter
 import com.okre.bunjang.src.login.adpater.LoginPhoneTermsAdapter
 import com.okre.bunjang.src.login.item.LoginPhoneTelecomItem
 import com.okre.bunjang.src.login.item.LoginPhoneTermsItem
+import com.okre.bunjang.src.login.model.LoginRequest
+import com.okre.bunjang.src.login.model.LoginResponse
 import com.okre.bunjang.src.login.model.SignRequest
 import com.okre.bunjang.src.login.model.SignResponse
 import com.okre.bunjang.src.main.MainActivity
@@ -36,6 +40,7 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
     private lateinit var termsBottomSheetDialog : BottomSheetDialog
     private var firstClick = false
     private var lastClick = false
+    private var loginPass = false
 
     var carrier: String = ""
     var name: String = ""
@@ -276,18 +281,28 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
 
         // 약관동의 버튼 click
         termsButtonCheck.setOnClickListener {
-            binding.loginPhoneLayoutName.visibility = View.GONE
-            binding.loginPhoneLayoutBirth.visibility = View.GONE
-            binding.loginPhoneLayoutTelecom.visibility = View.GONE
-            binding.loginPhoneLayoutPhoneNumber.visibility = View.GONE
-            binding.loginPhoneLayoutPassword.visibility = View.GONE
-            binding.loginPhoneLayoutShopName.visibility = View.VISIBLE
 
             termsBottomSheetDialog.dismiss()
-            binding.loginPhoneTitleTop.setText(R.string.login_phone_title_shop_top)
-            binding.loginPhoneTitleBottom.setText(R.string.login_phone_title_shop_bottom)
-            binding.loginPhoneButtonNext.isEnabled = false
-            showKeyboard(binding.loginPhoneEdittextShopName)
+
+            if (loginPass) {
+                // 로그인
+                val intent = Intent(this, MainActivity::class.java)
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK) // loginactivity 종료
+                startActivity(intent)
+            } else {
+                // 회원가입
+                binding.loginPhoneLayoutName.visibility = View.GONE
+                binding.loginPhoneLayoutBirth.visibility = View.GONE
+                binding.loginPhoneLayoutTelecom.visibility = View.GONE
+                binding.loginPhoneLayoutPhoneNumber.visibility = View.GONE
+                binding.loginPhoneLayoutPassword.visibility = View.GONE
+                binding.loginPhoneLayoutShopName.visibility = View.VISIBLE
+
+                binding.loginPhoneTitleTop.setText(R.string.login_phone_title_shop_top)
+                binding.loginPhoneTitleBottom.setText(R.string.login_phone_title_shop_bottom)
+                binding.loginPhoneButtonNext.isEnabled = false
+                showKeyboard(binding.loginPhoneEdittextShopName)
+            }
         }
     }
 
@@ -330,10 +345,6 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
         } else {
             binding.loginPhoneButtonNext.setOnClickListener {
                 login()
-                // 유효성 검사
-                // 유효성 검사 완료 & 로그인 성공  dialog 띄우기 -> 메인
-                // 유효성 검사 완료 & 로그인 실패(회원정보 없음) dialog 띄우기 -> 상점명 -> 회원가입
-                termsBottomSheetDialog.show()
             }
         }
     }
@@ -345,7 +356,9 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
         phoneNum = binding.loginPhoneEdittextPhoneNumber.text.toString()
         residentNumFirst = binding.loginPhoneEdittextBirth.text.toString()
         residentNumLast = binding.loginPhoneEdittextBirthGender.text.toString()
-
+        val loginPostRequest = LoginRequest(carrier, name, password, phoneNum, residentNumFirst, residentNumLast)
+        showLoadingDialog(this)
+        LoginService(this).tryPostLogin(loginPostRequest)
     }
 
     // 회원가입
@@ -356,16 +369,54 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
         LoginService(this).tryPostSignUp(signPostRequest)
     }
 
-    // 회원가입 성공
+    // 회원가입 서버 통신 성공
     override fun onPostSignUpSuccess(response: SignResponse) {
+
         dismissLoadingDialog()
-        val intent = Intent(this, MainActivity::class.java)
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK) // loginactivity 종료
-        startActivity(intent)
+
+        if (response.code == 1000) { // 요청에 성공하였습니다.
+            // token 저장
+            loginSPEditor.putString(X_ACCESS_TOKEN, response.result.jwt)
+            loginSPEditor.apply()
+
+            // 로그아웃 시 삭제 loginSPEditor.clear() loginSPEditor.apply()
+
+            // 홈화면으로 이동
+            val intent = Intent(this, MainActivity::class.java)
+            //intent.putExtra("")
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK) // loginactivity 종료
+            startActivity(intent)
+        } else {
+            showCustomToast(response.message.toString())
+        }
     }
 
-    // 회원가입 실패
+    // 회원가입 서버 통신 실패
     override fun onPostSignUpFailure(message: String) {
+        showCustomToast("오류 : $message")
+    }
+
+    // 로그인 서버 통신 성공
+    override fun onPostLoginSuccess(response: LoginResponse) {
+
+        dismissLoadingDialog()
+
+        if (response.code == 1000) { // 요청에 성공하였습니다.
+            loginSPEditor.putString(X_ACCESS_TOKEN, response.result.jwt)
+            loginSPEditor.apply()
+
+            loginPass = true
+            termsBottomSheetDialog.show()
+        } else if (response.code == 2021) { // 가입하지 않은 회원입니다.
+            loginPass = false
+            termsBottomSheetDialog.show()
+        } else {
+            showCustomToast(response.message.toString())
+        }
+    }
+
+    // 로그인 서버 통신 실패
+    override fun onPostLoginFailure(message: String) {
         showCustomToast("오류 : $message")
     }
 
