@@ -22,7 +22,7 @@ import com.okre.bunjang.src.main.home.item.HomeCategoryItem
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) {
 
     var homeAdViewPagerList = mutableListOf<Int>()
-    private lateinit var handler : Handler
+    private var handler : Handler? = null
     private lateinit var thread : Thread
     private var currentPosition = 0
     var categoryList = mutableListOf<HomeCategoryItem>()
@@ -89,7 +89,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
             while(true){
                 try {
                     Thread.sleep(3000)
-                    handler.sendEmptyMessage(0)
+                    handler?.sendEmptyMessage(0)
                 } catch (e : InterruptedException){
                     Log.d("error", e.message.toString())
                 }
@@ -129,6 +129,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         super.onDestroyView()
         // 전체화면 취소
         requireActivity().setStatusBarOrigin()
+
+        // handler 멈춤
+        handler = null
     }
 
 }
