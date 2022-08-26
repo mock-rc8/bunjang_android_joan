@@ -92,4 +92,17 @@
     <string name="buy_delivery_area_demand">배송 요청사항(선택)</string>
     <string name="buy_delivery_point_title">번개포인트</string>
     <string name="buy_delivery_point_all">전액사용</string>
+    <string name="buy_delivery_point_possible">사용 가능한 번개 포인트</string>
+    <string name="buy_delivery_payment">결제금액</string>
+    <string name="buy_delivery_payment_explain">번개페이 혜택이\n적용되었습니다!</string>
+    <string name="buy_delivery_payment_detail_see">자세히 보기</string>
+    <string name="buy_delivery_method">결제금액</string>
+    <string name="buy_delivery_method_other_register">결제수단을 등록해주세요</string>
+    <string name="buy_delivery_today_benefit"><u>더보기</u></string>
+    <string name="buy_delivery_agree_title">개인정보 제3자 제공동의와 결제대행 서비스 이용약관에 동의합니다.</string>
+    <string name="buy_delivery_agree_detail_see"><u>자세히 보기</u></string>
+    <string name="buy_delivery_agree_content_1">&quot;BGZT Digital&quot;, &quot;BGZT Lab 1&quot;, &quot;BGZT Lab2&quot;, &quot;BGZT 컬렉션&quot;</string>
+    <string name="buy_delivery_agree_content_2">상점의 판매상품을 제외한 모든 상품들에 대하여, 번개장터(주)는</string>
+    <string name="buy_delivery_agree_content_3">통신판매중개자로서 중고거래마켓 번개장터의 거래 당사자가 아니며,</string>
+    <string name="buy_delivery_agree_content_4">입점판매자가 등록한 상품정보 및 거래에 대해 책임을 지지 않습니다.</string>
 </resources>

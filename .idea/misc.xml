@@ -33,14 +33,22 @@
         <entry key="app/src/main/res/drawable-v24/shape_viewpager_gray.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/shape_viewpager_indicator.xml" value="0.162" />
         <entry key="app/src/main/res/drawable-v24/shape_viewpager_indicator_select.xml" value="0.24" />
+        <entry key="app/src/main/res/drawable/animation_coin.xml" value="0.1145" />
         <entry key="app/src/main/res/drawable/background_btn_home_viewpager_text.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/background_btn_login_phone_next_enable_true.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/background_btn_safe_pay_check.xml" value="0.1785" />
         <entry key="app/src/main/res/drawable/background_btn_terms_accept_all.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/background_btn_terms_accept_all_checked.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/background_dark_gray_radius.xml" value="0.1705" />
+        <entry key="app/src/main/res/drawable/background_dark_green_radius.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/background_dark_yellow_radius.xml" value="0.121" />
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line.xml" value="0.1665" />
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line_focus.xml" value="0.163" />
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_gray_radius.xml" value="0.1675" />
+        <entry key="app/src/main/res/drawable/background_green_radius.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/background_today_benefit_shinhan.xml" value="0.1605" />
+        <entry key="app/src/main/res/drawable/background_yellow_radius.xml" value="0.121" />
         <entry key="app/src/main/res/drawable/checkbox_drawable_home_recommend_zzim_uncheck.xml" value="0.102" />
         <entry key="app/src/main/res/drawable/checkbox_drawable_telecom.xml" value="0.132" />
         <entry key="app/src/main/res/drawable/checkbox_drawable_telecom_selected.xml" value="0.132" />
@@ -59,7 +67,7 @@
         <entry key="app/src/main/res/layout/dialog_loading.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/dialog_login_other.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_login_phone_telecom.xml" value="0.11153846153846154" />
-        <entry key="app/src/main/res/layout/dialog_login_phone_terms.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dialog_login_phone_terms.xml" value="0.165" />
         <entry key="app/src/main/res/layout/dialog_product_detail_safe_pay.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home_brand.xml" value="0.1" />

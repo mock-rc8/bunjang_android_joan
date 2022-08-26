@@ -8,6 +8,7 @@ import com.okre.bunjang.config.ApplicationClass.Companion.loginSPEditor
 import com.okre.bunjang.config.BaseFragment
 import com.okre.bunjang.databinding.FragmentMyBinding
 import com.okre.bunjang.src.login.LoginActivity
+import com.okre.bunjang.src.login.LogoutInterface
 import com.okre.bunjang.src.main.MainActivity
 
 class MyFragment : BaseFragment<FragmentMyBinding>(FragmentMyBinding::bind, R.layout.fragment_my) {
@@ -20,6 +21,8 @@ class MyFragment : BaseFragment<FragmentMyBinding>(FragmentMyBinding::bind, R.la
             loginSPEditor.clear()
             loginSPEditor.apply()
 
+            //LogoutInterface.logoutBtnPush(true)
+
             // 로그인화면으로 이동
             val intent = Intent(context, LoginActivity::class.java)
             requireActivity().finish()
@@ -28,5 +31,7 @@ class MyFragment : BaseFragment<FragmentMyBinding>(FragmentMyBinding::bind, R.la
 
         }
     }
+
+
 
 }

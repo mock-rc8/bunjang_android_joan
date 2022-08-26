@@ -48,7 +48,15 @@
     <color name="product_detail_gray">#E6E6E6</color>
 
     <!-- buy_delivery -->
-    <color name="buy_delivery_area_register_button">#00B885</color>
-
+    <color name="buy_delivery_register_button">#00B885</color>
+    <color name="buy_delivery_register_dark_button">#028A64</color>
+    <color name="buy_delivery_point_all_gray">#F9F9F9</color>
+    <color name="buy_delivery_payment_detail_see">#ffc201</color>
+    <color name="buy_delivery_payment">#fff7da</color>
+    <color name="buy_delivery_payment_tax">#f7f6f7</color>
+    <color name="buy_delivery_payment_final">#D80000</color>
+    <color name="buy_delivery_method_uncheck">#7C7A85</color>
+    <color name="buy_delivery_green">#E8FCF6</color>
+    <color name="buy_delivery_shinhan">#224ae7</color>
 
 </resources>
