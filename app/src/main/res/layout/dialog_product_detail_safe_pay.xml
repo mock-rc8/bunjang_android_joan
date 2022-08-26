@@ -31,7 +31,7 @@
             android:text="@string/dialog_safe_pay_title_bottom" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/dialog_safe_pay_ship_layout"
+            android:id="@+id/dialog_safe_pay_delivery_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -40,7 +40,7 @@
             android:paddingVertical="20dp">
 
             <CheckBox
-                android:id="@+id/dialog_safe_pay_ship_checkbox"
+                android:id="@+id/dialog_safe_pay_delivery_checkbox"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:button="@drawable/checkbox_item_login_phone_telecom_selector"
@@ -49,27 +49,27 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/dialog_safe_pay_ship_top"
+                android:id="@+id/dialog_safe_pay_delivery_top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="@string/dialog_safe_pay_ship_top"
+                android:text="@string/dialog_safe_pay_delivery_top"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/dialog_safe_pay_ship_checkbox"
-                app:layout_constraintTop_toTopOf="@+id/dialog_safe_pay_ship_checkbox" />
+                app:layout_constraintStart_toEndOf="@+id/dialog_safe_pay_delivery_checkbox"
+                app:layout_constraintTop_toTopOf="@+id/dialog_safe_pay_delivery_checkbox" />
 
             <TextView
-                android:id="@+id/dialog_safe_pay_ship_bottom"
+                android:id="@+id/dialog_safe_pay_delivery_bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:text="@string/dialog_safe_pay_ship_bottom"
+                android:text="@string/dialog_safe_pay_delivery_bottom"
                 android:textColor="@color/black"
                 android:textSize="13sp"
-                app:layout_constraintStart_toEndOf="@+id/dialog_safe_pay_ship_checkbox"
-                app:layout_constraintTop_toBottomOf="@+id/dialog_safe_pay_ship_top" />
+                app:layout_constraintStart_toEndOf="@+id/dialog_safe_pay_delivery_checkbox"
+                app:layout_constraintTop_toBottomOf="@+id/dialog_safe_pay_delivery_top" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

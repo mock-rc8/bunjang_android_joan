@@ -50,7 +50,8 @@
         <entry key="app/src/main/res/drawable/item_home_recommend_heart_count_drawable.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category_in.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_home_recommend_product_detail.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_buy_delivery.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_home_recommend_product_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login_phone.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />

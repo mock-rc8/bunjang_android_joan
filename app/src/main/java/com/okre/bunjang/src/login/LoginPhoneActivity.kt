@@ -19,6 +19,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.okre.bunjang.R
 import com.okre.bunjang.config.ApplicationClass.Companion.X_ACCESS_TOKEN
 import com.okre.bunjang.config.ApplicationClass.Companion.loginSPEditor
+import com.okre.bunjang.config.ApplicationClass.Companion.userIdx
 import com.okre.bunjang.config.BaseActivity
 import com.okre.bunjang.databinding.ActivityLoginPhoneBinding
 import com.okre.bunjang.src.login.adpater.LoginPhoneTelecomAdapter
@@ -377,13 +378,13 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
         if (response.code == 1000) { // 요청에 성공하였습니다.
             // token 저장
             loginSPEditor.putString(X_ACCESS_TOKEN, response.result.jwt)
+            loginSPEditor.putInt(userIdx, response.result.userIdx)
             loginSPEditor.apply()
 
             // 로그아웃 시 삭제 loginSPEditor.clear() loginSPEditor.apply()
 
             // 홈화면으로 이동
             val intent = Intent(this, MainActivity::class.java)
-            //intent.putExtra("")
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK) // loginactivity 종료
             startActivity(intent)
         } else {
@@ -403,6 +404,7 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
 
         if (response.code == 1000) { // 요청에 성공하였습니다.
             loginSPEditor.putString(X_ACCESS_TOKEN, response.result.jwt)
+            loginSPEditor.putInt(userIdx, response.result.userIdx)
             loginSPEditor.apply()
 
             loginPass = true

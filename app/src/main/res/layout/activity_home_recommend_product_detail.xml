@@ -286,13 +286,13 @@
                     app:layout_constraintTop_toTopOf="@+id/product_detail_option_new_or_old" />
 
                 <TextView
-                    android:id="@+id/product_detail_option_ship"
+                    android:id="@+id/product_detail_option_delivery"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
                     android:background="@drawable/background_btn_product_detail_option"
                     android:padding="@dimen/product_detail_textview_option_padding"
-                    android:text="@string/product_detail_option_ship"
+                    android:text="@string/product_detail_option_delivery"
                     android:textSize="@dimen/product_detail_textview_option_size"
                     app:layout_constraintBottom_toBottomOf="@+id/product_detail_option_new_or_old"
                     app:layout_constraintStart_toEndOf="@+id/product_detail_option_count"
@@ -308,7 +308,7 @@
                     android:text="@string/product_detail_option_exchange_impossible"
                     android:textSize="@dimen/product_detail_textview_option_size"
                     app:layout_constraintBottom_toBottomOf="@+id/product_detail_option_new_or_old"
-                    app:layout_constraintStart_toEndOf="@+id/product_detail_option_ship"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_option_delivery"
                     app:layout_constraintTop_toTopOf="@+id/product_detail_option_new_or_old" />
 
                 <TextView
@@ -541,7 +541,7 @@
             android:id="@+id/product_detail_top_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="제목"
+            android:text="@string/title_temporary"
             android:layout_marginStart="@dimen/product_detail_top_margin_start"
             android:textSize="13sp"
             android:textColor="@color/product_detail_gray"

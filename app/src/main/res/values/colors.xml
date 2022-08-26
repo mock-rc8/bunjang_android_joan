@@ -45,6 +45,10 @@
     <!--product_detail -->
     <color name="product_detail_button_lightning_talk">#fcf3f3</color>
     <color name="product_detail_button_safe_pay">#D80000</color>
-    <color name="product_detail_gray">#e5e5e5</color>
+    <color name="product_detail_gray">#E6E6E6</color>
+
+    <!-- buy_delivery -->
+    <color name="buy_delivery_area_register_button">#00B885</color>
+
 
 </resources>

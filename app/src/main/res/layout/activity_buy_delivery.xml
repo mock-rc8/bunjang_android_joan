@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".src.main.home.buy.BuyDeliveryActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buy_delivery_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/icon_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@+id/buy_delivery_toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_marginHorizontal="@dimen/buy_delivery_layout_margin_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buy_delivery_title"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="30dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/buy_delivery_cardview"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        app:cardCornerRadius="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/buy_delivery_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/ic_launcher_background" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/buy_delivery_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100,000,000원"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="5dp"
+                        app:layout_constraintStart_toEndOf="@+id/buy_delivery_cardview"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/buy_delivery_title"/>
+
+                    <TextView
+                        android:id="@+id/buy_delivery_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_temporary"
+                        app:layout_constraintStart_toStartOf="@id/buy_delivery_price"
+                        app:layout_constraintTop_toBottomOf="@id/buy_delivery_price"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/buy_delivery_view_divider"
+                android:layout_width="match_parent"
+                android:layout_height="7dp"
+                android:background="@color/product_detail_gray"
+                app:layout_constraintTop_toBottomOf="@+id/product_detail_caution_imageview" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/buy_delivery_layout_margin_horizontal">
+
+                <TextView
+                    android:layout_marginTop="@dimen/buy_delivery_title_margin_top"
+                    android:layout_marginBottom="@dimen/buy_delivery_title_margin_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buy_delivery_area_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/buy_delivery_title_text_size"
+                    android:textStyle="bold" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/buy_delivery_btn_height"
+                    android:background="@drawable/background_btn_product_detail_event"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <TextView
+                        android:id="@+id/buy_delivery_area_register"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/buy_delivery_area_margin_horizontal"
+                        android:text="@string/buy_delivery_area_register"
+                        android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/buy_delivery_area_margin_horizontal"
+                        android:textColor="@color/buy_delivery_area_register_button"
+                        android:text="@string/buy_delivery_area_register_button"
+                        app:layout_constraintBottom_toBottomOf="@+id/buy_delivery_area_register"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/buy_delivery_area_register"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/buy_delivery_btn_height"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/background_btn_product_detail_event"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <TextView
+                        android:id="@+id/buy_delivery_area_demand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/buy_delivery_area_margin_horizontal"
+                        android:text="@string/buy_delivery_area_demand"
+                        android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="@dimen/buy_delivery_area_margin_horizontal"
+                        android:contentDescription="@string/ImageMissing"
+                        android:src="@drawable/icon_login_phone_terms_down"
+                        app:layout_constraintBottom_toBottomOf="@+id/buy_delivery_area_demand"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/buy_delivery_area_demand" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_marginTop="@dimen/buy_delivery_title_margin_top"
+                    android:layout_marginBottom="@dimen/buy_delivery_title_margin_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buy_delivery_point_title"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/buy_delivery_title_text_size"
+                    android:textStyle="bold" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/buy_delivery_btn_height"
+                    android:background="@drawable/background_btn_product_detail_event"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <EditText
+                        android:id="@+id/buy_delivery_point"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/buy_delivery_area_margin_horizontal"
+                        android:hint="@string/product_detail_default_number"
+                        android:textSize="13sp"
+                        android:inputType="number"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/buy_delivery_area_margin_horizontal"
+                        android:text="@string/buy_delivery_point_all"
+                        app:layout_constraintBottom_toBottomOf="@+id/buy_delivery_point"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/buy_delivery_point" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

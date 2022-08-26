@@ -66,21 +66,30 @@
     <string name="product_detail_option_new">새상품</string>
     <string name="product_detail_option_old">중고상품</string>
     <string name="product_detail_option_count">총 %1$s개</string>
-    <string name="product_detail_option_ship_plus">배송비포함</string>
+    <string name="product_detail_option_delivery_plus">배송비포함</string>
     <string name="product_detail_option_exchange_possible">배송비별도</string>
     <string name="product_detail_option_exchange_impossible">교환불가</string>
-    <string name="product_detail_option_ship">배송비별도</string>
+    <string name="product_detail_option_delivery">배송비별도</string>
     <string name="product_detail_shop_rating">0.0</string>
     <string name="product_detail_shop_follow_number">팔로워 0</string>
+    <string name="title_temporary">제목제목제목</string>
 
     <!-- dialog_safe_pay -->
     <string name="dialog_safe_pay_title_top">번개페이 안전결제로\n구매를 시작합니다</string>
     <string name="dialog_safe_pay_title_bottom">거래방법을 선택해주세요</string>
-    <string name="dialog_safe_pay_ship_top">택배거래</string>
-    <string name="dialog_safe_pay_ship_bottom">상품을 받을 때까지 결제금액을 보관해요</string>
+    <string name="dialog_safe_pay_delivery_top">택배거래</string>
+    <string name="dialog_safe_pay_delivery_bottom">상품을 받을 때까지 결제금액을 보관해요</string>
     <string name="dialog_safe_pay_direct_top">직거래</string>
     <string name="dialog_safe_pay_direct_bottom">현금없이 간편하게 결제할 수 있어요</string>
     <string name="dialog_safe_pay_button_next">다음</string>
     <string name="dialog_safe_pay_button_explain"><u>번개페이 안전결제란?</u></string>
 
+    <!-- buy_delivery -->
+    <string name="buy_delivery_title">택배거래, 안전결제로\n구매합니다</string>
+    <string name="buy_delivery_area_title">배송지</string>
+    <string name="buy_delivery_area_register">배송지를 등록해주세요</string>
+    <string name="buy_delivery_area_register_button"><u>등록</u></string>
+    <string name="buy_delivery_area_demand">배송 요청사항(선택)</string>
+    <string name="buy_delivery_point_title">번개포인트</string>
+    <string name="buy_delivery_point_all">전액사용</string>
 </resources>

@@ -7,6 +7,7 @@ import android.os.Looper
 import android.view.animation.AnimationUtils
 import com.okre.bunjang.R
 import com.okre.bunjang.config.ApplicationClass
+import com.okre.bunjang.config.ApplicationClass.Companion.loginSharedPreferences
 import com.okre.bunjang.config.BaseActivity
 import com.okre.bunjang.databinding.ActivitySplashBinding
 import com.okre.bunjang.src.login.LoginActivity
@@ -16,7 +17,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val jwtToken: String? = ApplicationClass.loginSharedPreferences.getString(ApplicationClass.X_ACCESS_TOKEN, null)
+        val jwtToken: String? = loginSharedPreferences.getString(ApplicationClass.X_ACCESS_TOKEN, null)
 
         val animation = AnimationUtils.loadAnimation(this, R.anim.scale)
         binding.splashImage.startAnimation(animation)
