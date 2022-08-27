@@ -38,15 +38,14 @@
 
                     <TextView
                         android:id="@+id/home_ad_viewpager_count"
-                        android:layout_width="60dp"
+                        android:layout_width="48dp"
                         android:layout_height="30dp"
                         android:layout_margin="20dp"
                         android:background="@drawable/background_btn_home_viewpager_text"
                         android:gravity="center"
                         android:text="@string/home_viewpager_count"
                         android:textColor="@color/white"
-                        android:textSize="11sp"
-                        android:textStyle="bold"
+                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -117,32 +116,33 @@
                 <ImageView
                     android:id="@+id/main_home_btn_menu"
                     android:layout_width="18dp"
-                    android:layout_height="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/icon_home_toolbar_menu"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginStart="22dp"
+                    android:src="@drawable/icon_home_toolbar_menu"
                     android:clickable="true" />
 
                 <ImageView
                     android:id="@+id/main_home_btn_alarm"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
                     android:layout_gravity="end"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/icon_home_toolbar_alarm"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="13dp"
+                    android:src="@drawable/icon_home_toolbar_alarm"
                     android:clickable="true" />
 
                 <ImageView
                     android:id="@+id/main_home_btn_search"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
                     android:layout_gravity="end"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/icon_home_toolbar_search"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/icon_home_toolbar_search"
                     android:clickable="true" />
 
             </androidx.appcompat.widget.Toolbar>

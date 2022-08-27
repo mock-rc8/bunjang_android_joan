@@ -59,4 +59,11 @@
     <color name="buy_delivery_green">#E8FCF6</color>
     <color name="buy_delivery_shinhan">#224ae7</color>
 
+    <!-- address_manage -->
+    <color name="add_address_img">#A09EA8</color>
+    <color name="add_address_add_box_color">#E69A00</color>
+    <color name="add_address_add_box_hint_color">#7C7A85</color>
+
+
+
 </resources>

@@ -38,4 +38,7 @@
     <dimen name="buy_delivery_payment_textview_size">17sp</dimen>
     <dimen name="buy_delivery_payment_textview_margin_top">15dp</dimen>
 
+    <!-- address_manage -->
+    <dimen name="add_address_add_padding_bottom">14dp</dimen>
+
 </resources>

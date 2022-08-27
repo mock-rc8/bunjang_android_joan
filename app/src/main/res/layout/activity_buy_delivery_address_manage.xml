@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".src.main.home.buy.BuyDeliveryAddressManageActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/address_manager_toolbar_layout"
+        android:id="@+id/address_manage_toolbar_layout"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,7 +20,7 @@
             android:src="@drawable/icon_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageView
@@ -34,49 +35,222 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/address_manager_add_layout"
+        android:id="@+id/address_manage_add_txt_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/address_manager_toolbar_layout">
+        app:layout_constraintTop_toBottomOf="@+id/address_manage_toolbar_layout">
 
         <TextView
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/address_manager_title"
+            android:text="@string/address_manage_title"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/address_manage_add_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/address_manager_add"
+            android:layout_marginEnd="5dp"
+            android:text="@string/address_manage_add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="5dp"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/address_manager_title"
+        android:id="@+id/address_manage_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_manager_add_layout"
         android:layout_marginStart="5dp"
+        android:text="@string/address_manage_title"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:text="@string/address_manager_title"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address_manage_add_txt_layout" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/address_manager_rv"
-        app:layout_constraintTop_toBottomOf="@+id/address_manager_title"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/address_manage_empty_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"/>
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/background_btn_product_detail_event"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/address_manage_title">
+
+        <ImageView
+            android:id="@+id/address_manage_empty_img"
+            android:layout_width="60dp"
+            android:layout_height="100dp"
+            android:layout_margin="30dp"
+            android:src="@drawable/icon_delivery_area_paper"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/add_address_img" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:text="주소를 추가해주세요"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/address_manage_empty_img" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/address_manage_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/address_manage_title"
+        app:layoutmanage="androidx.recyclerview.widget.LinearLayoutmanage" />
+
+    <LinearLayout
+        android:id="@+id/address_manage_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="5dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@+id/address_manage_title"
+        android:layout_marginTop="30dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/address_manage_add_name_layout"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextColor="@color/add_address_add_box_hint_color"
+            app:boxStrokeColor="@color/add_address_add_box_color">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/address_manage_add_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textCursorDrawable="@color/black"
+                android:hint="이름"
+                android:background="@drawable/background_edittext_bottom_line_selector"
+                android:paddingBottom="@dimen/add_address_add_padding_bottom"
+                android:textStyle="bold" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/address_manage_add_phone_layout"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:boxStrokeColor="@color/add_address_add_box_color"
+            app:hintTextColor="@color/add_address_add_box_hint_color">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/address_manage_add_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="11"
+                android:textCursorDrawable="@color/black"
+                android:background="@drawable/background_edittext_bottom_line_selector"
+                android:paddingBottom="@dimen/add_address_add_padding_bottom"
+                android:hint="휴대폰번호"
+                android:inputType="number"
+                android:textStyle="bold" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/address_manage_add_address_layout"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:boxStrokeColor="@color/add_address_add_box_color"
+            app:hintTextColor="@color/add_address_add_box_hint_color">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/address_manage_add_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textCursorDrawable="@color/black"
+                android:background="@drawable/background_edittext_bottom_line_selector"
+                android:paddingBottom="@dimen/add_address_add_padding_bottom"
+                android:hint="주소"
+                android:textStyle="bold" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/address_manage_add_detail_address_layout"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:boxStrokeColor="@color/add_address_add_box_color"
+            app:hintTextColor="@color/add_address_add_box_hint_color">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/address_manage_add_detail_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textCursorDrawable="@color/black"
+                android:background="@drawable/background_edittext_bottom_line_selector"
+                android:hint="상세주소"
+                android:paddingBottom="14dp"
+                android:textStyle="bold" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/address_manage_add_is_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+            <ImageView
+                android:id="@+id/address_manage_add_is_default_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icon_terms_accept_all_unchecked" />
+
+            <TextView
+                android:id="@+id/address_manage_add_is_default_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="7dp"
+                android:text="기본주소로 설정"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/address_manage_button_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/background_btn_login_phone_next"
+        android:enabled="false"
+        android:text="@string/address_manage_button_next"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

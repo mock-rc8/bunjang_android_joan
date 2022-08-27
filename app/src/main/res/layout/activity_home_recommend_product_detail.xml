@@ -23,8 +23,8 @@
 
         <ImageView
             android:id="@+id/product_detail_btn_share"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_gravity="end"
             android:layout_marginEnd="20dp"
             android:background="@drawable/icon_product_detail_share"
@@ -32,8 +32,8 @@
 
         <ImageView
             android:id="@+id/product_detail_btn_search"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_gravity="end"
             android:layout_marginEnd="25dp"
             android:backgroundTint="@color/black"
@@ -75,17 +75,17 @@
                     android:src="@drawable/icon_product_detail_lightning"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
                     android:id="@+id/home_ad_viewpager_count"
-                    android:layout_width="60dp"
+                    android:layout_width="48dp"
                     android:layout_height="30dp"
                     android:layout_margin="20dp"
                     android:background="@drawable/background_btn_home_viewpager_text"
                     android:gravity="center"
                     android:text="@string/home_viewpager_count"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
-                    android:textStyle="bold"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 
@@ -366,13 +366,14 @@
 
             <ImageView
                 android:id="@+id/product_detail_caution_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_width="391dp"
+                android:layout_height="65dp"
                 android:layout_marginHorizontal="@dimen/product_detail_layout_margin"
                 android:scaleType="fitXY"
                 android:src="@drawable/image_caution"
                 app:layout_constraintBottom_toTopOf="@+id/product_detail_view_divider"
-                app:layout_constraintTop_toBottomOf="@+id/product_detail_notify_layout" />
+                app:layout_constraintTop_toBottomOf="@+id/product_detail_notify_layout"
+                tools:layout_editor_absoluteX="10dp" />
 
             <View
                 android:id="@+id/product_detail_view_divider"
@@ -490,6 +491,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:visibility="gone"
         android:id="@+id/product_detail_top_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -555,7 +557,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/product_detail_bottom"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="90dp"
         android:background="@drawable/line_top"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -571,6 +573,7 @@
                 android:id="@+id/product_detail_checkbox_zzim"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:layout_marginStart="10dp"
                 android:button="@drawable/checkbox_product_detail_zzim_selector"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -586,6 +589,9 @@
             android:background="@drawable/background_btn_product_detail_lightning_talk"
             android:outlineProvider="none"
             android:text="번개톡"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:paddingHorizontal="40dp"
             android:textColor="@color/product_detail_button_safe_pay"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/product_detail_btn_safe_pay"
@@ -593,12 +599,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
+            android:paddingHorizontal="30dp"
             android:id="@+id/product_detail_btn_safe_pay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/background_btn_product_detail_safe_pay"
             android:outlineProvider="none"
             android:text="안전하게 결제하기"
+            android:textStyle="bold"
+            android:textSize="15sp"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

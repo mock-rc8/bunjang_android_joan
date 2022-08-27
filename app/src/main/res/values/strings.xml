@@ -107,10 +107,10 @@
     <string name="buy_delivery_agree_content_3">통신판매중개자로서 중고거래마켓 번개장터의 거래 당사자가 아니며,</string>
     <string name="buy_delivery_agree_content_4">입점판매자가 등록한 상품정보 및 거래에 대해 책임을 지지 않습니다.</string>
 
-    <!-- address_manager -->
-    <string name="address_manager_title">주소 관리</string>
-    <string name="address_manager_add"><u>주소 추가</u></string>
-    <string name="address_manager_modify"><u>수정</u></string>
-    <string name="address_manager_delete"><u>삭제</u></string>
-
+    <!-- address_manage -->
+    <string name="address_manage_title">주소 관리</string>
+    <string name="address_manage_add"><u>주소 추가</u></string>
+    <string name="address_manage_modify"><u>수정</u></string>
+    <string name="address_manage_delete"><u>삭제</u></string>
+    <string name="address_manage_button_next">완료</string>
 </resources>

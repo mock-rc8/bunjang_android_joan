@@ -75,9 +75,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         binding.homeMainAppbar.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
             val alpha = min(abs(verticalOffset/2),255)
             binding.homeToolbar.setBackgroundColor(Color.argb(alpha, 255,255,255))
+            if (alpha > 255 / 2) {
+                binding.mainHomeBtnMenu.setColorFilter(Color.argb(alpha, 0,0,0))
+                binding.mainHomeBtnAlarm.setColorFilter(Color.argb(alpha, 0,0,0))
+                binding.mainHomeBtnSearch.setColorFilter(Color.argb(alpha, 0,0,0))
+            } else {
+                binding.mainHomeBtnMenu.setColorFilter(Color.argb(alpha, 255,255,255))
+                binding.mainHomeBtnAlarm.setColorFilter(Color.argb(alpha, 255,255,255))
+                binding.mainHomeBtnSearch.setColorFilter(Color.argb(alpha, 255,255,255))
+            }
         }
     }
-
 
     fun adViewPager() {
         homeAdViewPagerList.add(R.drawable.image_ad_01)

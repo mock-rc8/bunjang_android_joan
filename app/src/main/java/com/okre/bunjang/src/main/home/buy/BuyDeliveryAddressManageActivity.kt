@@ -1,5 +1,6 @@
 package com.okre.bunjang.src.main.home.buy
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.okre.bunjang.config.BaseActivity
@@ -15,7 +16,10 @@ class BuyDeliveryAddressManageActivity : BaseActivity<ActivityBuyDeliveryAddress
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding.addressManagerRv.adapter = BuyDeliveryAddressManageAdapter(addressManageItem)
+        binding.addressManageRv.adapter = BuyDeliveryAddressManageAdapter(addressManageItem)
+
+        binding.addressManageAdd.setOnClickListener {
+        }
 
     }
 }
