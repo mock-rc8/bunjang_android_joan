@@ -1,9 +1,10 @@
-package com.okre.bunjang.src.main.home.buy
+package com.okre.bunjang.src.main.home.buy.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.okre.bunjang.databinding.ItemBuyDeliveryAreaSelectBinding
+import com.okre.bunjang.src.main.home.buy.item.BuyDeliveryAreaSelectItem
 
 class BuyDeliveryAreaSelectAdapter(val itemList : MutableList<BuyDeliveryAreaSelectItem>) : RecyclerView.Adapter<BuyDeliveryAreaSelectAdapter.ViewHolder>() {
     class ViewHolder(val binding: ItemBuyDeliveryAreaSelectBinding) : RecyclerView.ViewHolder(binding.root) {

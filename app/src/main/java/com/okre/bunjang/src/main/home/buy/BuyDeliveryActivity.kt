@@ -2,17 +2,16 @@ package com.okre.bunjang.src.main.home.buy
 
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.okre.bunjang.R
 import com.okre.bunjang.config.BaseActivity
 import com.okre.bunjang.databinding.ActivityBuyDeliveryBinding
-import com.okre.bunjang.src.login.LoginPhoneActivity
+import com.okre.bunjang.src.main.home.buy.adapter.BuyDeliveryAreaSelectAdapter
+import com.okre.bunjang.src.main.home.buy.item.BuyDeliveryAreaSelectItem
 
 class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuyDeliveryBinding::inflate) {
 
