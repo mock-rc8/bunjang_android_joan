@@ -59,7 +59,7 @@
     <!-- product_detail -->
     <string name="product_detail_price">%1$s원</string>
     <string name="product_detail_location">지역정보 없음</string>
-    <string name="product_detail_time">%1$s 전</string>
+    <string name="product_detail_time">전</string>
     <string name="product_detail_default_number">0</string>
     <string name="product_detail_event_title">이벤트</string>
     <string name="product_detail_event_content">카드 최대 12개월 무이자 할부</string>

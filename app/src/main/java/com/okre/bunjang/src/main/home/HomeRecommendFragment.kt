@@ -13,19 +13,29 @@ import com.okre.bunjang.config.BaseFragment
 import com.okre.bunjang.databinding.FragmentHomeRecommendBinding
 import com.okre.bunjang.src.login.adpater.LoginPhoneTelecomAdapter
 import com.okre.bunjang.src.main.home.adapter.HomeRecommendAdapter
+import com.okre.bunjang.src.main.home.item.HomeRecommendItem
+import com.okre.bunjang.src.main.home.model.RecommendResponse
+import java.text.DecimalFormat
 
-class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHomeRecommendBinding::bind, R.layout.fragment_home_recommend) {
+class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHomeRecommendBinding::bind, R.layout.fragment_home_recommend),
+    RecommendFragmentInterface {
 
     private val rvAdapter = HomeRecommendAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // 상품 목록 받아오기
+        showLoadingDialog(requireContext())
+        RecommendService(this).tryGetRecommend()
+
+        // recyclerview 생성
         recommendRecyclerView()
 
     }
 
     fun recommendRecyclerView() {
+
         binding.homeRvRecommend.adapter = rvAdapter
 
         rvAdapter.itemClick = object : HomeRecommendAdapter.ItemClick {
@@ -35,5 +45,33 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
                 startActivity(intent)
             }
         }
+    }
+
+    override fun onGetRecommendSuccess(response: RecommendResponse) {
+        for (recommendList in response.result) {
+            val recommendIdx = recommendList.productIdx
+            val recommendImage = recommendList.productURL
+            val recommendCheckbox = when(recommendList.userHeart) {
+                0 -> false
+                else -> true
+            }
+            val recommendPrice  = getString(R.string.product_detail_price, DecimalFormat("#,###").format(recommendList.price))
+            val recommendProductName = recommendList.productName
+            val recommendLocation = recommendList.address
+            val recommendTime = recommendList.created
+            val recommendLightningPay = when(recommendList.pay) {
+                0 -> false
+                else -> true
+            }
+            val recommendHeartCount = recommendList.heartCount
+
+            rvAdapter.addList(HomeRecommendItem(recommendIdx, recommendImage, recommendCheckbox, recommendPrice, recommendProductName, recommendLocation, recommendTime, recommendLightningPay, recommendHeartCount))
+        }
+        dismissLoadingDialog()
+    }
+
+    override fun onGetRecommendFailure(message: String) {
+        dismissLoadingDialog()
+        showCustomToast("오류 : $message")
     }
 }

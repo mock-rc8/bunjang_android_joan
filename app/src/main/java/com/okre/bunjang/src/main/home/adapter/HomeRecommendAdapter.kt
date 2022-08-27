@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.okre.bunjang.databinding.ItemHomeRecommendBinding
 import com.okre.bunjang.src.main.home.item.HomeRecommendItem
 
@@ -13,7 +14,9 @@ class HomeRecommendAdapter() : RecyclerView.Adapter<HomeRecommendAdapter.ViewHol
 
     inner class ViewHolder(val binding: ItemHomeRecommendBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindList(item : HomeRecommendItem) {
-            //glide image
+            Glide.with(binding.itemHomeRecommendImageview.context)
+                .load(item.recommendImage)
+                .into(binding.itemHomeRecommendImageview)
             binding.itemHomeRecommendCheckbox.isChecked = item.recommendCheckbox
             binding.itemHomeRecommendCheckbox.setOnClickListener {
                 item.recommendCheckbox = !item.recommendCheckbox
@@ -44,6 +47,11 @@ class HomeRecommendAdapter() : RecyclerView.Adapter<HomeRecommendAdapter.ViewHol
         fun onClick(view : View, position: Int)
     }
     var itemClick : ItemClick? = null
+
+    fun addList(homeRecommendItem: HomeRecommendItem) {
+        itemList.add(homeRecommendItem)
+        notifyItemInserted(itemList.size - 1)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = ItemHomeRecommendBinding.inflate(LayoutInflater.from(parent.context), parent, false)

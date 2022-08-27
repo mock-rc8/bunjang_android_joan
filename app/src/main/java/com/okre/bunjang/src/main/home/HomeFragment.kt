@@ -14,12 +14,16 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.okre.bunjang.R
 import com.okre.bunjang.config.BaseFragment
 import com.okre.bunjang.databinding.FragmentHomeBinding
+import com.okre.bunjang.src.main.UserInfoInterface
+import com.okre.bunjang.src.main.UserInfoResponse
+import com.okre.bunjang.src.main.UserInfoService
 import com.okre.bunjang.src.main.home.adapter.HomeAdViewPagerAdapter
 import com.okre.bunjang.src.main.home.adapter.HomeCategoryAdapter
 import com.okre.bunjang.src.main.home.adapter.HomeRecommendViewPagerAdapter
 import com.okre.bunjang.src.main.home.item.HomeCategoryItem
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
+    UserInfoInterface{
 
     var homeAdViewPagerList = mutableListOf<Int>()
     private var handler : Handler? = null
@@ -53,6 +57,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
         categoryRecyclerview()
         recommendViewPager()
+
+        // 유저정보 받아오기
+        showLoadingDialog(requireContext())
+        UserInfoService(this).tryGetUserInfo()
 
     }
 
@@ -132,6 +140,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
         // handler 멈춤
         handler = null
+    }
+
+    override fun onGetUserInfoSuccess(response: UserInfoResponse) {
+        dismissLoadingDialog()
+        binding.homeRecommendTitle.text = getString(R.string.home_recommend_title, response.result.storeName)
+    }
+
+    override fun onGetUserInfoFailure(message: String) {
+        dismissLoadingDialog()
+        showCustomToast("오류 : $message")
     }
 
 }

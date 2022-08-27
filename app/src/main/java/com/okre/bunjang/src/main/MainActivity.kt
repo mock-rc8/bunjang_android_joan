@@ -4,14 +4,13 @@ import android.os.Bundle
 import com.okre.bunjang.R
 import com.okre.bunjang.config.BaseActivity
 import com.okre.bunjang.databinding.ActivityMainBinding
-import com.okre.bunjang.src.login.LogoutInterface
 import com.okre.bunjang.src.main.home.HomeFragment
 import com.okre.bunjang.src.main.lightningTalk.LightningTalkFragment
 import com.okre.bunjang.src.main.my.MyFragment
 import com.okre.bunjang.src.main.register.RegisterFragment
 import com.okre.bunjang.src.main.search.SearchFragment
 
-class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate), LogoutInterface {
+class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,12 +50,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             }
             // selectedItemId = R.id.menu_main_btm_nav_home
             // 기존에 있던 homeFragment가 사라지고, onDestroyView가 호출되므로 사용하지 말 것!!
-        }
-    }
-
-    override fun logoutBtnPush(push: Boolean) {
-        if (push) {
-            finish()
         }
     }
 }
