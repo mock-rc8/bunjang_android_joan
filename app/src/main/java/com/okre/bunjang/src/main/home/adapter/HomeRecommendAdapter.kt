@@ -1,11 +1,15 @@
 package com.okre.bunjang.src.main.home.adapter
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.okre.bunjang.databinding.ItemHomeRecommendBinding
+import com.okre.bunjang.src.main.home.HomeRecommendProductDetailActivity
 import com.okre.bunjang.src.main.home.item.HomeRecommendItem
 
 class HomeRecommendAdapter() : RecyclerView.Adapter<HomeRecommendAdapter.ViewHolder>() {
@@ -38,15 +42,13 @@ class HomeRecommendAdapter() : RecyclerView.Adapter<HomeRecommendAdapter.ViewHol
             }
 
             binding.itemHomeRecommendLayout.setOnClickListener { v ->
-                itemClick?.onClick(v, adapterPosition)
+                val content = binding.itemHomeRecommendLayout.context
+                val intent = Intent(content, HomeRecommendProductDetailActivity::class.java)
+                intent.putExtra("productIdx", item.recommendIdx)
+                content.startActivity(intent)
             }
         }
     }
-
-    interface ItemClick {
-        fun onClick(view : View, position: Int)
-    }
-    var itemClick : ItemClick? = null
 
     fun addList(homeRecommendItem: HomeRecommendItem) {
         itemList.add(homeRecommendItem)

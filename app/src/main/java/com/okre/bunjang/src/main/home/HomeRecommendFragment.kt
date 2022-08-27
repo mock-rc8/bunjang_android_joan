@@ -14,6 +14,7 @@ import com.okre.bunjang.databinding.FragmentHomeRecommendBinding
 import com.okre.bunjang.src.login.adpater.LoginPhoneTelecomAdapter
 import com.okre.bunjang.src.main.home.adapter.HomeRecommendAdapter
 import com.okre.bunjang.src.main.home.item.HomeRecommendItem
+import com.okre.bunjang.src.main.home.model.ProductDetailResponse
 import com.okre.bunjang.src.main.home.model.RecommendResponse
 import java.text.DecimalFormat
 
@@ -38,18 +39,10 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
 
         binding.homeRvRecommend.adapter = rvAdapter
 
-        rvAdapter.itemClick = object : HomeRecommendAdapter.ItemClick {
-            override fun onClick(view: View, position: Int) {
-                val intent = Intent(activity, HomeRecommendProductDetailActivity::class.java)
-                //intent에 아이템 코드 보내기
-                startActivity(intent)
-            }
-        }
     }
 
     override fun onGetRecommendSuccess(response: RecommendResponse) {
         for (recommendList in response.result) {
-            Log.d("ddddd", recommendList.toString())
             val recommendIdx = recommendList.productIdx
             val recommendImage = recommendList.productURL
             val recommendCheckbox = when(recommendList.userHeart) {
@@ -79,4 +72,7 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
         dismissLoadingDialog()
         showCustomToast("오류 : $message")
     }
+
+    override fun onGetProductDetailSuccess(response: ProductDetailResponse) {}
+    override fun onGetProductDetailFailure(message: String) {}
 }

@@ -87,6 +87,7 @@
         <entry key="app/src/main/res/layout/item_home_recommend.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_login_phone_telecom.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_login_phone_terms.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/item_product_detail_imeage_view_pager.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_view_pager_login.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_main_bottom_nav.xml" value="0.1" />
       </map>
