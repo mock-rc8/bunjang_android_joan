@@ -3,13 +3,13 @@
     android:oneshot="false" >
 
     <item android:drawable="@drawable/icon_coin_0"
-        android:duration="500" />
+        android:duration="1000" />
     <item android:drawable="@drawable/icon_coin_1"
-        android:duration="100" />
+        android:duration="200" />
     <item android:drawable="@drawable/icon_coin_2"
-        android:duration="100" />
+        android:duration="200" />
     <item android:drawable="@drawable/icon_coin_3"
-        android:duration="100" />
+        android:duration="200" />
     <item android:drawable="@drawable/icon_coin_4"
-        android:duration="100" />
+        android:duration="200" />
 </animation-list>

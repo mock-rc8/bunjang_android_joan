@@ -1,5 +1,6 @@
 package com.okre.bunjang.src.main.home
 
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -10,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.okre.bunjang.R
 import com.okre.bunjang.config.BaseFragment
@@ -21,6 +23,8 @@ import com.okre.bunjang.src.main.home.adapter.HomeAdViewPagerAdapter
 import com.okre.bunjang.src.main.home.adapter.HomeCategoryAdapter
 import com.okre.bunjang.src.main.home.adapter.HomeRecommendViewPagerAdapter
 import com.okre.bunjang.src.main.home.item.HomeCategoryItem
+import kotlin.math.abs
+import kotlin.math.min
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
     UserInfoInterface{
@@ -45,6 +49,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
             0
         )
 
+        // 앱바 투명도 조정
+        appBarScroll()
+
         adViewPager()
 
         handler = Handler(Looper.getMainLooper()) {
@@ -63,6 +70,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         UserInfoService(this).tryGetUserInfo()
 
     }
+
+    fun appBarScroll() {
+        binding.homeMainAppbar.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
+            val alpha = min(abs(verticalOffset/2),255)
+            binding.homeToolbar.setBackgroundColor(Color.argb(alpha, 255,255,255))
+        }
+    }
+
 
     fun adViewPager() {
         homeAdViewPagerList.add(R.drawable.image_ad_01)

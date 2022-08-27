@@ -86,6 +86,7 @@
 
     <!-- buy_delivery -->
     <string name="buy_delivery_title">택배거래, 안전결제로\n구매합니다</string>
+    <string name="buy_direct_title">직거래, 안전결제로\n구매합니다</string>
     <string name="buy_delivery_area_title">배송지</string>
     <string name="buy_delivery_area_register">배송지를 등록해주세요</string>
     <string name="buy_delivery_area_register_button"><u>등록</u></string>

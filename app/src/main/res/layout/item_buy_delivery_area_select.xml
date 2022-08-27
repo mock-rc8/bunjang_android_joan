@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/item_area_select_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="qwerty"/>
+
+    <TextView
+        android:id="@+id/item_area_select_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="이름"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/item_area_select_address"
+        app:layout_constraintTop_toBottomOf="@+id/item_area_select_address" />
+
+    <ImageView
+        android:id="@+id/item_area_select_divider"
+        android:layout_width="3dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="5dp"
+        android:contentDescription="@string/ImageMissing"
+        android:src="@drawable/icon_home_recommend_divider"
+        app:layout_constraintBottom_toBottomOf="@+id/item_area_select_name"
+        app:layout_constraintStart_toEndOf="@+id/item_area_select_name"
+        app:layout_constraintTop_toTopOf="@+id/item_area_select_name"
+        app:tint="@color/black" />
+
+    <TextView
+        android:id="@+id/item_area_select_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="010"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_area_select_name"
+        app:layout_constraintStart_toEndOf="@+id/item_area_select_divider"
+        app:layout_constraintTop_toTopOf="@+id/item_area_select_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

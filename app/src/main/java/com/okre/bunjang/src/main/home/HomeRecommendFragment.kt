@@ -49,6 +49,7 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
 
     override fun onGetRecommendSuccess(response: RecommendResponse) {
         for (recommendList in response.result) {
+            Log.d("ddddd", recommendList.toString())
             val recommendIdx = recommendList.productIdx
             val recommendImage = recommendList.productURL
             val recommendCheckbox = when(recommendList.userHeart) {
@@ -57,7 +58,11 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
             }
             val recommendPrice  = getString(R.string.product_detail_price, DecimalFormat("#,###").format(recommendList.price))
             val recommendProductName = recommendList.productName
-            val recommendLocation = recommendList.address
+            val recommendLocation = when (recommendList.address) {
+                null -> getString(R.string.product_detail_location)
+                "" -> getString(R.string.product_detail_location)
+                else -> recommendList.address
+            }
             val recommendTime = recommendList.created
             val recommendLightningPay = when(recommendList.pay) {
                 0 -> false

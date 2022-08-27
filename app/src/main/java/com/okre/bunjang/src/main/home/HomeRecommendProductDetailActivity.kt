@@ -42,23 +42,26 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
             deliveryCheckbox.isChecked = true
             deliveryBtn.setBackgroundResource(R.drawable.background_btn_safe_pay_check)
             directCheckbox.isChecked = false
-            directBtn.setBackgroundResource(R.drawable.background_btn_safe_pay_check)
+            directBtn.setBackgroundResource(R.drawable.background_btn_product_detail_event)
         }
 
         directBtn.setOnClickListener {
             directCheckbox.isChecked = true
             directBtn.setBackgroundResource(R.drawable.background_btn_safe_pay_check)
             deliveryCheckbox.isChecked = false
-            deliveryBtn.setBackgroundResource(R.drawable.background_btn_safe_pay_check)
+            deliveryBtn.setBackgroundResource(R.drawable.background_btn_product_detail_event)
         }
 
         nextBtn.setOnClickListener {
             safePayBottomSheetDialog.dismiss()
             if (deliveryCheckbox.isChecked) {
                 val intent = Intent(this, BuyDeliveryActivity::class.java)
+                intent.putExtra("selectDeliveryOrDirect", "Delivery")
                 startActivity(intent)
             } else {
-                // 직거래 activity
+                val intent = Intent(this, BuyDeliveryActivity::class.java)
+                intent.putExtra("selectDeliveryOrDirect", "Direct")
+                startActivity(intent)
             }
         }
     }

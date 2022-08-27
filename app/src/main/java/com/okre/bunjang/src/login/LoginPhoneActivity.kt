@@ -217,7 +217,7 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
         itemTerms.add(LoginPhoneTermsItem("개인정보 광고활용 동의 (선택)", false))
         val rvadapterLoginPhoneTerms = LoginPhoneTermsAdapter(itemTerms)
         termsRecyclerView.adapter = rvadapterLoginPhoneTerms
-        termsBottomSheetDialog = BottomSheetDialog(this)
+        termsBottomSheetDialog = BottomSheetDialog(baseContext)
         termsBottomSheetDialog.setContentView(termsBottomSheetView)
 
         loginPhoneButtonNextClick()
