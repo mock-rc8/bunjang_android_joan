@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.okre.bunjang.R
 import com.okre.bunjang.config.BaseActivity
@@ -35,6 +36,23 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
         // 안전하게 결제하기 버튼 클릭
         safePayDialog()
 
+        scrollDetailTopShow()
+
+    }
+
+    fun scrollDetailTopShow() {
+        //binding.productDetailTopLayout.y
+        //binding.productDetailTopLayout.animate().translationY(-binding.productDetailTopLayout.height.toFloat())
+
+        binding.productDetailScroll.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            if (scrollY > 1260) {
+                binding.productDetailTopLayout.animate().translationY(binding.productDetailTopLayout.height.toFloat())
+            } else {
+                binding.productDetailTopLayout.animate().translationY(0f)
+            }
+            Log.d("dddd", scrollY.toString())
+            //Log.d("ddd", oldScrollY.toString())
+        }
     }
 
     fun detailImageViewPager() {
@@ -103,13 +121,19 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
     override fun onGetProductDetailSuccess(response: ProductDetailResponse) {
 
         detailImage.add(response.result.productImgURL)
+        Glide.with(this)
+            .load(response.result.productImgURL)
+            .into(binding.productDetailTopImg)
         // 이미지 뷰페이저
         detailImageViewPager()
         binding.productDetailTextviewPrice.text = getString(R.string.product_detail_price, DecimalFormat("#,###").format(response.result.price))
+        binding.productDetailTopPrice.text = getString(R.string.product_detail_price, DecimalFormat("#,###").format(response.result.price))
         if (response.result.pay == 0) {
             binding.productDetailImgLightningPay.visibility = View.GONE
+            binding.productDetailTopLightningPay.visibility = View.GONE
         }
         binding.productDetailTitle.text = response.result.productName
+        binding.productDetailTopTitle.text = response.result.productName
         binding.productDetailLocation.text = when (response.result.address) {
             null -> getString(R.string.product_detail_location)
             "" -> getString(R.string.product_detail_location)
@@ -124,9 +148,41 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
         binding.productDetailOptionDelivery.text = response.result.shippingFee
         binding.productDetailOptionExchange.text = response.result.exchange
         binding.productDetailContent.text = response.result.productExplaination
-        for (tag in response.result.hashtag) {
-            Log.d("failuremessage", tag)
+
+        when (response.result.hashtag.size) {
+            0 -> null
+            1 -> {binding.productDetailTag1.visibility = View.VISIBLE
+                binding.productDetailTag1.text = getString(R.string.product_detail_tag, response.result.hashtag[0]) }
+            2 -> {binding.productDetailTag1.visibility = View.VISIBLE
+                binding.productDetailTag2.visibility = View.VISIBLE
+                binding.productDetailTag1.text = getString(R.string.product_detail_tag, response.result.hashtag[0])
+                binding.productDetailTag2.text = getString(R.string.product_detail_tag, response.result.hashtag[1]) }
+            3 -> {binding.productDetailTag1.visibility = View.VISIBLE
+                binding.productDetailTag2.visibility = View.VISIBLE
+                binding.productDetailTag3.visibility = View.VISIBLE
+                binding.productDetailTag1.text = getString(R.string.product_detail_tag, response.result.hashtag[0])
+                binding.productDetailTag2.text = getString(R.string.product_detail_tag, response.result.hashtag[1])
+                binding.productDetailTag3.text = getString(R.string.product_detail_tag, response.result.hashtag[2])}
+            4 -> {binding.productDetailTag1.visibility = View.VISIBLE
+                binding.productDetailTag2.visibility = View.VISIBLE
+                binding.productDetailTag3.visibility = View.VISIBLE
+                binding.productDetailTag4.visibility = View.VISIBLE
+                binding.productDetailTag1.text = getString(R.string.product_detail_tag, response.result.hashtag[0])
+                binding.productDetailTag2.text = getString(R.string.product_detail_tag, response.result.hashtag[1])
+                binding.productDetailTag3.text = getString(R.string.product_detail_tag, response.result.hashtag[2])
+                binding.productDetailTag4.text = getString(R.string.product_detail_tag, response.result.hashtag[3])}
+            5 -> {binding.productDetailTag1.visibility = View.VISIBLE
+                binding.productDetailTag2.visibility = View.VISIBLE
+                binding.productDetailTag3.visibility = View.VISIBLE
+                binding.productDetailTag4.visibility = View.VISIBLE
+                binding.productDetailTag5.visibility = View.VISIBLE
+                binding.productDetailTag1.text = getString(R.string.product_detail_tag, response.result.hashtag[0])
+                binding.productDetailTag2.text = getString(R.string.product_detail_tag, response.result.hashtag[1])
+                binding.productDetailTag3.text = getString(R.string.product_detail_tag, response.result.hashtag[2])
+                binding.productDetailTag4.text = getString(R.string.product_detail_tag, response.result.hashtag[3])
+                binding.productDetailTag5.text = getString(R.string.product_detail_tag, response.result.hashtag[4])}
         }
+
 
         dismissLoadingDialog()
     }

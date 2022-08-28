@@ -217,7 +217,7 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
         itemTerms.add(LoginPhoneTermsItem("개인정보 광고활용 동의 (선택)", false))
         val rvadapterLoginPhoneTerms = LoginPhoneTermsAdapter(itemTerms)
         termsRecyclerView.adapter = rvadapterLoginPhoneTerms
-        termsBottomSheetDialog = BottomSheetDialog(baseContext)
+        termsBottomSheetDialog = BottomSheetDialog(this)
         termsBottomSheetDialog.setContentView(termsBottomSheetView)
 
         loginPhoneButtonNextClick()
@@ -375,11 +375,8 @@ class LoginPhoneActivity : BaseActivity<ActivityLoginPhoneBinding>(ActivityLogin
         dismissLoadingDialog()
 
         if (response.code == 1000) { // 요청에 성공하였습니다.
-            // token 저장
             loginSPEditor.putString(X_ACCESS_TOKEN, response.result.jwt)
             loginSPEditor.apply()
-
-            // 로그아웃 시 삭제 loginSPEditor.clear() loginSPEditor.apply()
 
             // 홈화면으로 이동
             val intent = Intent(this, MainActivity::class.java)

@@ -67,9 +67,10 @@
     <string name="product_detail_option_old">중고상품</string>
     <string name="product_detail_option_count">총 %1$s개</string>
     <string name="product_detail_option_delivery_plus">배송비포함</string>
-    <string name="product_detail_option_exchange_possible">배송비별도</string>
-    <string name="product_detail_option_exchange_impossible">교환불가</string>
     <string name="product_detail_option_delivery">배송비별도</string>
+    <string name="product_detail_option_exchange_impossible">교환불가</string>
+    <string name="product_detail_option_exchange_possible">교환가능</string>
+    <string name="product_detail_tag">#%1$s</string>
     <string name="product_detail_shop_rating">0.0</string>
     <string name="product_detail_shop_follow_number">팔로워 0</string>
     <string name="title_temporary">제목제목제목</string>

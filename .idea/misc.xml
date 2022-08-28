@@ -72,7 +72,7 @@
         <entry key="app/src/main/res/layout/dialog_login_phone_telecom.xml" value="0.11153846153846154" />
         <entry key="app/src/main/res/layout/dialog_login_phone_terms.xml" value="0.165" />
         <entry key="app/src/main/res/layout/dialog_product_detail_safe_pay.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_home_brand.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home_recommend.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_lightning_talk.xml" value="0.28229166666666666" />

@@ -7,41 +7,6 @@
     android:background="@color/white"
     tools:context=".src.main.home.HomeRecommendProductDetailActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/product_detail_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/product_detail_btn_back"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/icon_back"
-            android:contentDescription="@string/ImageMissing" />
-
-        <ImageView
-            android:id="@+id/product_detail_btn_share"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="end"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/icon_product_detail_share"
-            android:contentDescription="@string/ImageMissing" />
-
-        <ImageView
-            android:id="@+id/product_detail_btn_search"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="end"
-            android:layout_marginEnd="25dp"
-            android:backgroundTint="@color/black"
-            android:background="@drawable/icon_home_toolbar_search"
-            android:contentDescription="@string/ImageMissing" />
-
-    </androidx.appcompat.widget.Toolbar>
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/product_detail_scroll"
         android:layout_width="match_parent"
@@ -69,9 +34,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="10dp"
+                    android:layout_width="98dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="20dp"
+                    android:scaleType="fitXY"
                     android:src="@drawable/icon_product_detail_lightning"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -260,6 +226,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/product_detail_layout_margin"
+                android:paddingBottom="20dp"
                 android:background="@drawable/line_bottom"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_title_layout">
 
@@ -267,10 +234,11 @@
                     android:id="@+id/product_detail_option_new_or_old"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/background_btn_product_detail_option"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/background_dark_gray_radius"
                     android:padding="@dimen/product_detail_textview_option_padding"
                     android:text="@string/product_detail_option_old"
+                    android:textStyle="bold"
                     android:textSize="@dimen/product_detail_textview_option_size"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -280,9 +248,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
-                    android:background="@drawable/background_btn_product_detail_option"
+                    android:background="@drawable/background_dark_gray_radius"
                     android:padding="@dimen/product_detail_textview_option_padding"
                     android:text="@string/product_detail_option_count"
+                    android:textStyle="bold"
                     android:textSize="@dimen/product_detail_textview_option_size"
                     app:layout_constraintBottom_toBottomOf="@+id/product_detail_option_new_or_old"
                     app:layout_constraintStart_toEndOf="@+id/product_detail_option_new_or_old"
@@ -293,10 +262,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
-                    android:background="@drawable/background_btn_product_detail_option"
+                    android:background="@drawable/background_dark_gray_radius"
                     android:padding="@dimen/product_detail_textview_option_padding"
                     android:text="@string/product_detail_option_delivery"
                     android:textSize="@dimen/product_detail_textview_option_size"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/product_detail_option_new_or_old"
                     app:layout_constraintStart_toEndOf="@+id/product_detail_option_count"
                     app:layout_constraintTop_toTopOf="@+id/product_detail_option_new_or_old" />
@@ -306,7 +276,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
-                    android:background="@drawable/background_btn_product_detail_option"
+                    android:textStyle="bold"
+                    android:background="@drawable/background_dark_gray_radius"
                     android:padding="@dimen/product_detail_textview_option_padding"
                     android:text="@string/product_detail_option_exchange_impossible"
                     android:textSize="@dimen/product_detail_textview_option_size"
@@ -318,29 +289,90 @@
                     android:id="@+id/product_detail_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="30dp"
                     android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/product_detail_option_new_or_old" />
 
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/product_detail_tag_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="50dp"
                     android:background="@drawable/background_btn_product_detail_tag"
                     android:padding="@dimen/product_detail_textview_option_padding"
-                    android:text="tag"
+                    android:text="@string/product_detail_tag"
                     android:textSize="@dimen/product_detail_textview_option_size"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/product_detail_content" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/product_detail_tag_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
+                    android:background="@drawable/background_btn_product_detail_tag"
+                    android:padding="@dimen/product_detail_textview_option_padding"
+                    android:text="@string/product_detail_tag"
+                    android:textSize="@dimen/product_detail_textview_option_size"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_tag_1"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_tag_1"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_tag_1" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/product_detail_tag_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
+                    android:background="@drawable/background_btn_product_detail_tag"
+                    android:padding="@dimen/product_detail_textview_option_padding"
+                    android:text="@string/product_detail_tag"
+                    android:textSize="@dimen/product_detail_textview_option_size"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_tag_2"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_tag_1"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_tag_1" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/product_detail_tag_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
+                    android:background="@drawable/background_btn_product_detail_tag"
+                    android:padding="@dimen/product_detail_textview_option_padding"
+                    android:text="@string/product_detail_tag"
+                    android:textSize="@dimen/product_detail_textview_option_size"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_tag_3"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_tag_1"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_tag_1" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/product_detail_tag_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/product_detail_textview_option_margin_start"
+                    android:background="@drawable/background_btn_product_detail_tag"
+                    android:padding="@dimen/product_detail_textview_option_padding"
+                    android:text="@string/product_detail_tag"
+                    android:textSize="@dimen/product_detail_textview_option_size"
+                    app:layout_constraintStart_toEndOf="@+id/product_detail_tag_4"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_detail_tag_1"
+                    app:layout_constraintTop_toTopOf="@+id/product_detail_tag_1" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/product_detail_notify_layout"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
                 android:layout_marginHorizontal="@dimen/product_detail_layout_margin"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_content_layout">
 
@@ -348,7 +380,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="신고하기"
-                    android:textSize="13sp"
+                    android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -367,9 +399,10 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
+                android:layout_marginTop="18dp"
                 android:id="@+id/product_detail_caution_imageview"
-                android:layout_width="391dp"
-                android:layout_height="65dp"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
                 android:layout_marginHorizontal="@dimen/product_detail_layout_margin"
                 android:scaleType="fitXY"
                 android:src="@drawable/image_caution"
@@ -383,7 +416,7 @@
                 android:id="@+id/product_detail_view_divider"
                 android:layout_width="match_parent"
                 android:layout_height="5dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:background="@color/product_detail_gray"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_caution_imageview" />
 
@@ -391,7 +424,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/product_detail_layout_margin"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="300dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/product_detail_view_divider">
 
                 <ImageView
@@ -408,10 +443,10 @@
                     android:id="@+id/product_detail_shop_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="10dp"
                     android:text="상점명"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/product_detail_shop_profile"
                     app:layout_constraintTop_toTopOf="@+id/product_detail_shop_profile" />
@@ -420,12 +455,10 @@
                     android:id="@+id/product_detail_shop_certify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
                     android:text="본인인증"
-                    android:textColor="@color/black"
-                    android:textSize="11sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/product_detail_shop_profile"
+                    app:layout_constraintStart_toStartOf="@+id/product_detail_shop_name"
                     app:layout_constraintTop_toBottomOf="@+id/product_detail_shop_name" />
 
                 <ImageView
@@ -468,7 +501,7 @@
                     android:layout_marginStart="3dp"
                     android:text="@string/product_detail_shop_follow_number"
                     android:textColor="@color/home_recommend_item_gray"
-                    android:textSize="11sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/product_detail_shop_certify"
                     app:layout_constraintStart_toEndOf="@+id/product_detail_shop_divider"
@@ -476,13 +509,13 @@
 
                 <Button
                     android:id="@+id/product_detail_shop_follow"
-                    android:layout_width="50dp"
-                    android:layout_height="30dp"
+                    android:layout_width="60dp"
+                    android:layout_height="35dp"
                     android:background="@drawable/background_btn_product_detail_lightning_talk"
                     android:outlineProvider="none"
                     android:text="팔로우"
                     android:textColor="@color/product_detail_button_safe_pay"
-                    android:textSize="10sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -495,19 +528,20 @@
     </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:visibility="gone"
+        android:background="@color/white"
+        android:animateLayoutChanges="true"
         android:id="@+id/product_detail_top_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product_detail_toolbar">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/product_detail_top_cardview"
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:cardCornerRadius="5dp"
-            android:layout_margin="10dp"
+            android:layout_marginStart="20dp"
             app:cardElevation="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -517,6 +551,7 @@
                 android:id="@+id/product_detail_top_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/ImageMissing"
                 android:scaleType="fitXY"/>
 
         </androidx.cardview.widget.CardView>
@@ -528,8 +563,8 @@
             android:text="@string/product_detail_price"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="15sp"
-            android:layout_marginStart="@dimen/product_detail_top_margin_start"
+            android:textSize="18sp"
+            android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/product_detail_top_cardview"
             app:layout_constraintTop_toTopOf="@+id/product_detail_top_cardview"/>
 
@@ -549,14 +584,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_temporary"
-            android:layout_marginStart="@dimen/product_detail_top_margin_start"
-            android:textSize="13sp"
-            android:textColor="@color/product_detail_gray"
+            android:textSize="14sp"
             android:layout_marginTop="5dp"
-            app:layout_constraintStart_toEndOf="@+id/product_detail_top_cardview"
-            app:layout_constraintTop_toBottomOf="@+id/product_detail_top_price"/>
+            app:layout_constraintStart_toStartOf="@+id/product_detail_top_price"
+            app:layout_constraintTop_toBottomOf="@+id/product_detail_top_price"
+            app:layout_constraintBottom_toBottomOf="@+id/product_detail_top_cardview"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/product_detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/product_detail_btn_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/icon_back"
+            android:contentDescription="@string/ImageMissing" />
+
+        <ImageView
+            android:id="@+id/product_detail_btn_share"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/icon_product_detail_share"
+            android:contentDescription="@string/ImageMissing" />
+
+        <ImageView
+            android:id="@+id/product_detail_btn_search"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="25dp"
+            android:backgroundTint="@color/black"
+            android:background="@drawable/icon_home_toolbar_search"
+            android:contentDescription="@string/ImageMissing" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/product_detail_bottom"

@@ -52,6 +52,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         // 앱바 투명도 조정
         appBarScroll()
 
+        // 광고 뷰페이저 무한스크롤
         adViewPager()
 
         handler = Handler(Looper.getMainLooper()) {
@@ -62,7 +63,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         thread = Thread(PagerRunnable())
         thread.start()
 
+        // 중단 카테고리 recyclerview
         categoryRecyclerview()
+
+        // 추천상품 브랜드 tab viewpager
         recommendViewPager()
 
         // 유저정보 받아오기
@@ -146,6 +150,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
         binding.homeRvCategory.adapter = HomeCategoryAdapter(categoryList)
 
+        // recyclerview scroll따라 horizontalscroll 움직이기
+        binding.homeRvCategory.setOnScrollChangeListener { view, i, i2, i3, i4 ->
+            // binding.homeRvCategory.computeHorizontalScrollOffset() : 0 ~ 555
+            // binding.homeCategoryHandle.scrollX : 0 ~ 300
+            // 555으로 계산하면 0.XX가 0으로 계산되므로 555.0 float으로 계산 필요 -> Int로 변경
+            binding.homeCategoryHandle.scrollX = ((binding.homeRvCategory.computeHorizontalScrollOffset()/555.0)*300).toInt()
+        }
     }
 
     fun recommendViewPager() {
