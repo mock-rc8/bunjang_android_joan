@@ -98,7 +98,7 @@
     <string name="buy_delivery_payment">결제금액</string>
     <string name="buy_delivery_payment_explain">번개페이 혜택이\n적용되었습니다!</string>
     <string name="buy_delivery_payment_detail_see">자세히 보기</string>
-    <string name="buy_delivery_method">결제금액</string>
+    <string name="buy_delivery_method">결제수단</string>
     <string name="buy_delivery_method_other_register">결제수단을 등록해주세요</string>
     <string name="buy_delivery_today_benefit"><u>더보기</u></string>
     <string name="buy_delivery_agree_title">개인정보 제3자 제공동의와 결제대행 서비스 이용약관에 동의합니다.</string>

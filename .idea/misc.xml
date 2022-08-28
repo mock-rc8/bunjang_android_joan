@@ -47,6 +47,7 @@
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line_selector.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/background_gray_radius.xml" value="0.1675" />
         <entry key="app/src/main/res/drawable/background_green_radius.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/background_text_input_layout.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/background_today_benefit_shinhan.xml" value="0.1605" />
         <entry key="app/src/main/res/drawable/background_yellow_radius.xml" value="0.121" />
         <entry key="app/src/main/res/drawable/checkbox_drawable_home_recommend_zzim_uncheck.xml" value="0.102" />
@@ -59,7 +60,7 @@
         <entry key="app/src/main/res/drawable/scrollbar_home_category.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category_in.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_buy_delivery.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_buy_delivery_address_manage.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_buy_delivery_address_manage.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_buy_delivery_address_manage_add.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_home_recommend_product_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />

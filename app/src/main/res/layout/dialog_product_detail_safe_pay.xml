@@ -21,28 +21,29 @@
             android:layout_height="wrap_content"
             android:text="@string/dialog_safe_pay_title_top"
             android:textColor="@color/black"
-            android:textSize="26sp"
+            android:textSize="28sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
+            android:textSize="13sp"
             android:text="@string/dialog_safe_pay_title_bottom" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/dialog_safe_pay_delivery_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/background_btn_safe_pay_check"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="20dp">
+            android:paddingHorizontal="@dimen/safe_pay_padding_horizontal"
+            android:paddingVertical="@dimen/safe_pay_padding_vertical">
 
-            <CheckBox
+            <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/dialog_safe_pay_delivery_checkbox"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/safe_pay_checkbox"
+                android:layout_height="@dimen/safe_pay_checkbox"
                 android:button="@drawable/checkbox_item_login_phone_telecom_selector"
                 android:checked="true"
                 app:layout_constraintStart_toStartOf="parent"
@@ -52,10 +53,10 @@
                 android:id="@+id/dialog_safe_pay_delivery_top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="@dimen/safe_pay_method_margin_start"
                 android:text="@string/dialog_safe_pay_delivery_top"
                 android:textColor="@color/black"
-                android:textSize="15sp"
+                android:textSize="@dimen/safe_pay_method_title"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/dialog_safe_pay_delivery_checkbox"
                 app:layout_constraintTop_toTopOf="@+id/dialog_safe_pay_delivery_checkbox" />
@@ -64,11 +65,10 @@
                 android:id="@+id/dialog_safe_pay_delivery_bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
                 android:text="@string/dialog_safe_pay_delivery_bottom"
-                android:textColor="@color/black"
-                android:textSize="13sp"
-                app:layout_constraintStart_toEndOf="@+id/dialog_safe_pay_delivery_checkbox"
+                android:textSize="@dimen/safe_pay_method_content"
+                android:layout_marginTop="@dimen/safe_pay_method_margin_top"
+                app:layout_constraintStart_toStartOf="@+id/dialog_safe_pay_delivery_top"
                 app:layout_constraintTop_toBottomOf="@+id/dialog_safe_pay_delivery_top" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -77,15 +77,15 @@
             android:id="@+id/dialog_safe_pay_direct_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/background_btn_product_detail_event"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="20dp">
+            android:paddingHorizontal="@dimen/safe_pay_padding_horizontal"
+            android:paddingVertical="@dimen/safe_pay_padding_vertical">
 
-            <CheckBox
+            <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/dialog_safe_pay_direct_checkbox"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/safe_pay_checkbox"
+                android:layout_height="@dimen/safe_pay_checkbox"
                 android:button="@drawable/checkbox_item_login_phone_telecom_selector"
                 android:checked="false"
                 app:layout_constraintStart_toStartOf="parent"
@@ -95,10 +95,10 @@
                 android:id="@+id/dialog_safe_pay_direct_top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="@dimen/safe_pay_method_margin_start"
                 android:text="@string/dialog_safe_pay_direct_top"
                 android:textColor="@color/black"
-                android:textSize="15sp"
+                android:textSize="@dimen/safe_pay_method_title"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/dialog_safe_pay_direct_checkbox"
                 app:layout_constraintTop_toTopOf="@+id/dialog_safe_pay_direct_checkbox" />
@@ -109,25 +109,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:text="@string/dialog_safe_pay_direct_bottom"
-                android:textColor="@color/black"
-                android:textSize="13sp"
-                app:layout_constraintStart_toEndOf="@+id/dialog_safe_pay_direct_checkbox"
+                android:layout_marginTop="@dimen/safe_pay_method_margin_top"
+                android:textSize="@dimen/safe_pay_method_content"
+                app:layout_constraintStart_toStartOf="@+id/dialog_safe_pay_direct_top"
                 app:layout_constraintTop_toBottomOf="@+id/dialog_safe_pay_direct_top" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/product_detail_btn_safe_pay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_btn_product_detail_safe_pay"
             android:outlineProvider="none"
             android:text="@string/dialog_safe_pay_button_next"
+            android:textSize="17sp"
             android:textColor="@color/white"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="30dp"/>
 
         <TextView
-            android:layout_marginVertical="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="25dp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

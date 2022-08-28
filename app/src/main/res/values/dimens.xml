@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="tool_bar_height">52dp</dimen>
+
     <!--acitivity_login -->
     <dimen name="indicator_imageview_size">8dp</dimen>
     <dimen name="indicator_imageview_margin">8dp</dimen>
@@ -28,17 +30,27 @@
     <dimen name="product_detail_textview_option_margin_start">5dp</dimen>
     <dimen name="product_detail_top_margin_start">5dp</dimen>
 
+    <!-- dialog_product_detail_safe_pay -->
+    <dimen name="safe_pay_padding_vertical">30dp</dimen>
+    <dimen name="safe_pay_padding_horizontal">18dp</dimen>
+    <dimen name="safe_pay_checkbox">20dp</dimen>
+    <dimen name="safe_pay_method_title">18sp</dimen>
+    <dimen name="safe_pay_method_content">14sp</dimen>
+    <dimen name="safe_pay_method_margin_start">8dp</dimen>
+    <dimen name="safe_pay_method_margin_top">8dp</dimen>
+
     <!-- buy_delivery -->
     <dimen name="buy_delivery_layout_margin_horizontal">20dp</dimen>
-    <dimen name="buy_delivery_title_margin_top">50dp</dimen>
-    <dimen name="buy_delivery_title_margin_bottom">20dp</dimen>
-    <dimen name="buy_delivery_btn_height">50dp</dimen>
+    <dimen name="buy_delivery_title_margin_top">60dp</dimen>
+    <dimen name="buy_delivery_title_margin_bottom">24dp</dimen>
+    <dimen name="buy_delivery_btn_height">58dp</dimen>
     <dimen name="buy_delivery_title_text_size">22sp</dimen>
     <dimen name="buy_delivery_area_margin_horizontal">20dp</dimen>
-    <dimen name="buy_delivery_payment_textview_size">17sp</dimen>
-    <dimen name="buy_delivery_payment_textview_margin_top">15dp</dimen>
+    <dimen name="buy_delivery_payment_textview_size">16sp</dimen>
+    <dimen name="buy_delivery_payment_textview_margin_top">16dp</dimen>
 
     <!-- address_manage -->
+    <dimen name="address_manage_margin_horizontal">20dp</dimen>
     <dimen name="add_address_add_padding_bottom">14dp</dimen>
 
 </resources>

@@ -16,11 +16,13 @@ data class ProductDetailResult(
     val price: Int, // productDetailTextviewPrice
     val productExplaination: String, // productDetailContent
     val productIdx: Int,
-    val productImgURL: String, // viewpager image
+    val productImgURL: String, // viewpager image main
+    val productImgURLlist: List<String>, // viewpager image all
     val productName: String, // productDetailTitle
     val quantity: Int, // productDetailOptionCount
     val shippingFee: String, // productDetailOptionDelivery
     val status: String, // productDetailOptionNewOrOld
+    val subImgURL: List<Any>, // viewpager image sub
     val talk: Int, // productDetailTalk
     val views: Int // productDetailSee
 )

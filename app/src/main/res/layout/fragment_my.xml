@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".src.main.my.MyFragment">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/logout_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

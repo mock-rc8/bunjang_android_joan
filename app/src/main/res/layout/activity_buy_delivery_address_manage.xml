@@ -10,13 +10,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/address_manage_toolbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="@dimen/tool_bar_height"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:layout_marginStart="5dp"
+            android:layout_width="20dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="22dp"
             android:src="@drawable/icon_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -24,9 +24,9 @@
 
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="5dp"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="22dp"
             android:src="@drawable/icon_cancel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,6 +38,9 @@
         android:id="@+id/address_manage_add_txt_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/address_manage_margin_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address_manage_toolbar_layout">
 
         <TextView
@@ -53,8 +56,9 @@
             android:id="@+id/address_manage_add_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
+            android:layout_marginTop="12dp"
             android:text="@string/address_manage_add"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,30 +69,33 @@
         android:id="@+id/address_manage_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="@dimen/address_manage_margin_horizontal"
+        android:layout_marginTop="10dp"
         android:text="@string/address_manage_title"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address_manage_add_txt_layout" />
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/address_manage_empty_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp"
+        android:layout_marginHorizontal="@dimen/address_manage_margin_horizontal"
         android:layout_marginTop="15dp"
         android:background="@drawable/background_btn_product_detail_event"
         android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address_manage_title">
 
         <ImageView
             android:id="@+id/address_manage_empty_img"
-            android:layout_width="60dp"
-            android:layout_height="100dp"
+            android:layout_width="74dp"
+            android:layout_height="78dp"
             android:layout_margin="30dp"
+            android:scaleType="fitXY"
             android:src="@drawable/icon_delivery_area_paper"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -98,116 +105,138 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="40dp"
             android:text="주소를 추가해주세요"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/address_manage_empty_img" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:visibility="gone"
         android:id="@+id/address_manage_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/address_manage_margin_horizontal"
         android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address_manage_title" />
-<!--app:layoutmanage="androidx.recyclerview.widget.LinearLayoutmanage"-->
+    <!--app:layoutmanage="androidx.recyclerview.widget.LinearLayoutmanage"-->
+
     <LinearLayout
         android:id="@+id/address_manage_add"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/buy_delivery_area_margin_horizontal"
+        android:layout_marginTop="35dp"
         android:orientation="vertical"
-        android:layout_marginHorizontal="5dp"
         android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@+id/address_manage_title"
-        android:layout_marginTop="30dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address_manage_title">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/address_manage_add_name_layout"
-            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:hintTextColor="@color/add_address_add_box_hint_color"
-            app:boxStrokeColor="@color/add_address_add_box_color">
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/home_recommend_item_gray">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/address_manage_add_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textCursorDrawable="@color/black"
+                android:background="@drawable/background_text_input_layout"
                 android:hint="이름"
-                android:background="@drawable/background_edittext_bottom_line_selector"
-                android:paddingBottom="@dimen/add_address_add_padding_bottom"
+                android:paddingStart="0dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/home_recommend_item_gray"
+                android:textCursorDrawable="@color/black"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/address_manage_add_phone_layout"
-            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            app:boxStrokeColor="@color/add_address_add_box_color"
-            app:hintTextColor="@color/add_address_add_box_hint_color">
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/home_recommend_item_gray">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/address_manage_add_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLength="11"
-                android:textCursorDrawable="@color/black"
-                android:background="@drawable/background_edittext_bottom_line_selector"
-                android:paddingBottom="@dimen/add_address_add_padding_bottom"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_text_input_layout"
                 android:hint="휴대폰번호"
                 android:inputType="number"
+                android:maxLength="11"
+                android:paddingStart="0dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/home_recommend_item_gray"
+                android:textCursorDrawable="@color/black"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/address_manage_add_address_layout"
-            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            app:boxStrokeColor="@color/add_address_add_box_color"
-            app:hintTextColor="@color/add_address_add_box_hint_color">
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/home_recommend_item_gray">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/address_manage_add_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textCursorDrawable="@color/black"
-                android:background="@drawable/background_edittext_bottom_line_selector"
-                android:paddingBottom="@dimen/add_address_add_padding_bottom"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_text_input_layout"
                 android:hint="주소"
+                android:paddingStart="0dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/home_recommend_item_gray"
+                android:textCursorDrawable="@color/black"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/address_manage_add_detail_address_layout"
-            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:id="@+id/address_manage_add_address_detail_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            app:boxStrokeColor="@color/add_address_add_box_color"
-            app:hintTextColor="@color/add_address_add_box_hint_color">
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/home_recommend_item_gray">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/address_manage_add_detail_address"
+                android:id="@+id/address_manage_add_address_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textCursorDrawable="@color/black"
-                android:background="@drawable/background_edittext_bottom_line_selector"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_text_input_layout"
                 android:hint="상세주소"
-                android:paddingBottom="14dp"
+                android:paddingStart="0dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/home_recommend_item_gray"
+                android:textCursorDrawable="@color/black"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -216,7 +245,7 @@
             android:id="@+id/address_manage_add_is_default"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintLeft_toLeftOf="parent">
 
             <ImageView
@@ -239,17 +268,18 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/address_manage_button_next"
+    a<androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/address_manage_add_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="@dimen/address_manage_margin_horizontal"
         android:layout_marginBottom="30dp"
         android:background="@drawable/background_btn_login_phone_next"
         android:enabled="false"
         android:text="@string/address_manage_button_next"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

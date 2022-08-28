@@ -507,7 +507,7 @@
                     app:layout_constraintStart_toEndOf="@+id/product_detail_shop_divider"
                     app:layout_constraintTop_toTopOf="@+id/product_detail_shop_certify" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/product_detail_shop_follow"
                     android:layout_width="60dp"
                     android:layout_height="35dp"
@@ -528,18 +528,18 @@
     </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/white"
+        android:background="@drawable/line_bottom"
         android:animateLayoutChanges="true"
         android:id="@+id/product_detail_top_layout"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="@dimen/tool_bar_height"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/product_detail_top_cardview"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             app:cardCornerRadius="5dp"
             android:layout_marginStart="20dp"
             app:cardElevation="0dp"
@@ -565,6 +565,8 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:layout_marginStart="10dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@+id/product_detail_top_title"
             app:layout_constraintStart_toEndOf="@+id/product_detail_top_cardview"
             app:layout_constraintTop_toTopOf="@+id/product_detail_top_cardview"/>
 
@@ -584,18 +586,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_temporary"
-            android:textSize="14sp"
-            android:layout_marginTop="5dp"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/product_detail_top_cardview"
             app:layout_constraintStart_toStartOf="@+id/product_detail_top_price"
-            app:layout_constraintTop_toBottomOf="@+id/product_detail_top_price"
-            app:layout_constraintBottom_toBottomOf="@+id/product_detail_top_cardview"/>
+            app:layout_constraintTop_toBottomOf="@+id/product_detail_top_price" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/product_detail_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="@dimen/tool_bar_height"
         android:background="@color/white"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -655,7 +656,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/product_detail_btn_lightning_talk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -671,7 +672,7 @@
             app:layout_constraintStart_toEndOf="@+id/product_detail_btn_zzim"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:paddingHorizontal="30dp"
             android:id="@+id/product_detail_btn_safe_pay"
             android:layout_width="wrap_content"

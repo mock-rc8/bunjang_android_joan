@@ -44,14 +44,14 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
             bottomSheetDialog.show()
         }
 
-        val areaRegisterBtn = bottomSheetView.findViewById<ImageView>(R.id.area_register_pencil)
+        val areaRegisterBtn = bottomSheetView.findViewById<ImageView>(R.id.dialog_area_pencil)
         areaRegisterBtn.setOnClickListener {
             val intent = Intent(this, BuyDeliveryAddressManageActivity::class.java)
             startActivity(intent)
         }
 
         // 배송지 있으면 rv visibility visible 없으면 gone
-        val areaRegisterRv = bottomSheetView.findViewById<RecyclerView>(R.id.area_register_rv)
+        val areaRegisterRv = bottomSheetView.findViewById<RecyclerView>(R.id.dialog_area_rv)
         areaRegisterRv.adapter = BuyDeliveryAreaSelectAdapter(areaSelectItem)
 
     }

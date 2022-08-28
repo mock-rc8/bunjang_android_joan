@@ -22,7 +22,7 @@ import java.text.DecimalFormat
 class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendProductDetailBinding>(ActivityHomeRecommendProductDetailBinding::inflate),
     RecommendFragmentInterface {
 
-    var detailImage = mutableListOf<String>()
+    val rvAdapter = ProductDetailImageViewPagerAdapter()
     private lateinit var safePayBottomSheetDialog : BottomSheetDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +36,11 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
         // 안전하게 결제하기 버튼 클릭
         safePayDialog()
 
+        // 스크롤에 따라 상단 animation
         scrollDetailTopShow()
+
+        // 이미지 뷰페이저
+        detailImageViewPager()
 
     }
 
@@ -50,24 +54,25 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
             } else {
                 binding.productDetailTopLayout.animate().translationY(0f)
             }
-            Log.d("dddd", scrollY.toString())
-            //Log.d("ddd", oldScrollY.toString())
         }
     }
 
     fun detailImageViewPager() {
-        binding.productDetailViewpager.adapter = ProductDetailImageViewPagerAdapter(detailImage)
-        if (detailImage.size == 1) {
+        binding.productDetailViewpager.adapter = rvAdapter
+
+        Log.d("ddd", rvAdapter.itemCount.toString())
+        if (rvAdapter.itemCount == 1) {
             binding.productDetailViewpagerCount.visibility = View.GONE
         } else {
             binding.productDetailViewpagerCount.text =
-                getString(R.string.home_viewpager_count, 1, detailImage.size)
+                getString(R.string.home_viewpager_count, 1, rvAdapter.itemCount)
         }
+        Log.d("ddd", rvAdapter.itemCount.toString())
 
         binding.productDetailViewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                binding.productDetailViewpagerCount.text = getString(R.string.home_viewpager_count, position + 1, detailImage.size)
+                binding.productDetailViewpagerCount.text = getString(R.string.home_viewpager_count, position + 1, rvAdapter.itemCount)
             }
         })
     }
@@ -120,12 +125,14 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
 
     override fun onGetProductDetailSuccess(response: ProductDetailResponse) {
 
-        detailImage.add(response.result.productImgURL)
+        rvAdapter.addList(response.result.productImgURL)
+        for (subImage in response.result.subImgURL) {
+            rvAdapter.addList(subImage as String)
+        }
         Glide.with(this)
             .load(response.result.productImgURL)
             .into(binding.productDetailTopImg)
-        // 이미지 뷰페이저
-        detailImageViewPager()
+
         binding.productDetailTextviewPrice.text = getString(R.string.product_detail_price, DecimalFormat("#,###").format(response.result.price))
         binding.productDetailTopPrice.text = getString(R.string.product_detail_price, DecimalFormat("#,###").format(response.result.price))
         if (response.result.pay == 0) {
@@ -182,7 +189,6 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
                 binding.productDetailTag4.text = getString(R.string.product_detail_tag, response.result.hashtag[3])
                 binding.productDetailTag5.text = getString(R.string.product_detail_tag, response.result.hashtag[4])}
         }
-
 
         dismissLoadingDialog()
     }

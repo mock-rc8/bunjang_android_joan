@@ -26,10 +26,10 @@
             android:layout_height="190dp"
             android:contentDescription="@string/ImageMissing" />
 
-        <CheckBox
+        <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/item_home_recommend_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
             android:layout_gravity="top|end"
             android:layout_margin="10dp"
             android:button="@drawable/checkbox_item_home_recommend_zzim_selector" />
