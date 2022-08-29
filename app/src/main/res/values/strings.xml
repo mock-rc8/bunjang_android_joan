@@ -114,4 +114,31 @@
     <string name="address_manage_modify"><u>수정</u></string>
     <string name="address_manage_delete"><u>삭제</u></string>
     <string name="address_manage_button_next">완료</string>
+
+    <!-- method_other -->
+    <string name="method_other_title">결제수단</string>
+    <string name="method_other_second_select_card">카드사 선택</string>
+    <string name="method_other_second_select_bank">은행 선택</string>
+    <string name="method_other_notice_title_card">신용/체크카드 안내</string>
+    <string name="method_other_notice_content_card">-결제 시 BC카드 TOP포인트, 현대카드 M포인트 사용가능\n-체크카드는 카드사 점검시간에 따라 이용이 불가\n-카드사별 무이자 할부 지원 : BC카드, NH농협카드, KB국민카드, 삼성카드, 신한카드, 하나카드, 롯데카드, 현대카드, 우리카드\n-일부 상품은 무이자 할부 및 혜택 적용이 불가</string>
+    <string name="method_other_notice_content_card_2"><u>포인트/무이자 할부</u></string>
+    <string name="method_other_notice_title_kakaopay">카카오페이 안내</string>
+    <string name="method_other_notice_content_kakaopay">-카카오페이에 계좌 또는 카드를 등록하여 간편하게 결제할 수 있는 서비스입니다. (카드 등록 시 휴대폰과 카드 명의자가 일치해야 합니다.)</string>
+    <string name="method_other_notice_title_naverpay">네이버페이 안내</string>
+    <string name="method_other_notice_content_naverpay">-주문 변경 시 카드사 혜택 및 할부 적용 여부는 해당 카드사 정책에 따라 변경될 수 있습니다.\n-네이버페이는 네이버ID로 별도 앱 설치 없이 신용카드 또는 은행계좌 정보를 등록하여 네이버페이 비밀번호로 결제할 수 있는 간편결제 서비스입니다.\n-결제 가능한 신용카드:신한,삼성,현대,BC,국민,하나,롯데,NH농협,씨티,카카오뱅크\n-결제 가능한 은행:KB국민,IBK기업,NH농협,신한,씨티,SC제일,우리,카카오뱅크,케이뱅크,토스뱅크,하나,경남,광주,대구,부산,KDB산업,수협,우체국,전북,제주,새마을금고,신협,SBI저축,저축,미래에셋,삼성,신한금융투자,SK,유안타,유진투자,한국투자\n-네이버 페이 카드 간편결제는 네이버페이에서 제공하는 카드사 별 무이자,청구할인 혜택을 받을 수 있습니다.</string>
+    <string name="method_other_notice_title_toss">토스 안내</string>
+    <string name="method_other_notice_content_toss">-Toss는 간편송금/결제 서비스며, 번개장터에서는 등록된 계좌와 토스머니를 통해 쉽게 결제할 수 있습니다.\n-결제 및 사용관련 문의는 Toss 고객센터 (1599-4905)를 이용바랍니다.</string>
+    <string name="method_other_notice_title_simple">간편계좌결제 안내</string>
+    <string name="method_other_notice_content_simple">-내 계좌를 미리 등록하여 간편하게 결제 할 수 있는 간편 결제 서비스 입니다.\n-간편계좌결제서비스는 최대 200만원까지 결제 가능 합니다.</string>
+    <string name="method_other_notice_title_phone">휴대폰결제 안내</string>
+    <string name="method_other_notice_content_phone">-휴대폰 결제일 경우 결제 당월에만 결제수단 취소가 가능합니다.\n-휴대폰 결제 한도는 1회 30만원, 월 30만원까지 가능하며, 통신사 수납/가입상태 및 결제 대행사에 따라 한도가 상이할 수 있습니다.</string>
+    <string name="method_other_notice_title_convenience">편의점결제 안내</string>
+    <string name="method_other_notice_content_convenience">-CU / GS25 / 세븐일레븐 / 이마트24 편의점에서 현금으로 결제 가능합니다.\n-편의점 결제 환불의 경우 결제한 편의점에서만 가능 합니다.</string>
+    <string name="method_other_notice_content_convenience_2"><u>결제방법 자세히 보기</u></string>
+    <string name="method_other_notice_title_bank">무통장(가상계좌)</string>
+    <string name="method_other_notice_content_bank">-원하는 은행으로 가상계좌를 발급받아 결제금액을 입금할 수 있는 서비스 입니다.\n가상계좌는 발급 후 24시간 후에 만료됩니다.</string>
+    <string name="method_other_notice_title_chai">차이 안내</string>
+    <string name="method_other_notice_content_chai">-차이는 은행 계좌만 등록하면 간편하게 결제할 수 있는 모바일 결제 서비스입니다.\n-은행 점검시간인 23:30 ~ 00:30 까지는 이용 불가합니다.</string>
+    <string name="method_other_button_next">결제수단 적용하기</string>
+
 </resources>

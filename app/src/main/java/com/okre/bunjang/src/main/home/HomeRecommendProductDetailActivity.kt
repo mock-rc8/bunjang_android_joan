@@ -24,6 +24,7 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
 
     val rvAdapter = ProductDetailImageViewPagerAdapter()
     private lateinit var safePayBottomSheetDialog : BottomSheetDialog
+    var productIdx : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,9 +46,6 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
     }
 
     fun scrollDetailTopShow() {
-        //binding.productDetailTopLayout.y
-        //binding.productDetailTopLayout.animate().translationY(-binding.productDetailTopLayout.height.toFloat())
-
         binding.productDetailScroll.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
             if (scrollY > 1260) {
                 binding.productDetailTopLayout.animate().translationY(binding.productDetailTopLayout.height.toFloat())
@@ -111,10 +109,12 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
             if (deliveryCheckbox.isChecked) {
                 val intent = Intent(this, BuyDeliveryActivity::class.java)
                 intent.putExtra("selectDeliveryOrDirect", "Delivery")
+                intent.putExtra("productIdx", productIdx)
                 startActivity(intent)
             } else {
                 val intent = Intent(this, BuyDeliveryActivity::class.java)
                 intent.putExtra("selectDeliveryOrDirect", "Direct")
+                intent.putExtra("productIdx", productIdx)
                 startActivity(intent)
             }
         }
@@ -124,6 +124,8 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
     override fun onGetRecommendFailure(message: String) {}
 
     override fun onGetProductDetailSuccess(response: ProductDetailResponse) {
+
+        productIdx = response.result.productIdx
 
         rvAdapter.addList(response.result.productImgURL)
         for (subImage in response.result.subImgURL) {

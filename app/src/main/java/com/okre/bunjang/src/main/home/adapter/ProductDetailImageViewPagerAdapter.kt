@@ -9,7 +9,6 @@ import com.okre.bunjang.databinding.ItemProductDetailImeageViewPagerBinding
 
 class ProductDetailImageViewPagerAdapter : RecyclerView.Adapter<ProductDetailImageViewPagerAdapter.PagerViewHolder>() {
 
-    //val list : MutableList<String>
     private val list : MutableList<String> = arrayListOf()
 
     inner class PagerViewHolder(val binding: ItemProductDetailImeageViewPagerBinding) : RecyclerView.ViewHolder(binding.root) {
