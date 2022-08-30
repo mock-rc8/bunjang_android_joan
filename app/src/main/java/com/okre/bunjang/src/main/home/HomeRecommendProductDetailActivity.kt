@@ -39,10 +39,6 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
 
         // 스크롤에 따라 상단 animation
         scrollDetailTopShow()
-
-        // 이미지 뷰페이저
-        detailImageViewPager()
-
     }
 
     fun scrollDetailTopShow() {
@@ -65,7 +61,7 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
             binding.productDetailViewpagerCount.text =
                 getString(R.string.home_viewpager_count, 1, rvAdapter.itemCount)
         }
-        Log.d("ddd", rvAdapter.itemCount.toString())
+        Log.d("ddd", "${rvAdapter.itemCount}")
 
         binding.productDetailViewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -191,6 +187,9 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
                 binding.productDetailTag4.text = getString(R.string.product_detail_tag, response.result.hashtag[3])
                 binding.productDetailTag5.text = getString(R.string.product_detail_tag, response.result.hashtag[4])}
         }
+
+        // 이미지 뷰페이저
+        detailImageViewPager()
 
         dismissLoadingDialog()
     }

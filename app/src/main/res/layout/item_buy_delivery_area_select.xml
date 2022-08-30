@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="6dp"
+    android:id="@+id/item_area_select_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
@@ -9,19 +11,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="qwerty"/>
+        android:text="주소"/>
 
     <TextView
         android:id="@+id/item_area_select_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="5dp"
         android:text="이름"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@+id/item_area_select_address"
         app:layout_constraintTop_toBottomOf="@+id/item_area_select_address" />
 
@@ -44,7 +47,7 @@
         android:layout_marginStart="5dp"
         android:text="010"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/item_area_select_name"
         app:layout_constraintStart_toEndOf="@+id/item_area_select_divider"
         app:layout_constraintTop_toTopOf="@+id/item_area_select_name" />

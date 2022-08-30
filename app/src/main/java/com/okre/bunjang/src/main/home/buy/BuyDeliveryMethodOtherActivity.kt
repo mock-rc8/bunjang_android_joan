@@ -1,7 +1,9 @@
 package com.okre.bunjang.src.main.home.buy
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.okre.bunjang.R
 import com.okre.bunjang.config.BaseActivity
@@ -11,15 +13,21 @@ import com.okre.bunjang.src.main.home.buy.item.BuyDeliveryMethodOtherItem
 
 class BuyDeliveryMethodOtherActivity : BaseActivity<ActivityBuyDeliveryMethodOtherBinding>(ActivityBuyDeliveryMethodOtherBinding::inflate) {
 
+    var productIdx = 0
+
     var item : MutableList<BuyDeliveryMethodOtherItem> = arrayListOf()
     private var rvAdapter = BuyDeliveryMethodOtherAdapter(item)
+
+    private var paymentMethodOtherSelect : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        productIdx = intent.getIntExtra("productIdx", 0)
+
         methodOtherRecyclerview()
 
-
+        methodOtherBtnClick()
     }
 
     fun methodOtherRecyclerview() {
@@ -33,9 +41,11 @@ class BuyDeliveryMethodOtherActivity : BaseActivity<ActivityBuyDeliveryMethodOth
         item.add(BuyDeliveryMethodOtherItem("무통장(가상계좌)", false))
         item.add(BuyDeliveryMethodOtherItem("차이", false))
         binding.methodOtherRv.adapter = rvAdapter
+        paymentMethodOtherSelect = "신용/체크카드"
 
         rvAdapter.itemClick = object : BuyDeliveryMethodOtherAdapter.ItemClick {
             override fun onClick(view: View, position: Int, text: String) {
+                paymentMethodOtherSelect = text
                 when (text) {
                     "신용/체크카드" -> {
                         binding.methodOtherSecondSelectLayout.visibility = View.VISIBLE
@@ -47,31 +57,31 @@ class BuyDeliveryMethodOtherActivity : BaseActivity<ActivityBuyDeliveryMethodOth
                         binding.methodOtherSecondSelectLayout.visibility = View.GONE
                         binding.methodOtherNoticeTitle.text = getString(R.string.method_other_notice_title_kakaopay)
                         binding.methodOtherNoticeContent.text = getString(R.string.method_other_notice_content_kakaopay)
-                        binding.methodOtherNoticeInfo.text = ""
+                        binding.methodOtherNoticeInfo.visibility = View.GONE
                     }
                     "네이버페이" -> {
                         binding.methodOtherSecondSelectLayout.visibility = View.GONE
                         binding.methodOtherNoticeTitle.text = getString(R.string.method_other_notice_title_naverpay)
                         binding.methodOtherNoticeContent.text = getString(R.string.method_other_notice_content_naverpay)
-                        binding.methodOtherNoticeInfo.text = ""
+                        binding.methodOtherNoticeInfo.visibility = View.GONE
                     }
                     "토스" -> {
                         binding.methodOtherSecondSelectLayout.visibility = View.GONE
                         binding.methodOtherNoticeTitle.text = getString(R.string.method_other_notice_title_toss)
                         binding.methodOtherNoticeContent.text = getString(R.string.method_other_notice_content_toss)
-                        binding.methodOtherNoticeInfo.text = ""
+                        binding.methodOtherNoticeInfo.visibility = View.GONE
                         }
                     "간편계좌결제" -> {
                         binding.methodOtherSecondSelectLayout.visibility = View.GONE
                         binding.methodOtherNoticeTitle.text = getString(R.string.method_other_notice_title_simple)
                         binding.methodOtherNoticeContent.text = getString(R.string.method_other_notice_content_simple)
-                        binding.methodOtherNoticeInfo.text = ""
+                        binding.methodOtherNoticeInfo.visibility = View.GONE
                     }
                     "휴대폰결제" -> {
                         binding.methodOtherSecondSelectLayout.visibility = View.GONE
                         binding.methodOtherNoticeTitle.text = getString(R.string.method_other_notice_title_phone)
                         binding.methodOtherNoticeContent.text = getString(R.string.method_other_notice_content_phone)
-                        binding.methodOtherNoticeInfo.text = ""
+                        binding.methodOtherNoticeInfo.visibility = View.GONE
                     }
                     "편의점결제" -> {
                         binding.methodOtherSecondSelectLayout.visibility = View.GONE
@@ -83,19 +93,26 @@ class BuyDeliveryMethodOtherActivity : BaseActivity<ActivityBuyDeliveryMethodOth
                         binding.methodOtherSecondSelectLayout.visibility = View.VISIBLE
                         binding.methodOtherNoticeTitle.text = getString(R.string.method_other_notice_title_bank)
                         binding.methodOtherNoticeContent.text = getString(R.string.method_other_notice_content_bank)
-                        binding.methodOtherNoticeInfo.text = ""
+                        binding.methodOtherNoticeInfo.visibility = View.GONE
                     }
                     "차이" -> {
                         binding.methodOtherSecondSelectLayout.visibility = View.GONE
                         binding.methodOtherNoticeTitle.text = getString(R.string.method_other_notice_title_chai)
                         binding.methodOtherNoticeContent.text = getString(R.string.method_other_notice_content_chai)
-                        binding.methodOtherNoticeInfo.text = ""
+                        binding.methodOtherNoticeInfo.visibility = View.GONE
                     }
                 }
             }
-
         }
+    }
 
-
+    fun methodOtherBtnClick() {
+        binding.methodOtherBtnNext.setOnClickListener {
+            val intent = Intent(this, BuyDeliveryActivity::class.java)
+            intent.putExtra("paymentMethodOtherSelect", paymentMethodOtherSelect)
+            intent.putExtra("productIdx", productIdx)
+            startActivity(intent)
+            finish()
+        }
     }
 }

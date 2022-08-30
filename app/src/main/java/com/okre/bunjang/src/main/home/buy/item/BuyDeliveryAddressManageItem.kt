@@ -1,7 +1,8 @@
 package com.okre.bunjang.src.main.home.buy.item
 
 data class BuyDeliveryAddressManageItem (
-    val name : String? = "",
-    val address : String? = "",
-    val phone : String? = ""
+    val address : String = "",
+    val detailAddress : String = "",
+    val name : String = "",
+    val phone : String = ""
 )

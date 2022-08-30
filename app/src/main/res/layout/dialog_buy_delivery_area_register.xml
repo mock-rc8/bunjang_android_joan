@@ -2,8 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:paddingBottom="40dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,14 +16,17 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/dialog_area_select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="주소 선택"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:layout_marginBottom="34dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -31,9 +35,9 @@
             android:layout_height="20dp"
             android:layout_marginEnd="20dp"
             android:src="@drawable/icon_pencil"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/dialog_area_select"
             app:layout_constraintEnd_toStartOf="@id/dialog_area_cancel"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/dialog_area_select" />
 
         <ImageView
             android:id="@+id/dialog_area_cancel"
@@ -41,9 +45,9 @@
             android:layout_height="16dp"
             android:layout_marginEnd="22dp"
             android:src="@drawable/icon_cancel"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/dialog_area_select"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/dialog_area_select" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -59,7 +63,6 @@
             android:layout_width="78dp"
             android:layout_height="75dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="34dp"
             android:src="@drawable/icon_delivery_area_paper" />
 
         <TextView
@@ -67,7 +70,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="40dp"
             android:text="배송지를 등록하고, 손쉽게 관리해보세요" />
 
     </LinearLayout>
@@ -76,7 +78,7 @@
         android:id="@+id/dialog_area_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp"
         android:orientation="vertical"
         android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

@@ -28,6 +28,7 @@
         <entry key="app/src/main/res/drawable-v24/icon_product_detail_talk_drawable.xml" value="0.1435" />
         <entry key="app/src/main/res/drawable-v24/icon_product_detail_talk_see.xml" value="0.1435" />
         <entry key="app/src/main/res/drawable-v24/line_bottom.xml" value="0.1485" />
+        <entry key="app/src/main/res/drawable-v24/line_right.xml" value="0.1385" />
         <entry key="app/src/main/res/drawable-v24/line_top.xml" value="0.192" />
         <entry key="app/src/main/res/drawable-v24/shape_login_phone_cursor.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/shape_viewpager_black.xml" value="0.1" />
@@ -63,7 +64,7 @@
         <entry key="app/src/main/res/layout/activity_buy_delivery.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_buy_delivery_address_manage.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_buy_delivery_address_manage_add.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/activity_buy_delivery_method_other.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_buy_delivery_method_other.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_home_recommend_product_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login_phone.xml" value="0.25" />

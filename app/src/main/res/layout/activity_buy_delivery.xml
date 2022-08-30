@@ -68,7 +68,7 @@
                         <ImageView
                             android:id="@+id/buy_delivery_img"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -130,33 +130,65 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/buy_delivery_address_register"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/buy_delivery_btn_height"
+                        android:layout_height="wrap_content"
                         android:background="@drawable/background_btn_product_detail_event"
+                        android:padding="20dp"
                         app:layout_constraintBottom_toBottomOf="parent">
 
                         <TextView
                             android:id="@+id/buy_delivery_area_register"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/buy_delivery_area_margin_horizontal"
                             android:text="@string/buy_delivery_area_register"
                             android:textColor="@color/home_recommend_item_gray"
                             android:textSize="15sp"
+                            android:visibility="visible"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <TextView
+                            android:visibility="gone"
+                            android:id="@+id/buy_delivery_area_register_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/buy_delivery_area_margin_horizontal"
+                            android:text="이름"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/buy_delivery_area_register_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="주소"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="@+id/buy_delivery_area_register_name"
+                            app:layout_constraintTop_toBottomOf="@+id/buy_delivery_area_register_name" />
+
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/buy_delivery_area_register_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="010"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="@+id/buy_delivery_area_register_name"
+                            app:layout_constraintTop_toBottomOf="@+id/buy_delivery_area_register_address" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="@string/buy_delivery_area_register_button"
                             android:textColor="@color/buy_delivery_register_dark_button"
                             android:textSize="13sp"
                             android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="@+id/buy_delivery_area_register"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/buy_delivery_area_register" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -514,7 +546,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:button="@drawable/checkbox_item_login_phone_telecom_selector"
-                        android:checked="true"
+                        android:checked="false"
                         android:paddingStart="5dp" />
 
                     <TextView
@@ -523,7 +555,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="번개장터 간편결제"
-                        android:textColor="@color/black"
+                        android:textColor="@color/buy_delivery_method_uncheck"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -586,7 +618,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:button="@drawable/checkbox_item_login_phone_telecom_selector"
-                        android:checked="false"
+                        android:checked="true"
                         android:paddingStart="5dp" />
 
                     <TextView
@@ -595,7 +627,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="다른 결제수단"
-                        android:textColor="@color/buy_delivery_method_uncheck"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -615,12 +647,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/buy_delivery_area_margin_horizontal"
+                        android:layout_marginStart="16dp"
                         android:text="@string/buy_delivery_method_other_register"
                         android:textColor="@color/home_recommend_item_gray"
                         android:textSize="15sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.078" />
 
                     <TextView
                         android:id="@+id/buy_delivery_method_other_select_btn"

@@ -39,6 +39,7 @@ class HomeRecommendAdapter() : RecyclerView.Adapter<HomeRecommendAdapter.ViewHol
                 binding.itemHomeRecommendHeart.visibility = View.GONE
             } else {
                 binding.itemHomeRecommendHeart.visibility = View.VISIBLE
+                binding.itemHomeRecommendHeart.text = item.recommendHeartCount.toString()
             }
 
             binding.itemHomeRecommendLayout.setOnClickListener { v ->

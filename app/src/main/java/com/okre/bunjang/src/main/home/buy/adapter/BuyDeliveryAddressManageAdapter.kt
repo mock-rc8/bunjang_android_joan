@@ -8,13 +8,21 @@ import com.okre.bunjang.databinding.ItemBuyDeliveryAreaSelectBinding
 import com.okre.bunjang.src.main.home.buy.item.BuyDeliveryAddressManageItem
 import com.okre.bunjang.src.main.home.buy.item.BuyDeliveryAreaSelectItem
 
-class BuyDeliveryAddressManageAdapter(val itemList : MutableList<BuyDeliveryAddressManageItem>) : RecyclerView.Adapter<BuyDeliveryAddressManageAdapter.ViewHolder>() {
-    class ViewHolder(val binding: ItemBuyDeliveryAddressManageBinding) : RecyclerView.ViewHolder(binding.root) {
+class BuyDeliveryAddressManageAdapter() : RecyclerView.Adapter<BuyDeliveryAddressManageAdapter.ViewHolder>() {
+
+    private val itemList : MutableList<BuyDeliveryAddressManageItem> = arrayListOf()
+
+    inner class ViewHolder(val binding: ItemBuyDeliveryAddressManageBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindList(item : BuyDeliveryAddressManageItem) {
             binding.itemAddressManagerName.text = item.name
-            binding.itemAddressManagerAddress.text = item.address
+            binding.itemAddressManagerAddress.text = item.address + " " + item.detailAddress
             binding.itemAddressManagerPhone.text = item.phone
         }
+    }
+
+    fun addList(buyDeliveryAddressManageItem: BuyDeliveryAddressManageItem) {
+        itemList.add(buyDeliveryAddressManageItem)
+        notifyItemInserted(itemList.size - 1)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
