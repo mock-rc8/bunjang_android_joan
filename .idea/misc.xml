@@ -49,6 +49,7 @@
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line_selector.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/background_gray_radius.xml" value="0.1675" />
         <entry key="app/src/main/res/drawable/background_green_radius.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/background_register_gray_radius.xml" value="0.162" />
         <entry key="app/src/main/res/drawable/background_text_input_layout.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/background_today_benefit_shinhan.xml" value="0.1605" />
         <entry key="app/src/main/res/drawable/background_yellow_radius.xml" value="0.121" />
@@ -59,6 +60,7 @@
         <entry key="app/src/main/res/drawable/icon_home_recommend_heart_count_drawable.xml" value="0.1435" />
         <entry key="app/src/main/res/drawable/inputbox_normal.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/item_home_recommend_heart_count_drawable.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/line_dark_bottom.xml" value="0.1735" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category_in.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_buy_delivery.xml" value="0.25" />
@@ -83,7 +85,7 @@
         <entry key="app/src/main/res/layout/fragment_lightning_talk.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_my.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_recommend.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/item_buy_delivery_address_manage.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/item_buy_delivery_address_option.xml" value="0.28229166666666666" />

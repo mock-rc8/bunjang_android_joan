@@ -86,31 +86,10 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
         temporaryShared = getSharedPreferences("temporary", MODE_PRIVATE)
         temporaryeditor = temporaryShared.edit()
 
-    }
-
-    fun agreeClick() {
-        binding.buyTxtAgree.setOnClickListener {
-            if (agree) {
-                binding.buyBtnAgree.setImageResource(R.drawable.icon_terms_accept_all_unchecked)
-                agree = false
-            } else {
-                binding.buyBtnAgree.setImageResource(R.drawable.icon_terms_accept_all_checked)
-                agree = true
-            }
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-
         // 택배거래 api
         showLoadingDialog(this)
         productIdx = intent.getIntExtra("productIdx", 0)
         BuyDeliveryService(this).tryGetBuyDelivery(productIdx)
-
-        // 배송지 appi
-        //showLoadingDialog(this)
-        BuyDeliveryService(this).tryGetUserShipping()
 
         // 배송지 등록
         clickAddressRegister()
@@ -129,6 +108,26 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
 
         // 결제하기 버튼 클릭
         paymentBtnClick()
+
+    }
+
+    fun agreeClick() {
+        binding.buyTxtAgree.setOnClickListener {
+            if (agree) {
+                binding.buyBtnAgree.setImageResource(R.drawable.icon_terms_accept_all_unchecked)
+                agree = false
+            } else {
+                binding.buyBtnAgree.setImageResource(R.drawable.icon_terms_accept_all_checked)
+                agree = true
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // 배송지 appi
+        //showLoadingDialog(this)
+        BuyDeliveryService(this).tryGetUserShipping()
 
         Log.d("pppp2", addressOption.toString())
         addressOption = temporaryShared.getString("addressOption", null).toString()
@@ -251,11 +250,11 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
         areaRegisterBtn.setOnClickListener {
             val intent = Intent(this, BuyDeliveryAddressManageActivity::class.java)
             startActivity(intent)
+            bottomSheetDialog.dismiss()
         }
 
         //배송지 있으면 rv visibility visible 없으면 gone
         areaRegisterRv = bottomSheetView.findViewById<RecyclerView>(R.id.dialog_area_rv)
-
 
         areaRegisterEmpty = bottomSheetView.findViewById(R.id.dialog_area_no)
 
@@ -385,7 +384,8 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
 //                areaSelectItem = shippingList
 //                //deliveryAreaSelectAdapter.addList(BuyDeliveryAreaSelectItem(address, detailAddress, name, phone))
 //            }
-            areaRegisterRv.adapter = deliveryAreaSelectAdapter
+            areaRegisterRv.adapter = BuyDeliveryAreaSelectAdapter(areaSelectItem)
+
 
         } else {
             Log.d("responsesss", "dlrjs")

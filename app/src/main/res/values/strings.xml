@@ -141,4 +141,8 @@
     <string name="method_other_notice_content_chai">-차이는 은행 계좌만 등록하면 간편하게 결제할 수 있는 모바일 결제 서비스입니다.\n-은행 점검시간인 23:30 ~ 00:30 까지는 이용 불가합니다.</string>
     <string name="method_other_button_next">결제수단 적용하기</string>
 
+    <!-- fragment_register -->
+    <string name="register_direct"><u>직거래시 가능 지역</u></string>
+    <string name="register_context_hint_big"><font size="15">여러 장의 상품 사진, 구입 연도, 브랜드, 사용감, 하자 유무 등 구매자에게 필요한 정보를 포함해 주세요.(10자 이상)</font><font size="11">안전하고 건전한 거래 환경을 위해 과학기술정보통신부, 한국인터넷진흥원과 번개장터(주)가 함께 합니다.</font></string>
+    <string name="register_count">%1$d/2000</string>
 </resources>

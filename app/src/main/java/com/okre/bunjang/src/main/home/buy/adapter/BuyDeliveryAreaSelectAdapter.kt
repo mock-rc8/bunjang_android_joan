@@ -29,11 +29,6 @@ class BuyDeliveryAreaSelectAdapter(val itemList: List<BuyDeliveryAddressManageRe
     }
     var itemClick : ItemClick? = null
 
-//    fun addList(buyDeliveryAreaSelectItem: BuyDeliveryAreaSelectItem) {
-//        itemList.add(buyDeliveryAreaSelectItem)
-//        notifyItemInserted(itemList.size - 1)
-//    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =  ItemBuyDeliveryAreaSelectBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(view)

@@ -150,8 +150,6 @@ class BuyDeliveryAddressManageActivity : BaseActivity<ActivityBuyDeliveryAddress
             binding.addressManageTitle.text = "주소 관리"
             binding.addressManageRv.visibility = View.VISIBLE
 
-//            BuyDeliveryService(this).tryGetUserShipping()
-
             val intent = Intent(this, BuyDeliveryAddressManageActivity::class.java)
             finish()
             startActivity(intent)
