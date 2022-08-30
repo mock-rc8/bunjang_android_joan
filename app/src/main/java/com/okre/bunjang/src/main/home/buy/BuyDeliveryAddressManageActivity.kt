@@ -155,9 +155,10 @@ class BuyDeliveryAddressManageActivity : BaseActivity<ActivityBuyDeliveryAddress
 
 //            BuyDeliveryService(this).tryGetUserShipping()
 
-//            val intent = Intent(this, BuyDeliveryAddressManageActivity::class.java)
-//            finish()
-//            startActivity(intent)
+            val intent = Intent(this, BuyDeliveryAddressManageActivity::class.java)
+            finish()
+            startActivity(intent)
+            overridePendingTransition(0, 0)
         }
         dismissLoadingDialog()
     }

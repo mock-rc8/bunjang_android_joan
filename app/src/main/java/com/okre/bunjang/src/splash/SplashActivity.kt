@@ -11,9 +11,12 @@ import com.okre.bunjang.config.ApplicationClass.Companion.loginSharedPreferences
 import com.okre.bunjang.config.BaseActivity
 import com.okre.bunjang.databinding.ActivitySplashBinding
 import com.okre.bunjang.src.login.LoginActivity
+import com.okre.bunjang.src.login.LoginService
 import com.okre.bunjang.src.main.MainActivity
+import com.okre.bunjang.src.splash.model.AutoLoginResponse
 
-class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding::inflate) {
+class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding::inflate),
+    AutoLoginInterface {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,13 +26,26 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
         binding.splashImage.startAnimation(animation)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            if (jwtToken != null) {// 로그인 o
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-            } else {// 로그인 x
+            if (jwtToken != null) {// token o -> 자동로그인
+                showLoadingDialog(this)
+                AutoLoginService(this).tryGetAutoLogin()
+            } else {// token x -> 처음이거나 로그인
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             }
         }, 1500)
+    }
+
+    override fun onGetAutoLoginSuccess(response: AutoLoginResponse) {
+        dismissLoadingDialog()
+        if (response.code == 1000) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+    }
+
+    override fun onGetAutoLoginFailure(message: String) {
+        dismissLoadingDialog()
+        showCustomToast("오류 : $message")
     }
 }
