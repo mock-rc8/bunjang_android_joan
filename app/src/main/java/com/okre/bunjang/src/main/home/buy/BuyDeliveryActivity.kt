@@ -58,8 +58,8 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
 
     var agree : Boolean = false
 
-    private lateinit var temporaryShared : SharedPreferences
-    private lateinit var temporaryeditor: SharedPreferences.Editor
+    lateinit var temporaryShared : SharedPreferences
+    lateinit var temporaryeditor: SharedPreferences.Editor
     var temporary = false
 
     private var userIdx = 0
@@ -130,25 +130,26 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
         // 결제하기 버튼 클릭
         paymentBtnClick()
 
+        Log.d("pppp2", addressOption.toString())
         addressOption = temporaryShared.getString("addressOption", null).toString()
+        Log.d("pppp3", addressOption.toString())
         if (addressOption != "null") {
             binding.buyDeliveryAreaDemand.text = addressOption
             binding.buyDeliveryAreaDemand.setTextColor(ContextCompat.getColor(baseContext, R.color.black))
         }
     }
 
-    override fun onPause() {
-        super.onPause()
+    override fun onStop() {
+        super.onStop()
         if (pointUse != 0) {
-            Log.d("pppp", pointUse.toString())
             temporaryeditor.putInt("pointUse", pointUse)
             temporaryeditor.apply()
         }
         if (addressOption != null) {
+            Log.d("pppp4", addressOption.toString())
             temporaryeditor.putString("addressOption", addressOption)
-            temporaryeditor.apply()
+            temporaryeditor.commit()
         }
-
     }
 
     fun paymentBtnClick() {
@@ -406,7 +407,7 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
     override fun onPostBuyDeliveryPaymentSuccess(response: BuyDeliveryPaymentResponse) {
         // temporary 비우기
         temporaryeditor.clear()
-        temporaryeditor.commit()
+        temporaryeditor.apply()
 
         if (response.code == 1000) {
             val intent = Intent(this, MainActivity::class.java)
@@ -414,8 +415,6 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
             startActivity(intent)
             overridePendingTransition(0, 0)
             showCustomToast("결제성공")
-
-
         }
         dismissLoadingDialog()
     }
@@ -426,6 +425,9 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
     }
 
     override fun onDestroy() {
+        // temporary 비우기
+        temporaryeditor.clear()
+        temporaryeditor.commit()
         super.onDestroy()
         animation.stop()
     }
