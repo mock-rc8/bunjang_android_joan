@@ -201,7 +201,8 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
     }
 
     override fun onPostHeartSuccess(response: RecommendHeartResponse) {}
-
     override fun onPostHeartDetailFailure(message: String) {}
+    override fun onPatchHeartSuccess(response: RecommendHeartResponse) {}
+    override fun onPatchHeartDetailFailure(message: String) {}
 
 }

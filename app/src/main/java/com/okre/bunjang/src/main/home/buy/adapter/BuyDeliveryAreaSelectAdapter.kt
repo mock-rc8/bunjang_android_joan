@@ -6,19 +6,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.okre.bunjang.databinding.ItemBuyDeliveryAreaSelectBinding
 import com.okre.bunjang.src.main.home.buy.item.BuyDeliveryAreaSelectItem
+import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressManageResult
 import com.okre.bunjang.src.main.home.item.HomeRecommendItem
 
-class BuyDeliveryAreaSelectAdapter() : RecyclerView.Adapter<BuyDeliveryAreaSelectAdapter.ViewHolder>() {
+class BuyDeliveryAreaSelectAdapter(val itemList: List<BuyDeliveryAddressManageResult>) : RecyclerView.Adapter<BuyDeliveryAreaSelectAdapter.ViewHolder>() {
 
-    private val itemList : MutableList<BuyDeliveryAreaSelectItem> = arrayListOf()
+    //private val itemList : MutableList<BuyDeliveryAreaSelectItem> = arrayListOf()
 
     inner class ViewHolder(val binding: ItemBuyDeliveryAreaSelectBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bindList(item : BuyDeliveryAreaSelectItem) {
+        fun bindList(item : BuyDeliveryAddressManageResult) {
             binding.itemAreaSelectAddress.text = item.address + item.detailAddress
-            binding.itemAreaSelectName.text = item.name
-            binding.itemAreaSelectPhone.text = item.phone
+            binding.itemAreaSelectName.text = item.receiverName
+            binding.itemAreaSelectPhone.text = item.receiverPhoneNum
             binding.itemAreaSelectLayout.setOnClickListener { v ->
-                itemClick?.onClick(v, adapterPosition, item.address, item.detailAddress, item.name, item.phone)
+                itemClick?.onClick(v, adapterPosition, item.address, item.detailAddress, item.receiverName, item.receiverPhoneNum)
             }
         }
     }
@@ -28,10 +29,10 @@ class BuyDeliveryAreaSelectAdapter() : RecyclerView.Adapter<BuyDeliveryAreaSelec
     }
     var itemClick : ItemClick? = null
 
-    fun addList(buyDeliveryAreaSelectItem: BuyDeliveryAreaSelectItem) {
-        itemList.add(buyDeliveryAreaSelectItem)
-        notifyItemInserted(itemList.size - 1)
-    }
+//    fun addList(buyDeliveryAreaSelectItem: BuyDeliveryAreaSelectItem) {
+//        itemList.add(buyDeliveryAreaSelectItem)
+//        notifyItemInserted(itemList.size - 1)
+//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =  ItemBuyDeliveryAreaSelectBinding.inflate(LayoutInflater.from(parent.context), parent, false)

@@ -23,8 +23,8 @@ class HomeRecommendAdapter() : RecyclerView.Adapter<HomeRecommendAdapter.ViewHol
                 .into(binding.itemHomeRecommendImageview)
             binding.itemHomeRecommendCheckbox.isChecked = item.recommendCheckbox
             binding.itemHomeRecommendCheckbox.setOnClickListener { v ->
-                itemClick?.onClick(v, adapterPosition, item.recommendIdx)
                 item.recommendCheckbox = !item.recommendCheckbox
+                itemClick?.onClick(v, adapterPosition, item.recommendIdx, item.recommendCheckbox)
                 notifyDataSetChanged()
             }
             binding.itemHomeRecommendPrice.text = item.recommendPrice
@@ -53,7 +53,7 @@ class HomeRecommendAdapter() : RecyclerView.Adapter<HomeRecommendAdapter.ViewHol
     }
 
     interface ItemClick {
-        fun onClick(view : View, position: Int, productIdx: Int)
+        fun onClick(view : View, position: Int, productIdx: Int, checkbox: Boolean)
     }
     var itemClick : ItemClick? = null
 

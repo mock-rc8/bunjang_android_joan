@@ -58,6 +58,21 @@ class RecommendService(val recommendFragmentInterface: RecommendFragmentInterfac
             override fun onFailure(call: Call<RecommendHeartResponse>, t: Throwable) {
                 recommendFragmentInterface.onPostHeartDetailFailure(t.message ?: "통신 오류")
             }
+        })
+    }
+
+    fun tryPatchHeart(recommendHeartRequest: RecommendHeartRequest) {
+        recommendRetrofitInterface.patchHeart(recommendHeartRequest).enqueue(object : Callback<RecommendHeartResponse> {
+            override fun onResponse(
+                call: Call<RecommendHeartResponse>,
+                response: Response<RecommendHeartResponse>
+            ) {
+                recommendFragmentInterface.onPatchHeartSuccess(response.body() as RecommendHeartResponse)
+            }
+
+            override fun onFailure(call: Call<RecommendHeartResponse>, t: Throwable) {
+                recommendFragmentInterface.onPatchHeartDetailFailure(t.message ?: "통신 오류")
+            }
 
         })
     }

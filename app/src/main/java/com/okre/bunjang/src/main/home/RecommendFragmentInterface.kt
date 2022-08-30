@@ -18,4 +18,8 @@ interface RecommendFragmentInterface {
 
     fun onPostHeartDetailFailure(message: String)
 
+    fun onPatchHeartSuccess(response: RecommendHeartResponse)
+
+    fun onPatchHeartDetailFailure(message: String)
+
 }

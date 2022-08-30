@@ -7,14 +7,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import androidx.core.content.ContextCompat
 import com.okre.bunjang.R
 import com.okre.bunjang.config.BaseFragment
 import com.okre.bunjang.databinding.FragmentHomeRecommendBinding
+import com.okre.bunjang.src.login.LoginService
 import com.okre.bunjang.src.login.adpater.LoginPhoneTelecomAdapter
+import com.okre.bunjang.src.login.model.LoginRequest
 import com.okre.bunjang.src.main.home.adapter.HomeRecommendAdapter
 import com.okre.bunjang.src.main.home.item.HomeRecommendItem
 import com.okre.bunjang.src.main.home.model.ProductDetailResponse
+import com.okre.bunjang.src.main.home.model.RecommendHeartRequest
 import com.okre.bunjang.src.main.home.model.RecommendHeartResponse
 import com.okre.bunjang.src.main.home.model.RecommendResponse
 import java.text.DecimalFormat
@@ -81,17 +85,42 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
 
     fun heartClick() {
         rvAdapter.itemClick = object : HomeRecommendAdapter.ItemClick {
-            override fun onClick(view: View, position: Int, productIdx: Int) {
-                rvAdapter
+            override fun onClick(view: View, position: Int, productIdx: Int, checkbox: Boolean) {
+                if (checkbox) {
+                    showLoadingDialog(requireContext())
+                    val recommendHeartRequest = RecommendHeartRequest(productIdx)
+                    RecommendService(this@HomeRecommendFragment).tryPostHeart(recommendHeartRequest)
+                } else {
+                    showLoadingDialog(requireContext())
+                    val recommendHeartRequest = RecommendHeartRequest(productIdx)
+                    RecommendService(this@HomeRecommendFragment).tryPatchHeart(recommendHeartRequest)
+                }
+
             }
 
         }
     }
     override fun onPostHeartSuccess(response: RecommendHeartResponse) {
-        TODO("Not yet implemented")
+        // 화면에 하트 +1
+        //RecommendService(this).tryGetRecommend() -> ?
+        showCustomToast(response.result.successMessage)
+        dismissLoadingDialog()
     }
 
     override fun onPostHeartDetailFailure(message: String) {
-        TODO("Not yet implemented")
+        dismissLoadingDialog()
+        showCustomToast("오류 : $message")
+    }
+
+    override fun onPatchHeartSuccess(response: RecommendHeartResponse) {
+        // 화면에 하트 +1
+        //RecommendService(this).tryGetRecommend() -> ?
+        showCustomToast(response.result.successMessage)
+        dismissLoadingDialog()
+    }
+
+    override fun onPatchHeartDetailFailure(message: String) {
+        dismissLoadingDialog()
+        showCustomToast("오류 : $message")
     }
 }

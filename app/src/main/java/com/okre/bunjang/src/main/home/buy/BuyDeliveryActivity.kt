@@ -34,8 +34,8 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
 
     var productIdx = 0
     lateinit var animation : AnimationDrawable
-    var areaSelectItem = mutableListOf<BuyDeliveryAreaSelectItem>()
-    var deliveryAreaSelectAdapter = BuyDeliveryAreaSelectAdapter()
+    var areaSelectItem : List<BuyDeliveryAddressManageResult> = arrayListOf()
+    var deliveryAreaSelectAdapter = BuyDeliveryAreaSelectAdapter(areaSelectItem)
     lateinit var areaRegisterRv : RecyclerView
     lateinit var areaRegisterEmpty : LinearLayout
     var optionItem = mutableListOf<String>()
@@ -202,7 +202,6 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
             val intentOtherSelect = Intent(this, BuyDeliveryMethodOtherActivity::class.java)
             intentOtherSelect.putExtra("productIdx", productIdx)
             startActivity(intentOtherSelect)
-            finish()
         }
     }
 
@@ -256,7 +255,7 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
 
         //배송지 있으면 rv visibility visible 없으면 gone
         areaRegisterRv = bottomSheetView.findViewById<RecyclerView>(R.id.dialog_area_rv)
-        areaRegisterRv.adapter = deliveryAreaSelectAdapter
+
 
         areaRegisterEmpty = bottomSheetView.findViewById(R.id.dialog_area_no)
 
@@ -376,13 +375,18 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
             registerPhone = response.result[0].receiverPhoneNum
             areaRegister()
 
-            for (shippingList in response.result) {
-                val address = shippingList.address
-                val detailAddress = shippingList.detailAddress
-                val name = shippingList.receiverName
-                val phone = shippingList.receiverPhoneNum
-                deliveryAreaSelectAdapter.addList(BuyDeliveryAreaSelectItem(address, detailAddress, name, phone))
-            }
+            areaSelectItem = response.result
+
+//            for (shippingList in response.result) {
+//                val address = shippingList.address
+//                val detailAddress = shippingList.detailAddress
+//                val name = shippingList.receiverName
+//                val phone = shippingList.receiverPhoneNum
+//                areaSelectItem = shippingList
+//                //deliveryAreaSelectAdapter.addList(BuyDeliveryAreaSelectItem(address, detailAddress, name, phone))
+//            }
+            areaRegisterRv.adapter = deliveryAreaSelectAdapter
+
         } else {
             Log.d("responsesss", "dlrjs")
             areaRegisterRv.visibility = View.GONE
@@ -406,8 +410,8 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
 
     override fun onPostBuyDeliveryPaymentSuccess(response: BuyDeliveryPaymentResponse) {
         // temporary 비우기
-        temporaryeditor.clear()
-        temporaryeditor.apply()
+        //temporaryeditor.clear()
+        //temporaryeditor.apply()
 
         if (response.code == 1000) {
             val intent = Intent(this, MainActivity::class.java)
