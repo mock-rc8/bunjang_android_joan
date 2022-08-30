@@ -16,6 +16,7 @@ import com.okre.bunjang.databinding.ActivityHomeRecommendProductDetailBinding
 import com.okre.bunjang.src.main.home.adapter.ProductDetailImageViewPagerAdapter
 import com.okre.bunjang.src.main.home.buy.BuyDeliveryActivity
 import com.okre.bunjang.src.main.home.model.ProductDetailResponse
+import com.okre.bunjang.src.main.home.model.RecommendHeartResponse
 import com.okre.bunjang.src.main.home.model.RecommendResponse
 import java.text.DecimalFormat
 
@@ -198,5 +199,9 @@ class HomeRecommendProductDetailActivity : BaseActivity<ActivityHomeRecommendPro
         dismissLoadingDialog()
         showCustomToast("오류 : $message")
     }
+
+    override fun onPostHeartSuccess(response: RecommendHeartResponse) {}
+
+    override fun onPostHeartDetailFailure(message: String) {}
 
 }

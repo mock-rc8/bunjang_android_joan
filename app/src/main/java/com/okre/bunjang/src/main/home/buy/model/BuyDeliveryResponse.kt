@@ -7,6 +7,7 @@ data class BuyDeliveryResponse(
 ) : BaseResponse()
 
 data class BuyDeliveryResult(
+    val userIdx: Int,
     val address: String,
     val commission: String,
     val detailAddress: String,

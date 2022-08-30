@@ -1,6 +1,6 @@
 package com.okre.bunjang.src.main.home.item
 data class HomeRecommendItem (
-    var recommendIdx : Int? = 0,
+    var recommendIdx : Int = 0,
     var recommendImage : String? = "",
     var recommendCheckbox : Boolean = false,
     var recommendPrice : String? = "",

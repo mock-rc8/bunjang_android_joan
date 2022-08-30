@@ -2,6 +2,8 @@ package com.okre.bunjang.src.main.home
 
 import com.okre.bunjang.config.ApplicationClass
 import com.okre.bunjang.src.main.home.model.ProductDetailResponse
+import com.okre.bunjang.src.main.home.model.RecommendHeartRequest
+import com.okre.bunjang.src.main.home.model.RecommendHeartResponse
 import com.okre.bunjang.src.main.home.model.RecommendResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -39,6 +41,22 @@ class RecommendService(val recommendFragmentInterface: RecommendFragmentInterfac
 
             override fun onFailure(call: Call<ProductDetailResponse>, t: Throwable) {
                 recommendFragmentInterface.onGetProductDetailFailure(t.message ?: "통신 오류")
+            }
+
+        })
+    }
+
+    fun tryPostHeart(recommendHeartRequest: RecommendHeartRequest) {
+        recommendRetrofitInterface.postHeart(recommendHeartRequest).enqueue(object : Callback<RecommendHeartResponse> {
+            override fun onResponse(
+                call: Call<RecommendHeartResponse>,
+                response: Response<RecommendHeartResponse>
+            ) {
+                recommendFragmentInterface.onPostHeartSuccess(response.body() as RecommendHeartResponse)
+            }
+
+            override fun onFailure(call: Call<RecommendHeartResponse>, t: Throwable) {
+                recommendFragmentInterface.onPostHeartDetailFailure(t.message ?: "통신 오류")
             }
 
         })

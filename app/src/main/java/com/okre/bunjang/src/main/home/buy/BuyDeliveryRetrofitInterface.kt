@@ -1,9 +1,6 @@
 package com.okre.bunjang.src.main.home.buy
 
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressAddRequest
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressAddResponse
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressManageResponse
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryResponse
+import com.okre.bunjang.src.main.home.buy.model.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -25,4 +22,10 @@ interface BuyDeliveryRetrofitInterface {
         @Body
         params : BuyDeliveryAddressAddRequest
     ) : Call<BuyDeliveryAddressAddResponse>
+
+    @POST("/bunjang/products/payments")
+    fun postBuyDeliveryPayment(
+        @Body
+        params: BuyDeliveryPaymentRequest
+    ) : Call<BuyDeliveryPaymentResponse>
 }

@@ -21,12 +21,12 @@ import com.okre.bunjang.R
 import com.okre.bunjang.config.ApplicationClass
 import com.okre.bunjang.config.BaseActivity
 import com.okre.bunjang.databinding.ActivityBuyDeliveryBinding
+import com.okre.bunjang.src.main.MainActivity
+import com.okre.bunjang.src.main.home.HomeFragment
 import com.okre.bunjang.src.main.home.buy.adapter.BuyDeliveryAddressOptionAdapter
 import com.okre.bunjang.src.main.home.buy.adapter.BuyDeliveryAreaSelectAdapter
 import com.okre.bunjang.src.main.home.buy.item.BuyDeliveryAreaSelectItem
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressAddResponse
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressManageResponse
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryResponse
+import com.okre.bunjang.src.main.home.buy.model.*
 import java.text.DecimalFormat
 
 class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuyDeliveryBinding::inflate),
@@ -52,14 +52,17 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
     var registerDetailAddress : String? = null
     var registerPhone : String? = null
 
-    var addressOption : String? = null
-    private var paymentMethod : String? = null
+    var addressOption : String = ""
+    var paymentMethod : String = ""
+    var transactionMethod = ""
 
     var agree : Boolean = false
 
     private lateinit var temporaryShared : SharedPreferences
     private lateinit var temporaryeditor: SharedPreferences.Editor
     var temporary = false
+
+    private var userIdx = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +71,9 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
         if (intent.getStringExtra("selectDeliveryOrDirect") == "Direct") {
             binding.buyDeliveryOrDirectTitle.text = getString(R.string.buy_direct_title)
             binding.buyDeliveryAreaLayout.visibility = View.GONE
+            transactionMethod = "직거래"
+        } else {
+            transactionMethod = "택배거래"
         }
 
         // 코인 이미지 회전
@@ -76,6 +82,26 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
 
         // 취소선
         binding.buyDeliveryPaymentTaxDiscount.paintFlags= binding.buyDeliveryPaymentTaxDiscount.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+
+        temporaryShared = getSharedPreferences("temporary", MODE_PRIVATE)
+        temporaryeditor = temporaryShared.edit()
+
+    }
+
+    fun agreeClick() {
+        binding.buyTxtAgree.setOnClickListener {
+            if (agree) {
+                binding.buyBtnAgree.setImageResource(R.drawable.icon_terms_accept_all_unchecked)
+                agree = false
+            } else {
+                binding.buyBtnAgree.setImageResource(R.drawable.icon_terms_accept_all_checked)
+                agree = true
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
 
         // 택배거래 api
         showLoadingDialog(this)
@@ -104,27 +130,8 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
         // 결제하기 버튼 클릭
         paymentBtnClick()
 
-        temporaryShared = getSharedPreferences("temporary", MODE_PRIVATE)
-        temporaryeditor = temporaryShared.edit()
-
-    }
-
-    fun agreeClick() {
-        binding.buyTxtAgree.setOnClickListener {
-            if (agree) {
-                binding.buyBtnAgree.setImageResource(R.drawable.icon_terms_accept_all_unchecked)
-                agree = false
-            } else {
-                binding.buyBtnAgree.setImageResource(R.drawable.icon_terms_accept_all_checked)
-                agree = true
-            }
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        addressOption = temporaryShared.getString("addressOption", null)
-        if (addressOption != null) {
+        addressOption = temporaryShared.getString("addressOption", null).toString()
+        if (addressOption != "null") {
             binding.buyDeliveryAreaDemand.text = addressOption
             binding.buyDeliveryAreaDemand.setTextColor(ContextCompat.getColor(baseContext, R.color.black))
         }
@@ -133,6 +140,7 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
     override fun onPause() {
         super.onPause()
         if (pointUse != 0) {
+            Log.d("pppp", pointUse.toString())
             temporaryeditor.putInt("pointUse", pointUse)
             temporaryeditor.apply()
         }
@@ -154,11 +162,12 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
             if (areaRegisterEmpty.visibility == View.VISIBLE) {
                 showCustomToast("배송지 정보를 입력해주세요.")
             }
-            // 상품결제 등록 api
 
-            // temporary 비우기
-            temporaryeditor.clear()
-            temporaryeditor.apply()
+            val buyDeliveryPaymentRequest = BuyDeliveryPaymentRequest(taxFinal, paymentFinalPrice, paymentMethod, productIdx,
+                addressOption, transactionMethod, pointUse, userIdx)
+            showLoadingDialog(this)
+            BuyDeliveryService(this).tryPostBuyDeliveryPayment(buyDeliveryPaymentRequest)
+
         }
     }
 
@@ -213,9 +222,12 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
                         pointUse = pointWant
                         binding.buyDeliveryPaymentPointWon.text = getString(R.string.product_detail_price, DecimalFormat("#,###").format(pointUse))
                         pointCalculate()
+                        Log.d("pppp", pointUse.toString())
                     }
                 } else {
                     binding.buyDeliveryPoint.setText("0")
+                    pointUse = 0
+                    Log.d("pppp", pointUse.toString())
                 }
             }
         })
@@ -302,6 +314,9 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
     }
 
     override fun onGetBuyDeliverySuccess(response: BuyDeliveryResponse) {
+
+        userIdx = response.result.userIdx
+
         Glide.with(this)
             .load(response.result.productImgURL)
             .into(binding.buyDeliveryImg)
@@ -387,6 +402,28 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
     override fun onPostUserShippingSuccess(response: BuyDeliveryAddressAddResponse) {}
 
     override fun onPostUserShippingFailure(message: String) {}
+
+    override fun onPostBuyDeliveryPaymentSuccess(response: BuyDeliveryPaymentResponse) {
+        // temporary 비우기
+        temporaryeditor.clear()
+        temporaryeditor.commit()
+
+        if (response.code == 1000) {
+            val intent = Intent(this, MainActivity::class.java)
+            finish()
+            startActivity(intent)
+            overridePendingTransition(0, 0)
+            showCustomToast("결제성공")
+
+
+        }
+        dismissLoadingDialog()
+    }
+
+    override fun onPostBuyDeliveryPaymentFailure(message: String) {
+        dismissLoadingDialog()
+        showCustomToast("오류 : $message")
+    }
 
     override fun onDestroy() {
         super.onDestroy()

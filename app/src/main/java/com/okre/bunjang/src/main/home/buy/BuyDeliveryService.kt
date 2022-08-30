@@ -1,10 +1,7 @@
 package com.okre.bunjang.src.main.home.buy
 
 import com.okre.bunjang.config.ApplicationClass
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressAddRequest
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressAddResponse
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressManageResponse
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryResponse
+import com.okre.bunjang.src.main.home.buy.model.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -59,6 +56,21 @@ class BuyDeliveryService(val buyDeliveryInterface: BuyDeliveryInterface) {
             }
 
         })
+    }
 
+    fun tryPostBuyDeliveryPayment(buyDeliveryPaymentRequest: BuyDeliveryPaymentRequest) {
+        buyDeliveryRetrofitInterface.postBuyDeliveryPayment(buyDeliveryPaymentRequest).enqueue(object : Callback<BuyDeliveryPaymentResponse> {
+            override fun onResponse(
+                call: Call<BuyDeliveryPaymentResponse>,
+                response: Response<BuyDeliveryPaymentResponse>
+            ) {
+                buyDeliveryInterface.onPostBuyDeliveryPaymentSuccess(response.body() as BuyDeliveryPaymentResponse)
+            }
+
+            override fun onFailure(call: Call<BuyDeliveryPaymentResponse>, t: Throwable) {
+                buyDeliveryInterface.onPostBuyDeliveryPaymentFailure(t.message ?: "통신 오류")
+            }
+
+        })
     }
 }

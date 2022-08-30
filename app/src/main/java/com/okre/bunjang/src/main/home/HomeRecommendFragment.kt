@@ -15,6 +15,7 @@ import com.okre.bunjang.src.login.adpater.LoginPhoneTelecomAdapter
 import com.okre.bunjang.src.main.home.adapter.HomeRecommendAdapter
 import com.okre.bunjang.src.main.home.item.HomeRecommendItem
 import com.okre.bunjang.src.main.home.model.ProductDetailResponse
+import com.okre.bunjang.src.main.home.model.RecommendHeartResponse
 import com.okre.bunjang.src.main.home.model.RecommendResponse
 import java.text.DecimalFormat
 
@@ -32,6 +33,8 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
 
         // recyclerview 생성
         recommendRecyclerView()
+
+        heartClick()
 
     }
 
@@ -75,4 +78,20 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
 
     override fun onGetProductDetailSuccess(response: ProductDetailResponse) {}
     override fun onGetProductDetailFailure(message: String) {}
+
+    fun heartClick() {
+        rvAdapter.itemClick = object : HomeRecommendAdapter.ItemClick {
+            override fun onClick(view: View, position: Int, productIdx: Int) {
+                rvAdapter
+            }
+
+        }
+    }
+    override fun onPostHeartSuccess(response: RecommendHeartResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPostHeartDetailFailure(message: String) {
+        TODO("Not yet implemented")
+    }
 }

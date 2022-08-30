@@ -13,10 +13,7 @@ import com.okre.bunjang.src.main.home.buy.adapter.BuyDeliveryAddressManageAdapte
 import com.okre.bunjang.src.main.home.buy.adapter.BuyDeliveryAreaSelectAdapter
 import com.okre.bunjang.src.main.home.buy.item.BuyDeliveryAddressManageItem
 import com.okre.bunjang.src.main.home.buy.item.BuyDeliveryAreaSelectItem
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressAddRequest
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressAddResponse
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressManageResponse
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryResponse
+import com.okre.bunjang.src.main.home.buy.model.*
 
 class BuyDeliveryAddressManageActivity : BaseActivity<ActivityBuyDeliveryAddressManageBinding>(ActivityBuyDeliveryAddressManageBinding::inflate),
     BuyDeliveryInterface {
@@ -167,4 +164,8 @@ class BuyDeliveryAddressManageActivity : BaseActivity<ActivityBuyDeliveryAddress
         dismissLoadingDialog()
         showCustomToast("오류 : $message")
     }
+
+    override fun onPostBuyDeliveryPaymentSuccess(response: BuyDeliveryPaymentResponse) {}
+    override fun onPostBuyDeliveryPaymentFailure(message: String) {}
+
 }

@@ -23,13 +23,14 @@ import com.okre.bunjang.src.main.home.adapter.HomeAdViewPagerAdapter
 import com.okre.bunjang.src.main.home.adapter.HomeCategoryAdapter
 import com.okre.bunjang.src.main.home.adapter.HomeRecommendViewPagerAdapter
 import com.okre.bunjang.src.main.home.item.HomeCategoryItem
+import com.okre.bunjang.src.main.home.model.AdImageResponse
 import kotlin.math.abs
 import kotlin.math.min
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
-    UserInfoInterface{
+    UserInfoInterface, AdImageInterface{
 
-    var homeAdViewPagerList = mutableListOf<Int>()
+    var homeAdViewPagerList = mutableListOf<String>()
     private var handler : Handler? = null
     private lateinit var thread : Thread
     private var currentPosition = 0
@@ -52,8 +53,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         // 앱바 투명도 조정
         appBarScroll()
 
-        // 광고 뷰페이저 무한스크롤
-        adViewPager()
+        // 광고 뷰페이저 api
+        showLoadingDialog(requireContext())
+        AdImageService(this).tryGetAdImage()
 
         handler = Handler(Looper.getMainLooper()) {
             adViewPagerChange()
@@ -70,7 +72,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         recommendViewPager()
 
         // 유저정보 받아오기
-        showLoadingDialog(requireContext())
         UserInfoService(this).tryGetUserInfo()
 
     }
@@ -91,17 +92,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         }
     }
 
-    fun adViewPager() {
-        homeAdViewPagerList.add(R.drawable.image_ad_01)
-        homeAdViewPagerList.add(R.drawable.image_ad_02)
-        homeAdViewPagerList.add(R.drawable.image_ad_03)
-        homeAdViewPagerList.add(R.drawable.image_ad_04)
-        homeAdViewPagerList.add(R.drawable.image_ad_05)
-        homeAdViewPagerList.add(R.drawable.image_ad_06)
-        homeAdViewPagerList.add(R.drawable.image_ad_07)
-        binding.homeAdViewpager.adapter = HomeAdViewPagerAdapter(homeAdViewPagerList)
-        binding.homeAdViewpagerCount.text = getString(R.string.home_viewpager_count, 1, homeAdViewPagerList.size)
-    }
+
 
     fun adViewPagerChange() {
         if (currentPosition == 7) {
@@ -182,6 +173,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     }
 
     override fun onGetUserInfoFailure(message: String) {
+        dismissLoadingDialog()
+        showCustomToast("오류 : $message")
+    }
+
+    override fun onGetAdImageSuccess(response: AdImageResponse) {
+        for (adList in response.result.adImageList) {
+            homeAdViewPagerList.add(adList)
+        }
+        adViewPager()
+        dismissLoadingDialog()
+    }
+
+    fun adViewPager() {
+        binding.homeAdViewpager.adapter = HomeAdViewPagerAdapter(homeAdViewPagerList)
+        binding.homeAdViewpagerCount.text = getString(R.string.home_viewpager_count, 1, homeAdViewPagerList.size)
+    }
+
+    override fun onGetAdImageFailure(message: String) {
         dismissLoadingDialog()
         showCustomToast("오류 : $message")
     }

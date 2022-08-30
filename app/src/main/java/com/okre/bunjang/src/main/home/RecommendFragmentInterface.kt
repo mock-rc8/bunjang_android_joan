@@ -1,6 +1,7 @@
 package com.okre.bunjang.src.main.home
 
 import com.okre.bunjang.src.main.home.model.ProductDetailResponse
+import com.okre.bunjang.src.main.home.model.RecommendHeartResponse
 import com.okre.bunjang.src.main.home.model.RecommendResponse
 
 interface RecommendFragmentInterface {
@@ -12,5 +13,9 @@ interface RecommendFragmentInterface {
     fun onGetProductDetailSuccess(response: ProductDetailResponse)
 
     fun onGetProductDetailFailure(message: String)
+
+    fun onPostHeartSuccess(response: RecommendHeartResponse)
+
+    fun onPostHeartDetailFailure(message: String)
 
 }

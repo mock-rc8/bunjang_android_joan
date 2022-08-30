@@ -2,6 +2,7 @@ package com.okre.bunjang.src.main.home.buy
 
 import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressAddResponse
 import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressManageResponse
+import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryPaymentResponse
 import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryResponse
 
 interface BuyDeliveryInterface {
@@ -17,5 +18,9 @@ interface BuyDeliveryInterface {
     fun onPostUserShippingSuccess(response: BuyDeliveryAddressAddResponse)
 
     fun onPostUserShippingFailure(message: String)
+
+    fun onPostBuyDeliveryPaymentSuccess(response: BuyDeliveryPaymentResponse)
+
+    fun onPostBuyDeliveryPaymentFailure(message: String)
 
 }
