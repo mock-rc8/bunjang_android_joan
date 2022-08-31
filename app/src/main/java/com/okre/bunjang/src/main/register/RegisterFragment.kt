@@ -9,9 +9,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.checkSelfPermission
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.storage.FirebaseStorage
@@ -40,8 +42,9 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        hideBottomNavigation(false)
+        hideBottomNavigation(true)
 
+        //requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         permissionSharedPreferences = requireActivity().getSharedPreferences("permission", AppCompatActivity.MODE_PRIVATE)
         permissionEditor = permissionSharedPreferences.edit()
 
@@ -53,6 +56,10 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
         categoryBtnClick()
 
         tagBtnClick()
+
+        optionClick()
+
+        registerBtnClick()
     }
 
     override fun onResume() {
@@ -69,6 +76,34 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
             binding.registerRvTag.visibility = View.VISIBLE
             binding.registerRvTag.adapter = tagAdapter
         }
+        val mainCategoryShared = registerShared.getString("mainCategory", null).toString()
+        val subCaCategoryShared = registerShared.getString("subCategory", null).toString()
+        if (subCaCategoryShared == "null" || subCaCategoryShared == "") {
+
+        } else {
+            binding.registerTxtCategoryLarge.text = mainCategoryShared
+            binding.registerTxtCategoryLarge.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            binding.registerImgCategoryDivider.visibility = View.VISIBLE
+            binding.registerTxtCategorySmall.visibility = View.VISIBLE
+            binding.registerTxtCategorySmall.text = subCaCategoryShared
+        }
+    }
+
+    fun registerBtnClick() {
+        binding.registerBtnRegister.setOnClickListener {
+            ///////post api
+
+
+            // 지우기
+            registerEditor.clear()
+            registerEditor.apply()
+        }
+    }
+
+    fun optionClick() {
+        binding.registerBtnChooseOptions.setOnClickListener {
+
+        }
     }
 
     fun tagBtnClick() {
@@ -80,7 +115,8 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
 
     fun categoryBtnClick() {
         binding.registerBtnCategory.setOnClickListener {
-
+            val intent = Intent(activity, RegisterCategoryActivity::class.java)
+            startActivity(intent)
         }
 
     }
@@ -175,14 +211,15 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
 
     override fun onDestroyView() {
         super.onDestroyView()
-        hideBottomNavigation(true)
+        hideBottomNavigation(false)
     }
+
     fun hideBottomNavigation(boolean: Boolean) {
         val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.main_btm_nav)
         if (boolean) {
-            bottomNavigation.visibility = View.VISIBLE
-        } else {
             bottomNavigation.visibility = View.GONE
+        } else {
+            bottomNavigation.visibility = View.VISIBLE
         }
     }
 }

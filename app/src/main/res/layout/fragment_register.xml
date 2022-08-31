@@ -109,7 +109,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/register_btn_category"
                 android:layout_width="0dp"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:background="@drawable/line_dark_bottom"
                 app:layout_constraintEnd_toEndOf="@+id/register_edt_product_name"
                 app:layout_constraintStart_toStartOf="@+id/register_edt_product_name"
@@ -157,7 +157,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/register_btn_tag"
                 android:layout_width="0dp"
-                android:layout_height="65dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/line_dark_bottom"
                 app:layout_constraintEnd_toEndOf="@+id/register_edt_product_name"
@@ -501,7 +501,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/register_btn_register_data"
+            android:id="@+id/register_btn_register"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="0dp"
             android:layout_height="0dp"
