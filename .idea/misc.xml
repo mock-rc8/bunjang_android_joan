@@ -49,6 +49,8 @@
         <entry key="app/src/main/res/drawable/background_edittext_bottom_line_selector.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/background_gray_radius.xml" value="0.1675" />
         <entry key="app/src/main/res/drawable/background_green_radius.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/background_register_gallery_img_delete.xml" value="0.1655" />
+        <entry key="app/src/main/res/drawable/background_register_gallery_img_fix.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/background_register_gray_radius.xml" value="0.162" />
         <entry key="app/src/main/res/drawable/background_text_input_layout.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/background_today_benefit_shinhan.xml" value="0.1605" />
@@ -61,6 +63,8 @@
         <entry key="app/src/main/res/drawable/inputbox_normal.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/item_home_recommend_heart_count_drawable.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/line_dark_bottom.xml" value="0.1735" />
+        <entry key="app/src/main/res/drawable/line_dark_right.xml" value="0.1055" />
+        <entry key="app/src/main/res/drawable/line_dark_top.xml" value="0.147" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category_in.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_buy_delivery.xml" value="0.25" />
@@ -71,6 +75,7 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login_phone.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.165" />
         <entry key="app/src/main/res/layout/dialog_buy_delivery_address_options.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/dialog_buy_delivery_area_register.xml" value="0.25" />
@@ -86,6 +91,9 @@
         <entry key="app/src/main/res/layout/fragment_my.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_recommend.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_register_category.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_register_category_contain.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_register_tag.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/item_buy_delivery_address_manage.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/item_buy_delivery_address_option.xml" value="0.28229166666666666" />
@@ -97,6 +105,9 @@
         <entry key="app/src/main/res/layout/item_login_phone_telecom.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_login_phone_terms.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/item_product_detail_imeage_view_pager.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_register_category.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/item_register_gallery_image.xml" value="0.29375" />
+        <entry key="app/src/main/res/layout/item_register_tag.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/item_view_pager_login.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_main_bottom_nav.xml" value="0.1" />
       </map>

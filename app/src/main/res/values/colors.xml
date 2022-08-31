@@ -9,6 +9,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bunjang_main_color">#009774</color>
+    <color name="bunjang_red">#D80000</color>
 
     <!-- template -->
     <color name="colorPrimary">#fcfcfc</color>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "581213928728",
+    "project_id": "register-image-d6d1c",
+    "storage_bucket": "register-image-d6d1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581213928728:android:68f2646104831db5f5f26d",
+        "android_client_info": {
+          "package_name": "com.okre.bunjang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "581213928728-3nrhc1q091cnfp6nb7cqni3s8p8hdiu5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_jScTNfCAoQPA6LuuZRLWAKhSwfiUxJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "581213928728-3nrhc1q091cnfp6nb7cqni3s8p8hdiu5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

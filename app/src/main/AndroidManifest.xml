@@ -4,6 +4,7 @@
     package="com.okre.bunjang">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".config.ApplicationClass"
@@ -16,6 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bunjang"
         tools:targetApi="31">
+        <activity android:name=".src.main.register.RegisterTagActivity"
+            android:exported="false"/>
+        <activity android:name=".src.main.register.RegisterActivity"
+            android:exported="false"/>
         <activity
             android:name=".src.main.home.buy.BuyDeliveryMethodOtherActivity"
             android:exported="false" />
