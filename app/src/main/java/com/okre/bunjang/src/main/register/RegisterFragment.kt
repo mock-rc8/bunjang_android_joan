@@ -7,22 +7,23 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.checkSelfPermission
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.storage.FirebaseStorage
-import com.okre.bunjang.config.BaseActivity
-import com.okre.bunjang.databinding.ActivityRegisterBinding
-import com.okre.bunjang.src.main.home.buy.adapter.BuyDeliveryAreaSelectAdapter
-import com.okre.bunjang.src.main.home.buy.model.BuyDeliveryAddressManageResult
+import com.okre.bunjang.R
+import com.okre.bunjang.config.BaseFragment
+import com.okre.bunjang.databinding.FragmentRegisterBinding
 import com.okre.bunjang.src.main.register.adapter.RegisterAdapter
 import com.okre.bunjang.src.main.register.adapter.RegisterTagAdapter
 import java.text.SimpleDateFormat
 import java.util.*
 
-class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterBinding::inflate) {
+class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterBinding::bind, R.layout.fragment_register) {
     val PERMISSION_STORAGE_REQUEST_CODE = 101
     private lateinit var permissionSharedPreferences: SharedPreferences
     private lateinit var permissionEditor: SharedPreferences.Editor
@@ -36,13 +37,15 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
     lateinit var registerShared : SharedPreferences
     lateinit var registerEditor: SharedPreferences.Editor
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        permissionSharedPreferences = getSharedPreferences("permission", AppCompatActivity.MODE_PRIVATE)
+        hideBottomNavigation(false)
+
+        permissionSharedPreferences = requireActivity().getSharedPreferences("permission", AppCompatActivity.MODE_PRIVATE)
         permissionEditor = permissionSharedPreferences.edit()
 
-        registerShared = getSharedPreferences("register", MODE_PRIVATE)
+        registerShared = requireActivity().getSharedPreferences("register", AppCompatActivity.MODE_PRIVATE)
         registerEditor = registerShared.edit()
 
         imageBtnClick()
@@ -54,6 +57,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
 
     override fun onResume() {
         super.onResume()
+        Log.d("ddddd", "onreeee")
         val tagShared = registerShared.getString("tag", null).toString()
         if (tagShared == "null" || tagShared == "") {
 
@@ -69,21 +73,21 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
 
     fun tagBtnClick() {
         binding.registerBtnTag.setOnClickListener {
-
+            val intent = Intent(activity, RegisterTagActivity::class.java)
+            startActivity(intent)
         }
     }
 
     fun categoryBtnClick() {
         binding.registerBtnCategory.setOnClickListener {
-            val intent = Intent(this, RegisterTagActivity::class.java)
-            startActivity(intent)
+
         }
 
     }
 
     fun imageBtnClick() {
         binding.registerBtnGallery.setOnClickListener {
-            if (checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) { // 권한 확인 -> 긍정 -> 갤러리 실행
+            if (checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) { // 권한 확인 -> 긍정 -> 갤러리 실행
                 val intent = Intent(Intent.ACTION_GET_CONTENT)
                 intent.type = "image/*"
                 loadImage.launch(intent)
@@ -104,7 +108,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
 
     val loadImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if(it.resultCode == AppCompatActivity.RESULT_OK) {
-            showLoadingDialog(this)
+            showLoadingDialog(requireContext())
             selectImage = it.data?.data
 
             var timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
@@ -150,7 +154,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
     }
 
     fun showDialogToGetPermission() {
-        val builder = AlertDialog.Builder(this)
+        val builder = AlertDialog.Builder(requireContext())
         builder.setMessage("저장 공간, 카메라 권한을 허용해야 사진 등록이 가능합니다. 권한을 설정하시겠습니까?")
 
         builder.setPositiveButton("설정하기", DialogInterface.OnClickListener {
@@ -169,5 +173,16 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(ActivityRegisterB
             .show()
     }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        hideBottomNavigation(true)
+    }
+    fun hideBottomNavigation(boolean: Boolean) {
+        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.main_btm_nav)
+        if (boolean) {
+            bottomNavigation.visibility = View.VISIBLE
+        } else {
+            bottomNavigation.visibility = View.GONE
+        }
+    }
 }

@@ -1,6 +1,5 @@
 package com.okre.bunjang.src.main
 
-import android.content.Intent
 import android.os.Bundle
 import com.okre.bunjang.R
 import com.okre.bunjang.config.BaseActivity
@@ -8,7 +7,7 @@ import com.okre.bunjang.databinding.ActivityMainBinding
 import com.okre.bunjang.src.main.home.HomeFragment
 import com.okre.bunjang.src.main.lightningTalk.LightningTalkFragment
 import com.okre.bunjang.src.main.my.MyFragment
-import com.okre.bunjang.src.main.register.RegisterActivity
+import com.okre.bunjang.src.main.register.RegisterFragment
 import com.okre.bunjang.src.main.search.SearchFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
@@ -32,8 +31,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                             .commitAllowingStateLoss()
                     }
                     R.id.menu_main_btm_nav_register -> {
-                        val intent = Intent(context, RegisterActivity::class.java)
-                        context.startActivity(intent)
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.main_frame_layout, RegisterFragment())
+                            .commitAllowingStateLoss()
+                        //val intent = Intent(context, RegisterActivity::class.java)
+                        //context.startActivity(intent)
                     }
                     R.id.menu_main_btm_nav_lightning_talk -> {
                         supportFragmentManager.beginTransaction()

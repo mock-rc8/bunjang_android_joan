@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.KeyEvent
+import android.view.View
 import com.okre.bunjang.config.BaseActivity
 import com.okre.bunjang.databinding.ActivityRegisterTagBinding
 
@@ -29,12 +30,12 @@ class RegisterTagActivity : BaseActivity<ActivityRegisterTagBinding>(ActivityReg
     }
 
     fun tagEnter() {
-        binding.registerTagEdt.setOnKeyListener { view, i, keyEvent ->
-            if (i == KeyEvent.KEYCODE_SPACE && keyEvent.action == KeyEvent.ACTION_UP && tagCount <= 3) {
-                binding.registerTagEdt.setText("$tagContent #")
+        binding.registerTagEdt.setOnKeyListener { p0, p1, p2 ->
+            if (p1 == KeyEvent.KEYCODE_SPACE && p2?.action == KeyEvent.ACTION_UP && tagCount < 4) {
+                binding.registerTagEdt.setText(tagContent +"#")
                 tagCount++
             }
-            true
+            false
         }
     }
 
@@ -51,21 +52,21 @@ class RegisterTagActivity : BaseActivity<ActivityRegisterTagBinding>(ActivityReg
     }
 
     fun checkBtnClick() {
-        if (binding.registerTagEdt.text.isNullOrEmpty()) {
-            tagContent = ""
-        } else {
-            tagContent = "#" + binding.registerTagEdt.text.toString()
+        binding.registerTagCheck.setOnClickListener {
+            if (binding.registerTagEdt.text.isNullOrEmpty()) {
+                tagContent = ""
+            } else {
+                tagContent = "#" + binding.registerTagEdt.text.toString()
+            }
+
+            registerShared = getSharedPreferences("register", MODE_PRIVATE)
+            registerEditor = registerShared.edit()
+
+            registerEditor.putString("tag", tagContent)
+            registerEditor.apply()
+
+            finish()
         }
-
-        registerShared = getSharedPreferences("register", MODE_PRIVATE)
-        registerEditor = registerShared.edit()
-
-        registerEditor.putString("tag", tagContent)
-        registerEditor.apply()
-
-        val intent = Intent(this, RegisterActivity::class.java)
-        startActivity(intent)
-        finish()
     }
 
 }
