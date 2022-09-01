@@ -29,7 +29,7 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
     RecommendFragmentInterface {
 
     var recommendItem : MutableList<HomeRecommendItem> = arrayListOf()
-    private val rvAdapter = HomeRecommendAdapter(recommendItem)
+    private var rvAdapter = HomeRecommendAdapter(recommendItem)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,8 +38,15 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
         showLoadingDialog(requireContext())
         RecommendService(this).tryGetRecommend()
 
-        heartClick()
+        // recyclerview 생성
+        recommendRecyclerView()
 
+
+
+    }
+
+    fun recommendRecyclerView() {
+        binding.homeRvRecommend.adapter = rvAdapter
     }
 
     override fun onGetRecommendSuccess(response: RecommendResponse) {
@@ -67,7 +74,9 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
             recommendItem.add(HomeRecommendItem(recommendIdx, recommendImage, recommendCheckbox, recommendPrice, recommendProductName, recommendLocation, recommendTime, recommendLightningPay, recommendHeartCount))
         }
         recommendItem.reverse()
-        binding.homeRvRecommend.adapter = HomeRecommendAdapter(recommendItem)
+        rvAdapter = HomeRecommendAdapter(recommendItem)
+        binding.homeRvRecommend.adapter = rvAdapter
+        heartClick()
         dismissLoadingDialog()
     }
 
