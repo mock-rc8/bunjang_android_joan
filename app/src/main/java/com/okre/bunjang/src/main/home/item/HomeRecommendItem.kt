@@ -8,5 +8,5 @@ data class HomeRecommendItem (
     var recommendLocation : String? = "",
     var recommendTime : String? = "",
     var recommendLightningPay : Boolean = false,
-    var recommendHeartCount : Int? = 0
+    var recommendHeartCount : Int = 0
 )

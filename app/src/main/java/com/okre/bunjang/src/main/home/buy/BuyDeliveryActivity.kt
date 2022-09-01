@@ -376,14 +376,6 @@ class BuyDeliveryActivity : BaseActivity<ActivityBuyDeliveryBinding>(ActivityBuy
 
             areaSelectItem = response.result
 
-//            for (shippingList in response.result) {
-//                val address = shippingList.address
-//                val detailAddress = shippingList.detailAddress
-//                val name = shippingList.receiverName
-//                val phone = shippingList.receiverPhoneNum
-//                areaSelectItem = shippingList
-//                //deliveryAreaSelectAdapter.addList(BuyDeliveryAreaSelectItem(address, detailAddress, name, phone))
-//            }
             areaRegisterRv.adapter = BuyDeliveryAreaSelectAdapter(areaSelectItem)
 
 

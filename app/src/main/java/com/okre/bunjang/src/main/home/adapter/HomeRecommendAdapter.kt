@@ -12,9 +12,7 @@ import com.okre.bunjang.databinding.ItemHomeRecommendBinding
 import com.okre.bunjang.src.main.home.HomeRecommendProductDetailActivity
 import com.okre.bunjang.src.main.home.item.HomeRecommendItem
 
-class HomeRecommendAdapter() : RecyclerView.Adapter<HomeRecommendAdapter.ViewHolder>() {
-
-    private val itemList : MutableList<HomeRecommendItem> = arrayListOf()
+class HomeRecommendAdapter(val itemList : MutableList<HomeRecommendItem>) : RecyclerView.Adapter<HomeRecommendAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemHomeRecommendBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindList(item : HomeRecommendItem) {
@@ -22,8 +20,14 @@ class HomeRecommendAdapter() : RecyclerView.Adapter<HomeRecommendAdapter.ViewHol
                 .load(item.recommendImage)
                 .into(binding.itemHomeRecommendImageview)
             binding.itemHomeRecommendCheckbox.isChecked = item.recommendCheckbox
+
             binding.itemHomeRecommendCheckbox.setOnClickListener { v ->
                 item.recommendCheckbox = !item.recommendCheckbox
+                if (binding.itemHomeRecommendCheckbox.isChecked) {
+                    item.recommendHeartCount++
+                } else {
+                    item.recommendHeartCount--
+                }
                 itemClick?.onClick(v, adapterPosition, item.recommendIdx, item.recommendCheckbox)
                 notifyDataSetChanged()
             }

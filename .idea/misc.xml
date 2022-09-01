@@ -66,6 +66,7 @@
         <entry key="app/src/main/res/drawable/line_dark_left.xml" value="0.11" />
         <entry key="app/src/main/res/drawable/line_dark_right.xml" value="0.1055" />
         <entry key="app/src/main/res/drawable/line_dark_top.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/register_option_btn_selector.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/scrollbar_home_category_in.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_buy_delivery.xml" value="0.25" />
@@ -87,6 +88,7 @@
         <entry key="app/src/main/res/layout/dialog_login_phone_telecom.xml" value="0.11153846153846154" />
         <entry key="app/src/main/res/layout/dialog_login_phone_terms.xml" value="0.165" />
         <entry key="app/src/main/res/layout/dialog_product_detail_safe_pay.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/dialog_register_options.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_home_brand.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home_recommend.xml" value="0.1" />

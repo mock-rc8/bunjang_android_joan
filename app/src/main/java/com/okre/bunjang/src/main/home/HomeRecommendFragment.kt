@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.okre.bunjang.R
 import com.okre.bunjang.config.BaseFragment
@@ -21,12 +22,14 @@ import com.okre.bunjang.src.main.home.model.ProductDetailResponse
 import com.okre.bunjang.src.main.home.model.RecommendHeartRequest
 import com.okre.bunjang.src.main.home.model.RecommendHeartResponse
 import com.okre.bunjang.src.main.home.model.RecommendResponse
+import com.okre.bunjang.src.main.register.item.CategoryResult
 import java.text.DecimalFormat
 
 class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(FragmentHomeRecommendBinding::bind, R.layout.fragment_home_recommend),
     RecommendFragmentInterface {
 
-    private val rvAdapter = HomeRecommendAdapter()
+    var recommendItem : MutableList<HomeRecommendItem> = arrayListOf()
+    private val rvAdapter = HomeRecommendAdapter(recommendItem)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,16 +38,7 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
         showLoadingDialog(requireContext())
         RecommendService(this).tryGetRecommend()
 
-        // recyclerview 생성
-        recommendRecyclerView()
-
         heartClick()
-
-    }
-
-    fun recommendRecyclerView() {
-
-        binding.homeRvRecommend.adapter = rvAdapter
 
     }
 
@@ -70,8 +64,10 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
             }
             val recommendHeartCount = recommendList.heartCount
 
-            rvAdapter.addList(HomeRecommendItem(recommendIdx, recommendImage, recommendCheckbox, recommendPrice, recommendProductName, recommendLocation, recommendTime, recommendLightningPay, recommendHeartCount))
+            recommendItem.add(HomeRecommendItem(recommendIdx, recommendImage, recommendCheckbox, recommendPrice, recommendProductName, recommendLocation, recommendTime, recommendLightningPay, recommendHeartCount))
         }
+        recommendItem.reverse()
+        binding.homeRvRecommend.adapter = HomeRecommendAdapter(recommendItem)
         dismissLoadingDialog()
     }
 
@@ -101,8 +97,6 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
         }
     }
     override fun onPostHeartSuccess(response: RecommendHeartResponse) {
-        // 화면에 하트 +1
-        //RecommendService(this).tryGetRecommend() -> ?
         showCustomToast(response.result.successMessage)
         dismissLoadingDialog()
     }
@@ -113,8 +107,6 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(Fragmen
     }
 
     override fun onPatchHeartSuccess(response: RecommendHeartResponse) {
-        // 화면에 하트 +1
-        //RecommendService(this).tryGetRecommend() -> ?
         showCustomToast(response.result.successMessage)
         dismissLoadingDialog()
     }

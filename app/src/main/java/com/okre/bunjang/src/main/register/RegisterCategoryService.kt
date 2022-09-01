@@ -8,7 +8,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.create
 
-class RegisterCategoryService(val registerCategroyInterface: RegisterCategoryInterface) {
+class RegisterCategoryService(val registerCategoryInterface: RegisterCategoryInterface) {
 
     val registerCategoryRetrofitInterface = ApplicationClass.sRetrofit.create(RegisterCategoryRetrofitInterface::class.java)
 
@@ -18,11 +18,11 @@ class RegisterCategoryService(val registerCategroyInterface: RegisterCategoryInt
                 call: Call<MainCategoryResponse>,
                 response: Response<MainCategoryResponse>
             ) {
-                registerCategroyInterface.onGetMainSuccess(response.body() as MainCategoryResponse)
+                registerCategoryInterface.onGetMainSuccess(response.body() as MainCategoryResponse)
             }
 
             override fun onFailure(call: Call<MainCategoryResponse>, t: Throwable) {
-                registerCategroyInterface.onGetMainFailure(t.message ?: "통신 오류")
+                registerCategoryInterface.onGetMainFailure(t.message ?: "통신 오류")
             }
 
         })
@@ -34,11 +34,11 @@ class RegisterCategoryService(val registerCategroyInterface: RegisterCategoryInt
                 call: Call<SubCategoryResponse>,
                 response: Response<SubCategoryResponse>
             ) {
-                registerCategroyInterface.onGetSubSuccess(response.body() as SubCategoryResponse)
+                registerCategoryInterface.onGetSubSuccess(response.body() as SubCategoryResponse)
             }
 
             override fun onFailure(call: Call<SubCategoryResponse>, t: Throwable) {
-                registerCategroyInterface.onGetSubFailure(t.message ?: "통신 오류")
+                registerCategoryInterface.onGetSubFailure(t.message ?: "통신 오류")
             }
         })
 

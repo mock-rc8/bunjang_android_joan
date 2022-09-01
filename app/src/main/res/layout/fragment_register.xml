@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:id="@+id/fragment_root"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".src.main.register.RegisterFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/register_back"
             android:layout_width="20dp"
             android:layout_height="25dp"
             android:layout_marginStart="22dp"
@@ -98,6 +102,7 @@
                 android:layout_height="70dp"
                 android:background="@drawable/background_edittext_bottom_line_selector"
                 android:hint="상품명"
+                android:focusable="true"
                 android:textColorHint="@color/register_gray"
                 android:textCursorDrawable="@color/black"
                 android:textSize="16sp"
@@ -255,7 +260,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginEnd="5dp"
-                        android:src="@drawable/icon_register_shipping_unchcek"
+                        android:src="@drawable/icon_register_shipping_uncheck"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/register_txt_include_fee"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -359,9 +364,9 @@
                 app:layout_constraintWidth_percent="0.93" />
 
             <View
-                android:id="@+id/custom_view"
+                android:id="@+id/scroll_height"
                 android:layout_width="match_parent"
-                android:layout_height="700dp"
+                android:layout_height="200dp"
                 android:background="@android:color/transparent"
                 android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@+id/register_edt_product_content" />
@@ -369,6 +374,32 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/register_additional_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:visibility="gone"
+        android:background="@drawable/line_dark_top"
+        app:layout_constraintBottom_toBottomOf="parent" >
+
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:src="@drawable/icon_info"
+            app:tint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:layout_marginStart="5dp"
+            android:text="거래금지품목 보기"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/register_additional_content"
@@ -389,7 +420,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:text="혹시 카카오톡 ID를 적으셨나요?"
+                android:text="@string/register_kakao_info"
                 android:textColor="@color/register_gray"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toTopOf="@id/register_additional_bottom_divider"
@@ -401,7 +432,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="15dp"
-                android:text="@string/register_count"
+                android:text="0/2000"
                 android:textColor="@color/register_gray"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@id/register_additional_kakaoId"

@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import com.okre.bunjang.config.BaseActivity
@@ -21,22 +22,10 @@ class RegisterTagActivity : BaseActivity<ActivityRegisterTagBinding>(ActivityReg
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        tagEnter()
-
         tagChangeWatcher()
 
         checkBtnClick()
 
-    }
-
-    fun tagEnter() {
-        binding.registerTagEdt.setOnKeyListener { p0, p1, p2 ->
-            if (p1 == KeyEvent.KEYCODE_SPACE && p2?.action == KeyEvent.ACTION_UP && tagCount < 4) {
-                binding.registerTagEdt.setText(tagContent +"#")
-                tagCount++
-            }
-            false
-        }
     }
 
     fun tagChangeWatcher() {
@@ -46,7 +35,19 @@ class RegisterTagActivity : BaseActivity<ActivityRegisterTagBinding>(ActivityReg
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun afterTextChanged(p0: Editable?) {
-                tagContent = binding.registerTagEdt.text.toString()
+                if(!p0.isNullOrEmpty() && p0.toString() != tagContent) {
+                    tagContent = p0.toString()
+                    val last = tagContent.substring(tagContent.length - 1, tagContent.length)
+                    val noLast = tagContent.substring(0, tagContent.length-1)
+                    if (last.contains(" ") && tagCount < 4) {
+                        tagContent = noLast + last + "#"
+                        binding.registerTagEdt.setText(tagContent)
+                        binding.registerTagEdt.setSelection(tagContent.length)
+                        tagCount++
+                    } else if (last.contains(" ") && tagCount >= 4) {
+                        tagContent = noLast
+                    }
+                }
             }
         })
     }
