@@ -143,7 +143,7 @@
 
     <!-- fragment_register -->
     <string name="register_direct"><u>직거래시 가능 지역</u></string>
-    <string name="register_context_hint_big"><font size="14">여러 장의 상품 사진, 구입 연도, 브랜드, 사용감, 하자 유무 등 구매자에게 필요한 정보를 포함해 주세요.(10자 이상)</font><font size="12">\n안전하고 건전한 거래 환경을 위해 과학기술정보통신부, 한국인터넷진흥원과 번개장터(주)가 함께 합니다.</font></string>
+    <string name="register_context_hint_big"><font size="14">여러 장의 상품 사진, 구입 연도, 브랜드, 사용감, 하자\n유무 등 구매자에게 필요한 정보를 포함해 주세요.(10자 이상)</font><font size="11">\n안전하고 건전한 거래 환경을 위해 과학기술정보통신부, 한국인터넷진흥원과 번개장터(주)가 함께 합니다.</font></string>
     <string name="register_count">%1$d/2000</string>
     <string name="register_more_info"><u>자세히</u></string>
     <string name="register_product_count">%1$d개</string>
@@ -152,5 +152,5 @@
     <!-- fragment_tag -->
     <string name="register_tag_additional_1">-상품의 브랜드, 모델명 사이즈 등을 입력해보세요.</string>
     <string name="register_tag_additional_2">-검색과 검색 광고 등에 사용됩니다.</string>
-    <string name="register_tag_additional_3">-상품과 관련이 없는 태그를 입력할 경우 상품의 노출이 중단되거나 삭제될 수 있습니다.</string>
+    <string name="register_tag_additional_3">-상품과 관련이 없는 태그를 입력할 경우 상품의 노출이 중단되거나\n삭제될 수 있습니다.</string>
 </resources>

@@ -75,6 +75,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="25dp"
             android:layout_weight="1"
+            android:textColorHint="@color/register_gray"
             android:backgroundTint="@android:color/transparent"
             android:hint="태그를 입력해주세요 (최대 5개)"
             android:textColor="@color/black"
@@ -95,7 +96,7 @@
         android:layout_marginStart="15sp"
         android:layout_marginTop="20dp"
         android:text="@string/register_tag_additional_1"
-        android:textSize="14sp"
+        android:textSize="13sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_tag_layout" />
 
@@ -104,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/register_tag_additional_2"
-        android:textSize="14sp"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@+id/register_tag_additional_txt_1"
         app:layout_constraintTop_toBottomOf="@+id/register_tag_additional_txt_1" />
 
@@ -114,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:text="@string/register_tag_additional_3"
-        android:textSize="14sp"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@+id/register_tag_additional_txt_2"
         app:layout_constraintTop_toBottomOf="@+id/register_tag_additional_txt_2" />
 

@@ -100,7 +100,7 @@
                 android:id="@+id/register_edt_product_name"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:background="@drawable/background_edittext_bottom_line_selector"
+                android:background="@drawable/background_register_edittext_bottom_line_selector"
                 android:hint="상품명"
                 android:focusable="true"
                 android:textColorHint="@color/register_gray"
@@ -108,7 +108,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginHorizontal="15dp"
+                android:layout_marginHorizontal="20dp"
                 app:layout_constraintTop_toBottomOf="@+id/register_rv_gallery" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -285,13 +285,14 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/register_btn_choose_options"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="55dp"
-                android:layout_height="35dp"
-                android:layout_margin="15dp"
+                android:layout_width="60dp"
+                android:layout_height="33dp"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="20dp"
                 android:background="@drawable/background_register_gray_radius"
                 android:text="옵션선택"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/register_layout_price" />
@@ -300,7 +301,7 @@
                 android:id="@+id/register_layout_options"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="10dp"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="@+id/register_btn_choose_options"
                 app:layout_constraintStart_toEndOf="@+id/register_btn_choose_options"
@@ -311,6 +312,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1개"
+                    android:textSize="13sp"
                     android:textColor="@color/register_gray"
                     android:textStyle="bold" />
 
@@ -318,7 +320,7 @@
                     android:layout_width="2dp"
                     android:layout_height="2dp"
                     android:layout_gravity="center"
-                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginHorizontal="3dp"
                     android:src="@drawable/icon_home_recommend_divider" />
 
                 <TextView
@@ -326,6 +328,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="중고상품"
+                    android:textSize="13sp"
                     android:textColor="@color/register_gray"
                     android:textStyle="bold" />
 
@@ -333,7 +336,7 @@
                     android:layout_width="2dp"
                     android:layout_height="2dp"
                     android:layout_gravity="center"
-                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginHorizontal="3dp"
                     android:src="@drawable/icon_home_recommend_divider" />
 
                 <TextView
@@ -341,6 +344,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="교환불가"
+                    android:textSize="13sp"
                     android:textColor="@color/register_gray"
                     android:textStyle="bold" />
 
@@ -348,7 +352,8 @@
 
             <EditText
                 android:id="@+id/register_edt_product_content"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="20dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@android:color/transparent"
@@ -361,7 +366,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/register_btn_choose_options"
-                app:layout_constraintWidth_percent="0.93" />
+                 />
 
             <View
                 android:id="@+id/scroll_height"

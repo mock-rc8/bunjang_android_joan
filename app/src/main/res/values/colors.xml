@@ -67,7 +67,7 @@
     <color name="add_address_add_box_hint_color">#7C7A85</color>
 
     <!-- fragment_register -->
-    <color name="register_gray">#B5B5B5</color>
+    <color name="register_gray">#CACACA</color>
 
 
 </resources>

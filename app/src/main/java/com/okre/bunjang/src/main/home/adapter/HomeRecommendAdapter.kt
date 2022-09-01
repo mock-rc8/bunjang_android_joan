@@ -34,6 +34,11 @@ class HomeRecommendAdapter(val itemList : MutableList<HomeRecommendItem>) : Recy
             binding.itemHomeRecommendPrice.text = item.recommendPrice
             binding.itemHomeRecommendProductName.text = item.recommendProductName
             binding.itemHomeRecommendLocation.text = item.recommendLocation
+            if (item.recommendTime.isNullOrEmpty()) {
+                binding.itemHomeRecommendDivider.visibility = View.INVISIBLE
+            } else {
+                binding.itemHomeRecommendDivider.visibility = View.VISIBLE
+            }
             binding.itemHomeRecommendTime.text = item.recommendTime
             if (item.recommendLightningPay) {
                 binding.itemHomeRecommendLightningPay.visibility = View.VISIBLE
